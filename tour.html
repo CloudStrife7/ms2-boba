@@ -108,12 +108,20 @@
 <button class="hover:bg-[#4C6043]/20 transition-colors p-2 rounded-sm scale-95 active:opacity-80">
 <span class="material-symbols-outlined text-[#b7cda9]" data-icon="settings">settings</span>
 </button>
+<button class="md:hidden hover:bg-[#4C6043]/20 transition-colors p-2 rounded-sm" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-[#b7cda9]">menu</span>
+</button>
 <div class="w-8 h-8 rounded-full overflow-hidden border border-[#444840]/30 ml-2">
 <img alt="Commander Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRXmtFZ3pBWFlLptfsyvvNDsGEfJbAY_zU1Q8aUQym8nA6XlITaJ2z54HdSv_p2iMHX7JBi3S0I8lhP7UX14z8b6xTZDamqAyn_09xSp16BG4H_tVmxGQ8Ekiar2ly8uAGLHULJ_wrZTxzuVTIBS3GE644A-FvtzLUDX_oc1wX0Imr91IaKUvBPBWyseajuVnQyyurrAc1GX801E5HGIBfrFgDQTPj_vamQO52R_aLRldTa2GlwzMXgERVlkgW35oLfPj3xWwwoBl9"/>
 </div>
 </div>
 </div>
 <div class="bg-[#1b1c19] h-[1px] w-full"></div>
+<nav id="mobile-nav" class="hidden md:hidden bg-[#1b1c19] border-b border-[#434840]/30 px-6 py-4 flex flex-col gap-3 font-['Plus_Jakarta_Sans'] tracking-tighter uppercase font-bold text-sm">
+<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors py-2" href="index.html">The Log</a>
+<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors py-2" href="armory.html">Armory</a>
+<a class="text-[#F59E01] border-l-2 border-[#F59E01] pl-3 py-2" href="tour.html">Tour of Duty</a>
+</nav>
 </header>
 <!-- Main Content Canvas -->
 <main class="flex-1 w-full max-w-5xl mx-auto px-6 py-12 md:py-20">
