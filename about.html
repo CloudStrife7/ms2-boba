@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Me | MS2 Boba</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4C6043",
+              "secondary": "#F59E01",
+              "tertiary": "#6D0827",
+              "background": "#131411",
+              "surface": "#1b1c19",
+              "surface-container-low": "#131411",
+              "surface-container-high": "#2e312b",
+              "surface-container-highest": "#444840",
+              "on-surface": "#e4e2de",
+              "on-surface-variant": "#b7cda9",
+              "outline": "#8e9288",
+              "outline-variant": "#434840"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131411;
+            color: #e4e2de;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen bg-background">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 bg-[#1b1c19] border-r border-[#444840]/15 shadow-[24px_0_40px_rgba(228,226,222,0.06)] py-8 z-20">
+<div class="px-6 mb-10">
+<div class="text-lg font-bold text-[#F59E01] font-['Plus_Jakarta_Sans'] uppercase tracking-widest">MS2 BOBA</div>
+<div class="text-[10px] text-[#b7cda9]/50 font-medium uppercase tracking-widest">BH-7024</div>
+</div>
+<nav class="flex flex-col flex-1 font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest">
+<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="index.html">
+<span class="material-symbols-outlined">terminal</span>
+<span>Command</span>
+</a>
+<a class="bg-[#4C6043] text-[#e4e2de] border-l-4 border-[#F59E01] px-6 py-3 flex items-center gap-4 active:translate-x-1 transition-all" href="about.html">
+<span class="material-symbols-outlined">person</span>
+<span>Dossier</span>
+</a>
+<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="tour.html">
+<span class="material-symbols-outlined">radar</span>
+<span>Tactical</span>
+</a>
+<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="armory.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Archives</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full py-3 bg-[#4C6043] text-[#e4e2de] font-bold text-[10px] uppercase tracking-widest hover:brightness-110 transition-all">
+            DEPLOY SQUAD
+        </button>
+<div class="flex flex-col gap-2 font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest">
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] flex items-center gap-2 px-2 py-1" href="#">
+<span class="material-symbols-outlined text-sm">help</span>Support
+            </a>
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] flex items-center gap-2 px-2 py-1" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>Logout
+            </a>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col md:ml-64">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-[#131411] docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center w-full px-6 h-16 max-w-none">
+<div class="text-xl font-black text-[#b7cda9] tracking-widest font-['Plus_Jakarta_Sans'] uppercase">
+                MS2 BOBA
+            </div>
+<nav class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans'] tracking-tighter uppercase font-bold text-sm">
+<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="index.html">The Log</a>
+<a class="text-[#F59E01] border-b-2 border-[#F59E01] pb-1" href="about.html">About Me</a>
+<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="tour.html">Tour of Duty</a>
+<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="armory.html">Armory</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#4C6043]/20 transition-colors p-2 rounded-sm scale-95 active:opacity-80">
+<span class="material-symbols-outlined text-[#b7cda9]" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:bg-[#4C6043]/20 transition-colors p-2 rounded-sm scale-95 active:opacity-80">
+<span class="material-symbols-outlined text-[#b7cda9]" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+<div class="bg-[#1b1c19] h-[1px] w-full"></div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-5xl mx-auto px-6 py-12 md:py-20">
+<!-- Header Section -->
+<section class="mb-20">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-label text-xs tracking-[0.3em] text-[#4C6043] uppercase mb-4 block">Personnel File</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none">
+                        About <span class="text-outline">Me</span>
+                    </h1>
+</div>
+<div class="bg-surface-container-low p-4 rounded-sm border-l-2 border-[#F59E01]">
+<div class="font-label text-[10px] text-outline uppercase tracking-widest mb-1">Designation</div>
+<div class="font-headline font-bold text-xl text-on-surface">BH-7024</div>
+</div>
+</div>
+</section>
+<!-- Profile Section -->
+<section class="mb-24">
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Profile Card -->
+<div class="lg:w-1/3">
+<div class="bg-[#1b1c19] rounded-sm overflow-hidden border border-[#434840]/20">
+<div class="aspect-square bg-[#131411] relative overflow-hidden">
+<img alt="Boba Fett Costume" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh1bDB1AQGHktLQ7shOtuoSDfEHkU-HMcU2FcZ6CnexlNCeBVHvGmxtrSPXTYyt2JoIZG1BnCx337lTdWQXArDRcMdDZZcKyxgZ5r3TOpeUQ9pTJF3zCUzROX1cSUp_Tlf-GL8neQ4Hd7DpareQ7qSE7jHiIcsIYS4rUsZl8Q8ADuK1ZmBNln1xZSuYTpevEBk5dcO0y4MjN_u10GSibdup35PRsbuWvScmopdk3tWvn76rLDHMlxJn3ueDC6ckjY-gx7UVYCIUJ8P"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1b1c19] to-transparent"></div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-[#F59E01]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label text-[10px] uppercase tracking-[0.2em] text-[#F59E01] font-bold">Authenticated Legionnaire</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs border-b border-[#434840]/30 pb-2">
+<span class="text-outline uppercase font-label tracking-widest">ID#</span>
+<span class="text-on-surface font-bold">BH-7024</span>
+</div>
+<div class="flex justify-between text-xs border-b border-[#434840]/30 pb-2">
+<span class="text-outline uppercase font-label tracking-widest">Legion</span>
+<span class="text-on-surface font-bold">501st</span>
+</div>
+<div class="flex justify-between text-xs border-b border-[#434840]/30 pb-2">
+<span class="text-outline uppercase font-label tracking-widest">Detachment</span>
+<span class="text-on-surface font-bold">Bounty Hunters Guild</span>
+</div>
+<div class="flex justify-between text-xs border-b border-[#434840]/30 pb-2">
+<span class="text-outline uppercase font-label tracking-widest">Garrison</span>
+<span class="text-on-surface font-bold">Midwest</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-outline uppercase font-label tracking-widest">Costume</span>
+<span class="text-on-surface font-bold">Boba Fett (RE-ARMORED)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bio Content -->
+<div class="lg:w-2/3 space-y-12">
+<div class="relative pl-8 border-l-2 border-[#6D0827]">
+<h3 class="font-headline text-2xl font-bold mb-4 uppercase tracking-wider">The Operative</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-4">
+                            A proud member of the 501st Legion and the Bounty Hunters Guild, trooping as Boba Fett in his Re-Armored configuration from The Book of Boba Fett. Based in Wisconsin, operating across the Midwest Garrison's territory.
+                        </p>
+<p class="font-body text-on-surface-variant leading-relaxed">
+                            What started as a passion for Star Wars and prop-building evolved into a full commitment to the 501st Legion's mission of bringing joy through costuming while giving back to the community. Every troop is an opportunity to make someone's day and represent the galaxy's most feared bounty hunter.
+                        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-[#1b1c19] p-6 rounded-sm border-t border-[#4C6043]">
+<span class="material-symbols-outlined text-3xl text-[#4C6043] mb-4" data-icon="military_tech">military_tech</span>
+<h4 class="font-headline text-lg font-bold uppercase mb-2">501st Legion</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">The world's premier Star Wars costuming organization. Vader's Fist. Bad guys doing good.</p>
+</div>
+<div class="bg-[#1b1c19] p-6 rounded-sm border-t border-[#F59E01]">
+<span class="material-symbols-outlined text-3xl text-[#F59E01] mb-4" data-icon="target">target</span>
+<h4 class="font-headline text-lg font-bold uppercase mb-2">Bounty Hunters Guild</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">The 501st detachment dedicated to the galaxy's hunters, mercenaries, and those who work for the highest bidder.</p>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-3 gap-1 bg-[#131411] border border-[#434840]/20 overflow-hidden rounded-sm">
+<div class="bg-[#1b1c19] p-6 text-center">
+<div class="font-headline text-3xl font-extrabold text-[#F59E01]">4</div>
+<div class="font-label text-[10px] text-outline uppercase tracking-widest mt-1">Troops Completed</div>
+</div>
+<div class="bg-[#1b1c19] p-6 text-center">
+<div class="font-headline text-3xl font-extrabold text-[#4C6043]">5</div>
+<div class="font-label text-[10px] text-outline uppercase tracking-widest mt-1">Missions Logged</div>
+</div>
+<div class="bg-[#1b1c19] p-6 text-center">
+<div class="font-headline text-3xl font-extrabold text-[#6D0827]">WI</div>
+<div class="font-label text-[10px] text-outline uppercase tracking-widest mt-1">Home Sector</div>
+</div>
+</div>
+<!-- External Links -->
+<div class="flex flex-wrap gap-4">
+<a href="https://thebhg.net/forum/index.php?/topic/8520-bobarearmored-bh-7024/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 bg-[#4C6043] text-[#e4e2de] font-headline font-bold text-sm rounded-sm hover:brightness-110 transition-all">
+                            BHG Forum Thread
+                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+<a href="tour.html" class="inline-flex items-center gap-2 px-6 py-3 border border-[#434840]/50 text-on-surface font-headline font-bold text-sm rounded-sm hover:border-[#F59E01] hover:text-[#F59E01] transition-all">
+                            View Tour of Duty
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-[#0d0f0c] w-full py-8 mt-auto border-t border-[#6D0827]/30">
+<div class="flex flex-col items-center gap-4 px-8 font-['Plus_Jakarta_Sans'] text-[10px] tracking-[0.2em] uppercase">
+<div class="text-[#b7cda9]/40">
+                MS2 BOBA // BH-7024
+            </div>
+<div class="flex gap-8">
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-colors" href="#">Terms of Engagement</a>
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-colors" href="#">Privacy Protocol</a>
+<a class="text-[#F59E01] hover:text-[#6D0827] transition-colors" href="#">System Status</a>
+</div>
+</div>
+</footer>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#131411] py-3 px-6 flex justify-around items-center z-50 border-t border-[#1b1c19]">
+<a href="index.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="terminal">terminal</span></a>
+<a href="about.html"><span class="material-symbols-outlined text-[#F59E01]" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span></a>
+<a href="tour.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="radar">radar</span></a>
+<a href="armory.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="inventory_2">inventory_2</span></a>
+</nav>
+</body></html>
