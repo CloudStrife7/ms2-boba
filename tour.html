@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tour of Duty | MS2 Boba</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4C6043", // Storm
+              "secondary": "#F59E01", // Melon Yellow
+              "tertiary": "#6D0827", // Cardinal
+              "background": "#131411",
+              "surface": "#1b1c19",
+              "surface-container-low": "#131411",
+              "surface-container-highest": "#444840",
+              "on-surface": "#e4e2de",
+              "outline": "#8e9288",
+              "outline-variant": "#434840"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131411;
+            color: #e4e2de;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen bg-background">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 bg-[#1b1c19] border-r border-[#444840]/15 shadow-[24px_0_40px_rgba(228,226,222,0.06)] py-8 z-20">
+<div class="px-6 mb-10">
+<div class="text-lg font-bold text-[#F59E01] font-['Plus_Jakarta_Sans'] uppercase tracking-widest">MS2 BOBA</div>
+<div class="text-[10px] text-[#b7cda9]/50 font-medium uppercase tracking-widest">BH-7024</div>
+</div>
+<nav class="flex flex-col flex-1 font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest">
+<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="index.html">
+<span class="material-symbols-outlined">terminal</span>
+<span>Command</span>
+</a>
+<a class="bg-[#4C6043] text-[#e4e2de] border-l-4 border-[#F59E01] px-6 py-3 flex items-center gap-4 active:translate-x-1 transition-all" href="tour.html">
+<span class="material-symbols-outlined">radar</span>
+<span>Tactical</span>
+</a>
+<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span>Logistics</span>
+</a>
+<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span>MedBay</span>
+</a>
+<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="armory.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Archives</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full py-3 bg-[#4C6043] text-[#e4e2de] font-bold text-[10px] uppercase tracking-widest hover:brightness-110 transition-all">
+            DEPLOY SQUAD
+        </button>
+<div class="flex flex-col gap-2 font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest">
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] flex items-center gap-2 px-2 py-1" href="#">
+<span class="material-symbols-outlined text-sm">help</span>Support
+            </a>
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] flex items-center gap-2 px-2 py-1" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>Logout
+            </a>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col md:ml-64">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-[#131411] docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center w-full px-6 h-16 max-w-none">
+<div class="text-xl font-black text-[#b7cda9] tracking-widest font-['Plus_Jakarta_Sans'] uppercase">
+                MS2 BOBA
+            </div>
+<nav class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans'] tracking-tighter uppercase font-bold text-sm">
+<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="index.html">The Log</a>
+<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="#">Telemetry</a>
+<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="#">Legion</a>
+<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="armory.html">Armory</a>
+<a class="text-[#F59E01] border-b-2 border-[#F59E01] pb-1" href="tour.html">Tour of Duty</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#4C6043]/20 transition-colors p-2 rounded-sm scale-95 active:opacity-80">
+<span class="material-symbols-outlined text-[#b7cda9]" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:bg-[#4C6043]/20 transition-colors p-2 rounded-sm scale-95 active:opacity-80">
+<span class="material-symbols-outlined text-[#b7cda9]" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-[#444840]/30 ml-2">
+<img alt="Commander Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRXmtFZ3pBWFlLptfsyvvNDsGEfJbAY_zU1Q8aUQym8nA6XlITaJ2z54HdSv_p2iMHX7JBi3S0I8lhP7UX14z8b6xTZDamqAyn_09xSp16BG4H_tVmxGQ8Ekiar2ly8uAGLHULJ_wrZTxzuVTIBS3GE644A-FvtzLUDX_oc1wX0Imr91IaKUvBPBWyseajuVnQyyurrAc1GX801E5HGIBfrFgDQTPj_vamQO52R_aLRldTa2GlwzMXgERVlkgW35oLfPj3xWwwoBl9"/>
+</div>
+</div>
+</div>
+<div class="bg-[#1b1c19] h-[1px] w-full"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-5xl mx-auto px-6 py-12 md:py-20">
+<!-- Header Section -->
+<section class="mb-20">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-label text-xs tracking-[0.3em] text-[#4C6043] uppercase mb-4 block">Deployment Records</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none">
+                        Tour <span class="text-outline">of</span> Duty
+                    </h1>
+</div>
+<div class="bg-surface-container-low p-4 rounded-sm border-l-2 border-[#F59E01]">
+<div class="font-label text-[10px] text-outline uppercase tracking-widest mb-1">Status Report</div>
+<div class="font-headline font-bold text-xl text-on-surface">12 MISSIONS LOGGED</div>
+</div>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="relative">
+<!-- Vertical Line -->
+<div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-[#434840] transform md:-translate-x-1/2"></div>
+<!-- Timeline Entries -->
+<div class="space-y-24 relative">
+<!-- Mission 01: Mission Critical (Upcoming) -->
+<div class="relative flex flex-col md:flex-row items-start md:items-center">
+<div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+<div class="font-label text-xs text-[#6D0827] tracking-widest font-bold mb-1">MISSION CRITICAL</div>
+<h3 class="font-headline text-2xl font-bold uppercase leading-tight">WonderCon 2024</h3>
+<p class="font-body text-outline text-sm mt-1">Anaheim Convention Center</p>
+</div>
+<!-- Dot -->
+<div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-[#6D0827] border-4 border-background transform -translate-x-1/2 z-[1]"></div>
+<div class="md:w-1/2 md:pl-12 pl-12 md:pl-12">
+<div class="font-label text-sm text-on-surface tracking-tighter uppercase">March 29-31, 2024</div>
+<div class="mt-2 inline-flex items-center gap-2 bg-[#6D0827]/10 text-[#6D0827] px-3 py-1 rounded-sm border border-[#6D0827]/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#6D0827] animate-pulse"></span>
+<span class="font-label text-[10px] uppercase font-bold tracking-widest">Awaiting Deployment</span>
+</div>
+</div>
+</div>
+<!-- Mission 02: Active -->
+<div class="relative flex flex-col md:flex-row items-start md:items-center">
+<!-- Dot -->
+<div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-[#4C6043] border-4 border-background transform -translate-x-1/2 z-[1]"></div>
+<div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 pl-12 md:pl-0">
+<div class="font-label text-sm text-on-surface tracking-tighter uppercase">May 4-5, 2024</div>
+<div class="mt-2 inline-flex items-center gap-2 bg-[#4C6043]/10 text-[#4C6043] px-3 py-1 rounded-sm border border-[#4C6043]/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#4C6043] animate-pulse"></span>
+<span class="font-label text-[10px] uppercase font-bold tracking-widest">Active Op</span>
+</div>
+</div>
+<div class="md:w-1/2 md:pl-12 mb-4 md:mb-0 order-1 md:order-2 pl-12 md:pl-12">
+<div class="font-label text-xs text-[#4C6043] tracking-widest font-bold mb-1">PRIORITY 01</div>
+<h3 class="font-headline text-2xl font-bold uppercase leading-tight">Legoland Star Wars Days</h3>
+<p class="font-body text-outline text-sm mt-1">Carlsbad, CA</p>
+</div>
+</div>
+<!-- Mission 03: Completed -->
+<div class="relative flex flex-col md:flex-row items-start md:items-center opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+<div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+<div class="font-label text-xs text-outline tracking-widest font-bold mb-1">DEBRIEF COMPLETE</div>
+<h3 class="font-headline text-2xl font-bold uppercase leading-tight">CHOC Walk in the Park</h3>
+<p class="font-body text-outline text-sm mt-1">Disneyland Resort</p>
+</div>
+<!-- Dot -->
+<div class="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-[#434840] border-2 border-background transform -translate-x-1/2 z-[1]"></div>
+<div class="md:w-1/2 md:pl-12 pl-12 md:pl-12">
+<div class="font-label text-sm text-outline tracking-tighter uppercase">February 12, 2024</div>
+<div class="mt-2 inline-flex items-center gap-2 bg-[#444840]/30 px-3 py-1 rounded-sm border border-[#434840]/30">
+<span class="material-symbols-outlined text-[12px] text-[#4C6043]">check_circle</span>
+<span class="font-label text-[10px] uppercase font-bold tracking-widest">Successful Mission</span>
+</div>
+</div>
+</div>
+<!-- Visual Break: Data Grid -->
+<div class="relative pt-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1 bg-[#131411] border border-[#434840]/20 overflow-hidden rounded-sm">
+<div class="p-8 bg-[#1b1c19]">
+<div class="font-label text-[10px] text-[#4C6043] tracking-widest uppercase mb-4">Tactical Coverage</div>
+<div class="aspect-square bg-[#131411] flex items-center justify-center relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfvdSmThl4VXJlMDkHCvTFbEbkpCi9VICQTn_bmQKu6kOLQFVFFCLywyMyOxVHz_mufD2JS-lodzAKqBVMw9OZZXg7V5kzvAeGbkH7jJ6BNAqBPCcJ8qUx3c5DFlyDt7UUg-1WlgfkRb-B_Tp75NLBC_LJ5aIKgizIi-OoNBiDpi91eawlZWazQeXrXwxr58e8sj5j1q3vXVijCAhQjUeziPvXTowAL8eoOOVihfIKQ0hneNQSFAOCXwvlSUBthRnSKrCSmGPgvR3H"/>
+<span class="material-symbols-outlined text-4xl text-[#4C6043]/50 relative z-10">location_searching</span>
+</div>
+<p class="font-body text-xs text-outline mt-4">98% Mission completion rate in Sector 7-G for the current cycle.</p>
+</div>
+<div class="p-8 bg-[#1b1c19]">
+<div class="font-label text-[10px] text-[#F59E01] tracking-widest uppercase mb-4">Critical Intel</div>
+<div class="font-headline font-bold text-3xl text-on-surface mb-2 tracking-tighter italic">"ALWAYS FIRST"</div>
+<p class="font-body text-xs text-outline leading-relaxed">Operatives must confirm attendance 72 hours prior to deployment for logistical synchronization.</p>
+</div>
+<div class="p-8 bg-[#1b1c19] flex flex-col justify-between">
+<div>
+<div class="font-label text-[10px] text-[#6D0827] tracking-widest uppercase mb-4">Archive Link</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between group cursor-pointer">
+<span class="font-body text-sm text-on-surface group-hover:text-[#4C6043] transition-colors">2023 Campaign</span>
+<span class="material-symbols-outlined text-sm text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+<div class="w-full h-[1px] bg-[#434840]/20"></div>
+<div class="flex items-center justify-between group cursor-pointer">
+<span class="font-body text-sm text-on-surface group-hover:text-[#4C6043] transition-colors">Legacy Logs</span>
+<span class="material-symbols-outlined text-sm text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<button class="mt-8 w-full py-3 bg-[#4C6043] text-[#e4e2de] font-headline font-bold text-xs uppercase tracking-widest hover:brightness-110 transition-all">
+                                Request Clearance
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-[#0d0f0c] w-full py-8 mt-auto border-t border-[#6D0827]/30">
+<div class="flex flex-col items-center gap-4 px-8 font-['Plus_Jakarta_Sans'] text-[10px] tracking-[0.2em] uppercase">
+<div class="text-[#b7cda9]/40">
+                MS2 BOBA // BH-7024
+            </div>
+<div class="flex gap-8">
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-colors" href="#">Terms of Engagement</a>
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-colors" href="#">Privacy Protocol</a>
+<a class="text-[#F59E01] hover:text-[#6D0827] transition-colors" href="#">System Status</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
