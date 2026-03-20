@@ -111,16 +111,19 @@
 </header>
 <!-- Main Content -->
 <main class="flex-1 w-full max-w-5xl mx-auto px-6 py-12 md:py-20">
-<!-- Header Section -->
-<section class="mb-20">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-<div>
+<!-- Hero Section -->
+<section class="relative h-[340px] md:h-[420px] mb-20 rounded-sm overflow-hidden">
+<div class="absolute inset-0">
+<img alt="Boba Fett at Star Wars Night" class="w-full h-full object-cover" src="/public/images/hero-bg.jpg" style="object-position: 65% 15%;"/>
+<div class="absolute inset-0 bg-gradient-to-r from-[#131411] via-[#131411]/80 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131411] via-transparent to-transparent"></div>
+</div>
+<div class="relative h-full flex flex-col justify-end p-8 md:p-12">
 <span class="font-label text-xs tracking-[0.3em] text-[#4C6043] uppercase mb-4 block">Personnel File</span>
 <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none">
                         About <span class="text-outline">Me</span>
                     </h1>
-</div>
-<div class="bg-surface-container-low p-4 rounded-sm border-l-2 border-[#F59E01]">
+<div class="mt-4 bg-surface-container-low/80 backdrop-blur-sm p-4 rounded-sm border-l-2 border-[#F59E01] w-fit">
 <div class="font-label text-[10px] text-outline uppercase tracking-widest mb-1">Designation</div>
 <div class="font-headline font-bold text-xl text-on-surface">BH-7024</div>
 </div>
