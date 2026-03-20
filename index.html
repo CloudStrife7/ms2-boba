@@ -78,7 +78,7 @@
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
     }
 .bg-fett-mesh {
-    background-image: linear-gradient(to bottom, rgba(19, 20, 17, 0.8), rgba(19, 20, 17, 1)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCh1bDB1AQGHktLQ7shOtuoSDfEHkU-HMcU2FcZ6CnexlNCeBVHvGmxtrSPXTYyt2JoIZG1BnCx337lTdWQXArDRcMdDZZcKyxgZ5r3TOpeUQ9pTJF3zCUzROX1cSUp_Tlf-GL8neQ4Hd7DpareQ7qSE7jHiIcsIYS4rUsZl8Q8ADuK1ZmBNln1xZSuYTpevEBk5dcO0y4MjN_u10GSibdup35PRsbuWvScmopdk3tWvn76rLDHMlxJn3ueDC6ckjY-gx7UVYCIUJ8P);
+    background-image: linear-gradient(to bottom, rgba(19, 20, 17, 0.8), rgba(19, 20, 17, 1)), url('/public/images/hero-bg.jpg');
     background-size: cover;
     background-position: center
     }
@@ -144,6 +144,9 @@
 <main class="flex-grow pt-16 lg:pl-20">
 <!-- Hero Section -->
 <section class="relative min-h-[870px] flex items-center px-8 md:px-16 overflow-hidden">
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center opacity-[0.18]" style="background-image: url('/public/images/hero-bg.jpg'); mask-image: radial-gradient(circle at center, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);"></div>
+</div>
 <div class="absolute inset-0 z-0 bg-fett-mesh opacity-50"></div>
 <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
 <div class="flex-1 space-y-6">
