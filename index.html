@@ -85,7 +85,19 @@
 .vertical-text {
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    }</style>
+    }
+
+/* ── Hero Slideshow ── */
+.hero-slideshow {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+}
+.hero-slide {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0;
+    transition: opacity 1.8s ease;
+}
+.hero-slide.active { opacity: 0.3; }</style>
 </head>
 <body class="bg-background text-on-background font-body selection:bg-storm selection:text-white min-h-screen flex flex-col">
 <!-- TopAppBar - Using Component Data -->
@@ -143,6 +155,12 @@
 <main class="flex-grow pt-16 lg:pl-20">
 <!-- Hero Section -->
 <section class="relative min-h-[870px] flex items-center px-8 md:px-16 overflow-hidden">
+<div class="hero-slideshow" id="hero-slideshow">
+<div class="hero-slide active" style="background-image: url('/images/tour/sky-carps-star-wars-2025/cover.jpg')"></div>
+<div class="hero-slide" style="background-image: url('/images/tour/sky-carps-star-wars-2025/01.jpg')"></div>
+<div class="hero-slide" style="background-image: url('/images/tour/sky-carps-star-wars-2025/02.jpg')"></div>
+<div class="hero-slide" style="background-image: url('/images/tour/sky-carps-star-wars-2025/03.jpg')"></div>
+</div>
 <div class="absolute inset-0 z-0 bg-fett-mesh opacity-50"></div>
 <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
 <div class="flex-1 space-y-6">
@@ -274,4 +292,16 @@
 <a href="armory.html"><span class="material-symbols-outlined text-outline" data-icon="inventory_2">inventory_2</span></a>
 <a href="#"><span class="material-symbols-outlined text-outline" data-icon="local_shipping">local_shipping</span></a>
 </div>
+<script>
+(function() {
+    var slides = document.querySelectorAll('#hero-slideshow .hero-slide');
+    if (!slides.length) return;
+    var current = 0;
+    setInterval(function() {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }, 5000);
+})();
+</script>
 </body></html>
