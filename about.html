@@ -111,16 +111,19 @@
 </header>
 <!-- Main Content -->
 <main class="flex-1 w-full max-w-5xl mx-auto px-6 py-12 md:py-20">
-<!-- Header Section -->
-<section class="mb-20">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-<div>
+<!-- Hero Section -->
+<section class="relative h-[340px] md:h-[420px] mb-20 rounded-sm overflow-hidden">
+<div class="absolute inset-0">
+<img alt="Boba Fett at Star Wars Night" class="w-full h-full object-cover" src="/public/images/hero-bg.jpg" style="object-position: 65% 15%;"/>
+<div class="absolute inset-0 bg-gradient-to-r from-[#131411] via-[#131411]/80 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131411] via-transparent to-transparent"></div>
+</div>
+<div class="relative h-full flex flex-col justify-end p-8 md:p-12">
 <span class="font-label text-xs tracking-[0.3em] text-[#4C6043] uppercase mb-4 block">Personnel File</span>
 <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none">
                         About <span class="text-outline">Me</span>
                     </h1>
-</div>
-<div class="bg-surface-container-low p-4 rounded-sm border-l-2 border-[#F59E01]">
+<div class="mt-4 bg-surface-container-low/80 backdrop-blur-sm p-4 rounded-sm border-l-2 border-[#F59E01] w-fit">
 <div class="font-label text-[10px] text-outline uppercase tracking-widest mb-1">Designation</div>
 <div class="font-headline font-bold text-xl text-on-surface">BH-7024</div>
 </div>
@@ -139,7 +142,7 @@
 <div class="p-6 space-y-4">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-sm text-[#F59E01]" style="font-variation-settings: 'FILL' 1;">verified</span>
-<span class="font-label text-[10px] uppercase tracking-[0.2em] text-[#F59E01] font-bold">Authenticated Legionnaire</span>
+<span class="font-label text-[10px] uppercase tracking-[0.2em] text-[#F59E01] font-bold">501st Approved Member</span>
 </div>
 <div class="space-y-3">
 <div class="flex justify-between text-xs border-b border-[#434840]/30 pb-2">
@@ -169,7 +172,7 @@
 <!-- Bio Content -->
 <div class="lg:w-2/3 space-y-12">
 <div class="relative pl-8 border-l-2 border-[#6D0827]">
-<h3 class="font-headline text-2xl font-bold mb-4 uppercase tracking-wider">The Operative</h3>
+<h3 class="font-headline text-2xl font-bold mb-4 uppercase tracking-wider">Background</h3>
 <p class="font-body text-on-surface-variant leading-relaxed mb-4">
                             A proud member of the 501st Legion and the Bounty Hunters Guild, trooping as Boba Fett in his Re-Armored configuration from The Book of Boba Fett. Based in Wisconsin, operating across the Midwest Garrison's territory.
                         </p>
@@ -177,11 +180,16 @@
                             What started as a passion for Star Wars and prop-building evolved into a full commitment to the 501st Legion's mission of bringing joy through costuming while giving back to the community. Every troop is an opportunity to make someone's day and represent the galaxy's most feared bounty hunter.
                         </p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <div class="bg-[#1b1c19] p-6 rounded-sm border-t border-[#4C6043]">
 <span class="material-symbols-outlined text-3xl text-[#4C6043] mb-4" data-icon="military_tech">military_tech</span>
 <h4 class="font-headline text-lg font-bold uppercase mb-2">501st Legion</h4>
 <p class="text-sm text-on-surface-variant leading-relaxed">The world's premier Star Wars costuming organization. Vader's Fist. Bad guys doing good.</p>
+</div>
+<div class="bg-[#1b1c19] p-6 rounded-sm border-t border-[#6D0827]">
+<span class="material-symbols-outlined text-3xl text-[#6D0827] mb-4" data-icon="shield">shield</span>
+<h4 class="font-headline text-lg font-bold uppercase mb-2">Squad Leader</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Leading Devastator Squad within the Midwest Garrison. Coordinating deployments, rallying troopers, and keeping the squad mission-ready.</p>
 </div>
 <div class="bg-[#1b1c19] p-6 rounded-sm border-t border-[#F59E01]">
 <span class="material-symbols-outlined text-3xl text-[#F59E01] mb-4" data-icon="target">target</span>
@@ -196,8 +204,8 @@
 <div class="font-label text-[10px] text-outline uppercase tracking-widest mt-1">Troops Completed</div>
 </div>
 <div class="bg-[#1b1c19] p-6 text-center">
-<div class="font-headline text-3xl font-extrabold text-[#4C6043]">5</div>
-<div class="font-label text-[10px] text-outline uppercase tracking-widest mt-1">Missions Logged</div>
+<div class="font-headline text-3xl font-extrabold text-[#4C6043]">20</div>
+<div class="font-label text-[10px] text-outline uppercase tracking-widest mt-1">Years of Service</div>
 </div>
 <div class="bg-[#1b1c19] p-6 text-center">
 <div class="font-headline text-3xl font-extrabold text-[#6D0827]">WI</div>
