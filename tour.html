@@ -5,17 +5,16 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Tour of Duty | MS2 Boba</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
             colors: {
-              "primary": "#4C6043",
-              "secondary": "#F59E01",
-              "tertiary": "#6D0827",
+              "primary": "#4C6043", // Storm
+              "secondary": "#F59E01", // Melon Yellow
+              "tertiary": "#6D0827", // Cardinal
               "background": "#131411",
               "surface": "#1b1c19",
               "surface-container-low": "#131411",
@@ -43,201 +42,10 @@
             color: #e4e2de;
             font-family: 'Inter', sans-serif;
         }
-
-        /* ── Tour Timeline ── */
-        .tour-timeline { display: flex; flex-direction: column; }
-
-        .tour-mission {
-            position: relative;
-            height: 240px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .tour-mission-photo-wrap {
-            position: absolute;
-            inset: 0;
-        }
-
-        .tour-mission-photo-wrap img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            filter: grayscale(1);
-            transition: filter 0.6s ease;
-            display: block;
-        }
-
-        /* Duotone storm-green overlay */
-        .tour-mission-photo-wrap::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: #4C6043;
-            mix-blend-mode: multiply;
-            opacity: 0.45;
-            transition: opacity 0.6s ease;
-        }
-
-        /* Hover: full color */
-        .tour-mission:hover .tour-mission-photo-wrap img { filter: grayscale(0); }
-        .tour-mission:hover .tour-mission-photo-wrap::after { opacity: 0; }
-
-        /* Top bar */
-        .tour-top-bar {
-            position: absolute; top: 0; left: 0; right: 0;
-            display: flex; justify-content: flex-end; align-items: flex-start;
-            padding: 16px 20px; z-index: 2;
-        }
-
-        /* Top-center date */
-        .tour-date-center {
-            position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 11px; font-weight: 700; letter-spacing: 0.25em;
-            text-transform: uppercase; color: rgba(228,226,222,0.8);
-            white-space: nowrap; z-index: 2;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-        }
-
-        /* Status pill */
-        .tour-status-pill {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 4px 10px; border-radius: 2px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-        .tour-status-pill.mission-complete {
-            background: rgba(76,96,67,0.35); border: 1px solid rgba(76,96,67,0.6); color: #b7cda9;
-        }
-        .tour-status-pill.in-progress {
-            background: rgba(245,158,1,0.15); border: 1px solid rgba(245,158,1,0.4); color: #F59E01;
-        }
-        .tour-status-pill.upcoming {
-            background: rgba(109,8,39,0.15); border: 1px solid rgba(109,8,39,0.4); color: #ff9e9a;
-        }
-        .tour-status-dot {
-            width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
-        }
-        .mission-complete .tour-status-dot { background: #4C6043; }
-        .in-progress .tour-status-dot { background: #F59E01; animation: statusPulse 1.5s infinite; }
-        .upcoming .tour-status-dot { background: #6D0827; animation: statusPulse 1.5s infinite; }
-        @keyframes statusPulse {
-            0%,100% { opacity:1; } 50% { opacity:0.4; }
-        }
-
-        /* Bottom gradient overlay */
-        .tour-overlay {
-            position: absolute; bottom: 0; left: 0; right: 0;
-            background: linear-gradient(to top, rgba(13,15,12,0.97) 0%, rgba(13,15,12,0.6) 55%, transparent 100%);
-            padding: 24px 24px 20px;
-            z-index: 2;
-        }
-
-        .tour-badge {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
-            text-transform: uppercase; color: rgba(228,226,222,0.55);
-            margin-bottom: 4px;
-        }
-
-        .tour-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(1.25rem, 3vw, 2rem);
-            font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase;
-            color: #e4e2de; line-height: 1.1;
-            margin-bottom: 4px;
-        }
-
-        .tour-location {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px; color: rgba(228,226,222,0.55);
-        }
-
-        .tour-cta {
-            display: inline-block;
-            margin-top: 10px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 10px; font-weight: 700; letter-spacing: 0.25em;
-            text-transform: uppercase; color: #F59E01;
-            border: 1px solid rgba(245,158,1,0.4);
-            padding: 4px 12px;
-            opacity: 0;
-            transform: translateY(6px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-        .tour-mission:hover .tour-cta {
-            opacity: 1; transform: translateY(0);
-        }
-
-        /* Separator between cards */
-        .tour-mission + .tour-mission {
-            border-top: 1px solid rgba(67,72,64,0.3);
-        }
-
-        /* ── Photobooth Modal ── */
-        .photobooth-overlay {
-            display: none;
-            position: fixed; inset: 0; z-index: 20000;
-            background: rgba(13,15,12,0.96);
-            backdrop-filter: blur(10px);
-            flex-direction: column;
-            align-items: center; justify-content: center;
-            padding: 24px;
-        }
-        .photobooth-overlay.open { display: flex; }
-
-        .photobooth-close {
-            position: absolute; top: 20px; right: 24px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 10px; font-weight: 700; letter-spacing: 0.25em;
-            text-transform: uppercase; color: rgba(228,226,222,0.5);
-            background: none; border: 1px solid rgba(228,226,222,0.2);
-            padding: 6px 14px; cursor: pointer;
-            transition: color 0.2s, border-color 0.2s;
-        }
-        .photobooth-close:hover { color: #e4e2de; border-color: rgba(228,226,222,0.5); }
-
-        .photobooth-strip {
-            display: flex; flex-direction: row; gap: 24px;
-            align-items: center; justify-content: center;
-            flex-wrap: wrap; max-width: 100%;
-            padding: 20px 0;
-        }
-
-        .photobooth-polaroid {
-            background: #fff;
-            padding: 8px; padding-bottom: 32px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
-            transform: rotate(var(--rotation, 0deg));
-            transition: transform 0.35s ease;
-            flex-shrink: 0;
-        }
-        .photobooth-polaroid:hover { transform: rotate(0deg) scale(1.03); }
-
-        .photobooth-polaroid img {
-            width: 200px; height: 180px;
-            object-fit: cover; display: block;
-            background: #1b1c19;
-        }
-
-        .photobooth-caption {
-            margin-top: 28px; text-align: center;
-        }
-        .photobooth-caption-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 14px; font-weight: 800; letter-spacing: 0.05em;
-            text-transform: uppercase; color: #e4e2de;
-        }
-        .photobooth-caption-meta {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 11px; color: rgba(228,226,222,0.45);
-            margin-top: 4px; letter-spacing: 0.1em;
-        }
     </style>
 </head>
 <body class="flex min-h-screen bg-background">
-
-<!-- SideNavBar (Desktop Only) -->
+<!-- SideNavBar (Shared Component) -->
 <aside class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 bg-[#1b1c19] border-r border-[#444840]/15 shadow-[24px_0_40px_rgba(228,226,222,0.06)] py-8 z-20">
 <div class="px-6 mb-10">
 <div class="text-lg font-bold text-[#F59E01] font-['Plus_Jakarta_Sans'] uppercase tracking-widest">MS2 BOBA</div>
@@ -248,13 +56,9 @@
 <span class="material-symbols-outlined">terminal</span>
 <span>Command</span>
 </a>
-<a class="bg-[#4C6043] text-[#e4e2de] border-l-4 border-[#F59E01] px-6 py-3 flex items-center gap-4 transition-all" href="tour.html">
+<a class="bg-[#4C6043] text-[#e4e2de] border-l-4 border-[#F59E01] px-6 py-3 flex items-center gap-4 active:translate-x-1 transition-all" href="tour.html">
 <span class="material-symbols-outlined">radar</span>
-<span>Tour of Duty</span>
-</a>
-<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="armory.html">
-<span class="material-symbols-outlined">inventory_2</span>
-<span>Archives</span>
+<span>Tactical</span>
 </a>
 <a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="#">
 <span class="material-symbols-outlined">local_shipping</span>
@@ -264,137 +68,220 @@
 <span class="material-symbols-outlined">medical_services</span>
 <span>MedBay</span>
 </a>
+<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="armory.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Archives</span>
+</a>
 </nav>
 <div class="px-6 mt-auto space-y-4">
 <button class="w-full py-3 bg-[#4C6043] text-[#e4e2de] font-bold text-[10px] uppercase tracking-widest hover:brightness-110 transition-all">
-    DEPLOY SQUAD
-</button>
+            DEPLOY SQUAD
+        </button>
+<div class="flex flex-col gap-2 font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest">
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] flex items-center gap-2 px-2 py-1" href="#">
+<span class="material-symbols-outlined text-sm">help</span>Support
+            </a>
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] flex items-center gap-2 px-2 py-1" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>Logout
+            </a>
+</div>
 </div>
 </aside>
-
 <div class="flex-1 flex flex-col md:ml-64">
-
-<!-- TopNavBar -->
-<header class="bg-[#131411] top-0 z-50 sticky">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-[#131411] docked full-width top-0 z-50 sticky">
 <div class="flex justify-between items-center w-full px-6 h-16 max-w-none">
 <div class="text-xl font-black text-[#b7cda9] tracking-widest font-['Plus_Jakarta_Sans'] uppercase">
-    MS2 BOBA
-</div>
+                MS2 BOBA
+            </div>
 <nav class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans'] tracking-tighter uppercase font-bold text-sm">
 <a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="index.html">The Log</a>
+<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="#">Telemetry</a>
+<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="#">Legion</a>
 <a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="armory.html">Armory</a>
 <a class="text-[#F59E01] border-b-2 border-[#F59E01] pb-1" href="tour.html">Tour of Duty</a>
 </nav>
 <div class="flex items-center gap-4">
 <button class="hover:bg-[#4C6043]/20 transition-colors p-2 rounded-sm scale-95 active:opacity-80">
-<span class="material-symbols-outlined text-[#b7cda9]">notifications</span>
+<span class="material-symbols-outlined text-[#b7cda9]" data-icon="notifications">notifications</span>
 </button>
 <button class="hover:bg-[#4C6043]/20 transition-colors p-2 rounded-sm scale-95 active:opacity-80">
-<span class="material-symbols-outlined text-[#b7cda9]">settings</span>
+<span class="material-symbols-outlined text-[#b7cda9]" data-icon="settings">settings</span>
 </button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-[#444840]/30 ml-2">
+<img alt="Commander Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRXmtFZ3pBWFlLptfsyvvNDsGEfJbAY_zU1Q8aUQym8nA6XlITaJ2z54HdSv_p2iMHX7JBi3S0I8lhP7UX14z8b6xTZDamqAyn_09xSp16BG4H_tVmxGQ8Ekiar2ly8uAGLHULJ_wrZTxzuVTIBS3GE644A-FvtzLUDX_oc1wX0Imr91IaKUvBPBWyseajuVnQyyurrAc1GX801E5HGIBfrFgDQTPj_vamQO52R_aLRldTa2GlwzMXgERVlkgW35oLfPj3xWwwoBl9"/>
+</div>
 </div>
 </div>
 <div class="bg-[#1b1c19] h-[1px] w-full"></div>
 </header>
-
-<!-- Main Content -->
-<main class="flex-1 w-full">
-
-    <!-- Page Header -->
-    <section class="max-w-5xl mx-auto px-6 py-12 md:py-16">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-                <span class="font-label text-xs tracking-[0.3em] text-[#4C6043] uppercase mb-4 block">Deployment Records</span>
-                <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none">
-                    Tour <span class="text-outline">of</span> Duty
-                </h1>
-            </div>
-            <div class="bg-[#131411] p-4 rounded-sm border-l-2 border-[#F59E01]">
-                <div class="font-label text-[10px] text-outline uppercase tracking-widest mb-1">Status Report</div>
-                <div class="font-headline font-bold text-xl text-on-surface">1 MISSION LOGGED</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission Banner Timeline -->
-    <div class="tour-timeline">
-
-        <!-- Mission: Sky Carps Star Wars Night -->
-        <div class="tour-mission" data-mission-id="sky-carps-star-wars-2025" role="button" tabindex="0" aria-label="Open Sky Carps Star Wars Night photobooth">
-            <div class="tour-mission-photo-wrap">
-                <img src="/images/tour/sky-carps-star-wars-2025/cover.jpg" alt="Sky Carps Star Wars Night — cover photo" loading="lazy" />
-            </div>
-            <!-- Top: date (center) + status pill (right) -->
-            <div class="tour-date-center">August 17, 2025</div>
-            <div class="tour-top-bar">
-                <span class="tour-status-pill mission-complete">
-                    <span class="tour-status-dot"></span>Mission Complete
-                </span>
-            </div>
-            <!-- Bottom overlay -->
-            <div class="tour-overlay">
-                <div class="tour-badge">◈ Debrief Complete</div>
-                <div class="tour-title">Sky Carps Star Wars Night</div>
-                <div class="tour-location">Wisconsin Rapids, WI</div>
-                <div class="tour-cta">[ Open Photobooth ]</div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Info Grid (preserved from original) -->
-    <section class="max-w-5xl mx-auto px-6 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-1 bg-[#131411] border border-[#434840]/20 overflow-hidden rounded-sm">
-            <div class="p-8 bg-[#1b1c19]">
-                <div class="font-label text-[10px] text-[#4C6043] tracking-widest uppercase mb-4">Tactical Coverage</div>
-                <div class="aspect-square bg-[#131411] flex items-center justify-center relative overflow-hidden group">
-                    <span class="material-symbols-outlined text-4xl text-[#4C6043]/50 relative z-10">location_searching</span>
-                </div>
-                <p class="font-body text-xs text-outline mt-4">Missions completed across Wisconsin. Next deployment: TBD.</p>
-            </div>
-            <div class="p-8 bg-[#1b1c19]">
-                <div class="font-label text-[10px] text-[#F59E01] tracking-widest uppercase mb-4">Critical Intel</div>
-                <div class="font-headline font-bold text-3xl text-on-surface mb-2 tracking-tighter italic">"ALWAYS FIRST"</div>
-                <p class="font-body text-xs text-outline leading-relaxed">Operatives must confirm attendance 72 hours prior to deployment for logistical synchronization.</p>
-            </div>
-            <div class="p-8 bg-[#1b1c19] flex flex-col justify-between">
-                <div>
-                    <div class="font-label text-[10px] text-[#6D0827] tracking-widest uppercase mb-4">Archive Link</div>
-                    <div class="space-y-3">
-                        <a href="https://thebhg.net/forum/index.php?/topic/8520-bobarearmored-bh-7024/" target="_blank" rel="noopener" class="flex items-center justify-between group cursor-pointer">
-                            <span class="font-body text-sm text-on-surface group-hover:text-[#4C6043] transition-colors">BHG Forum Thread</span>
-                            <span class="material-symbols-outlined text-sm text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                        </a>
-                        <div class="w-full h-[1px] bg-[#434840]/20"></div>
-                        <div class="flex items-center justify-between group cursor-pointer">
-                            <span class="font-body text-sm text-on-surface group-hover:text-[#4C6043] transition-colors">2025 Campaign</span>
-                            <span class="material-symbols-outlined text-sm text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="mt-8 w-full py-3 bg-[#4C6043] text-[#e4e2de] font-headline font-bold text-xs uppercase tracking-widest hover:brightness-110 transition-all">
-                    Request Clearance
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Photobooth Modal -->
-    <div class="photobooth-overlay" id="photobooth-modal" role="dialog" aria-modal="true" aria-label="Mission Photobooth">
-        <button class="photobooth-close" id="photobooth-close">[ESC] CLOSE</button>
-        <div class="photobooth-strip" id="photobooth-strip"></div>
-        <div class="photobooth-caption">
-            <div class="photobooth-caption-title" id="photobooth-title"></div>
-            <div class="photobooth-caption-meta" id="photobooth-meta"></div>
-        </div>
-    </div>
-
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-5xl mx-auto px-6 py-12 md:py-20">
+<!-- Header Section -->
+<section class="mb-20">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-label text-xs tracking-[0.3em] text-[#4C6043] uppercase mb-4 block">Deployment Records</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none">
+                        Tour <span class="text-outline">of</span> Duty
+                    </h1>
+</div>
+<div class="bg-surface-container-low p-4 rounded-sm border-l-2 border-[#F59E01]">
+<div class="font-label text-[10px] text-outline uppercase tracking-widest mb-1">Status Report</div>
+<div class="font-headline font-bold text-xl text-on-surface">5 MISSIONS LOGGED</div>
+</div>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="relative">
+<!-- Vertical Line -->
+<div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-[#434840] transform md:-translate-x-1/2"></div>
+<!-- Timeline Entries -->
+<div class="space-y-24 relative">
+<!-- Next Deployment: SW Days at Fitchburg Public Library -->
+<div class="relative flex flex-col md:flex-row items-start md:items-center">
+<div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+<div class="font-label text-xs text-[#6D0827] tracking-widest font-bold mb-1">NEXT DEPLOYMENT</div>
+<h3 class="font-headline text-2xl font-bold uppercase leading-tight">Star Wars Crafts Day</h3>
+<p class="font-body text-outline text-sm mt-1">Fitchburg Public Library — Fitchburg, WI</p>
+</div>
+<!-- Dot -->
+<div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-[#6D0827] border-4 border-background transform -translate-x-1/2 z-[1]"></div>
+<div class="md:w-1/2 md:pl-12 pl-12 md:pl-12">
+<div class="font-label text-sm text-on-surface tracking-tighter uppercase">May 4, 2026 · 4:00 – 5:00 PM</div>
+<div class="mt-2 inline-flex items-center gap-2 bg-[#6D0827]/10 text-[#6D0827] px-3 py-1 rounded-sm border border-[#6D0827]/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#6D0827] animate-pulse"></span>
+<span class="font-label text-[10px] uppercase font-bold tracking-widest">Awaiting Deployment</span>
+</div>
+</div>
+</div>
+<!-- Mission 04: Harrison School PTO Trunk or Treat -->
+<div class="relative flex flex-col md:flex-row items-start md:items-center transition-all duration-500">
+<!-- Dot -->
+<div class="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-[#434840] border-2 border-background transform -translate-x-1/2 z-[1]"></div>
+<div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 pl-12 md:pl-0">
+<div class="font-label text-sm text-outline tracking-tighter uppercase">October 30, 2025</div>
+<div class="mt-2 inline-flex items-center gap-2 bg-[#444840]/30 px-3 py-1 rounded-sm border border-[#434840]/30">
+<span class="material-symbols-outlined text-[12px] text-[#4C6043]">check_circle</span>
+<span class="font-label text-[10px] uppercase font-bold tracking-widest">Mission Complete</span>
+</div>
+<div class="mt-4 flex flex-wrap gap-2 md:justify-end">
+<img src="https://i.imgur.com/sHcIkgZ.jpeg" alt="Harrison School PTO Trunk or Treat" class="w-40 h-32 object-cover rounded-sm border border-[#434840]/30" loading="lazy"/>
+</div>
+</div>
+<div class="md:w-1/2 md:pl-12 mb-4 md:mb-0 order-1 md:order-2 pl-12 md:pl-12">
+<div class="font-label text-xs text-outline tracking-widest font-bold mb-1">DEBRIEF COMPLETE</div>
+<h3 class="font-headline text-2xl font-bold uppercase leading-tight">Harrison School PTO Trunk or Treat</h3>
+<p class="font-body text-outline text-sm mt-1">Janesville, WI</p>
+</div>
+</div>
+<!-- Mission 03: Sky Carps Star Wars Night -->
+<div class="relative flex flex-col md:flex-row items-start md:items-center transition-all duration-500">
+<div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+<div class="font-label text-xs text-outline tracking-widest font-bold mb-1">DEBRIEF COMPLETE</div>
+<h3 class="font-headline text-2xl font-bold uppercase leading-tight">Sky Carps Star Wars Night</h3>
+<p class="font-body text-outline text-sm mt-1">Wisconsin Rapids, WI</p>
+</div>
+<!-- Dot -->
+<div class="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-[#434840] border-2 border-background transform -translate-x-1/2 z-[1]"></div>
+<div class="md:w-1/2 md:pl-12 pl-12 md:pl-12">
+<div class="font-label text-sm text-outline tracking-tighter uppercase">August 17, 2025</div>
+<div class="mt-2 inline-flex items-center gap-2 bg-[#444840]/30 px-3 py-1 rounded-sm border border-[#434840]/30">
+<span class="material-symbols-outlined text-[12px] text-[#4C6043]">check_circle</span>
+<span class="font-label text-[10px] uppercase font-bold tracking-widest">Mission Complete</span>
+</div>
+<div class="mt-4 flex flex-wrap gap-2">
+<img src="https://i.imgur.com/r6ACHjH.jpeg" alt="Sky Carps Star Wars Night" class="w-40 h-32 object-cover rounded-sm border border-[#434840]/30" loading="lazy"/>
+</div>
+</div>
+</div>
+<!-- Mission 02: Make Music Madison -->
+<div class="relative flex flex-col md:flex-row items-start md:items-center transition-all duration-500">
+<!-- Dot -->
+<div class="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-[#434840] border-2 border-background transform -translate-x-1/2 z-[1]"></div>
+<div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 pl-12 md:pl-0">
+<div class="font-label text-sm text-outline tracking-tighter uppercase">June 21, 2025</div>
+<div class="mt-2 inline-flex items-center gap-2 bg-[#444840]/30 px-3 py-1 rounded-sm border border-[#434840]/30">
+<span class="material-symbols-outlined text-[12px] text-[#4C6043]">check_circle</span>
+<span class="font-label text-[10px] uppercase font-bold tracking-widest">Mission Complete</span>
+</div>
+<div class="mt-4 flex flex-wrap gap-2 md:justify-end">
+<img src="https://i.imgur.com/I5OTlwN.jpeg" alt="Make Music Madison" class="w-40 h-32 object-cover rounded-sm border border-[#434840]/30" loading="lazy"/>
+</div>
+</div>
+<div class="md:w-1/2 md:pl-12 mb-4 md:mb-0 order-1 md:order-2 pl-12 md:pl-12">
+<div class="font-label text-xs text-outline tracking-widest font-bold mb-1">DEBRIEF COMPLETE</div>
+<h3 class="font-headline text-2xl font-bold uppercase leading-tight">Make Music Madison</h3>
+<p class="font-body text-outline text-sm mt-1">Madison, WI</p>
+</div>
+</div>
+<!-- Mission 01: Timber Rattlers Star Wars Night -->
+<div class="relative flex flex-col md:flex-row items-start md:items-center transition-all duration-500">
+<div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+<div class="font-label text-xs text-outline tracking-widest font-bold mb-1">DEBRIEF COMPLETE</div>
+<h3 class="font-headline text-2xl font-bold uppercase leading-tight">Timber Rattlers Star Wars Night</h3>
+<p class="font-body text-outline text-sm mt-1">Appleton, WI</p>
+</div>
+<!-- Dot -->
+<div class="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-[#434840] border-2 border-background transform -translate-x-1/2 z-[1]"></div>
+<div class="md:w-1/2 md:pl-12 pl-12 md:pl-12">
+<div class="font-label text-sm text-outline tracking-tighter uppercase">May 31, 2025</div>
+<div class="mt-2 inline-flex items-center gap-2 bg-[#444840]/30 px-3 py-1 rounded-sm border border-[#434840]/30">
+<span class="material-symbols-outlined text-[12px] text-[#4C6043]">check_circle</span>
+<span class="font-label text-[10px] uppercase font-bold tracking-widest">Mission Complete</span>
+</div>
+<div class="mt-4 flex flex-wrap gap-2">
+<img src="https://i.imgur.com/SeoEgc7.jpeg" alt="Timber Rattlers Star Wars Night - Photo 1" class="w-40 h-32 object-cover rounded-sm border border-[#434840]/30" loading="lazy"/>
+<img src="https://i.imgur.com/G9pQCnh.jpeg" alt="Timber Rattlers Star Wars Night - Photo 2" class="w-40 h-32 object-cover rounded-sm border border-[#434840]/30" loading="lazy"/>
+</div>
+</div>
+</div>
+<!-- Visual Break: Data Grid -->
+<div class="relative pt-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1 bg-[#131411] border border-[#434840]/20 overflow-hidden rounded-sm">
+<div class="p-8 bg-[#1b1c19]">
+<div class="font-label text-[10px] text-[#4C6043] tracking-widest uppercase mb-4">Tactical Coverage</div>
+<div class="aspect-square bg-[#131411] flex items-center justify-center relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfvdSmThl4VXJlMDkHCvTFbEbkpCi9VICQTn_bmQKu6kOLQFVFFCLywyMyOxVHz_mufD2JS-lodzAKqBVMw9OZZXg7V5kzvAeGbkH7jJ6BNAqBPCcJ8qUx3c5DFlyDt7UUg-1WlgfkRb-B_Tp75NLBC_LJ5aIKgizIi-OoNBiDpi91eawlZWazQeXrXwxr58e8sj5j1q3vXVijCAhQjUeziPvXTowAL8eoOOVihfIKQ0hneNQSFAOCXwvlSUBthRnSKrCSmGPgvR3H"/>
+<span class="material-symbols-outlined text-4xl text-[#4C6043]/50 relative z-10">location_searching</span>
+</div>
+<p class="font-body text-xs text-outline mt-4">4 missions completed across Wisconsin. Next deployment: Fitchburg Public Library, May 4, 2026.</p>
+</div>
+<div class="p-8 bg-[#1b1c19]">
+<div class="font-label text-[10px] text-[#F59E01] tracking-widest uppercase mb-4">Critical Intel</div>
+<div class="font-headline font-bold text-3xl text-on-surface mb-2 tracking-tighter italic">"ALWAYS FIRST"</div>
+<p class="font-body text-xs text-outline leading-relaxed">Operatives must confirm attendance 72 hours prior to deployment for logistical synchronization.</p>
+</div>
+<div class="p-8 bg-[#1b1c19] flex flex-col justify-between">
+<div>
+<div class="font-label text-[10px] text-[#6D0827] tracking-widest uppercase mb-4">Archive Link</div>
+<div class="space-y-3">
+<a href="https://thebhg.net/forum/index.php?/topic/8520-bobarearmored-bh-7024/" target="_blank" rel="noopener" class="flex items-center justify-between group cursor-pointer">
+<span class="font-body text-sm text-on-surface group-hover:text-[#4C6043] transition-colors">BHG Forum Thread</span>
+<span class="material-symbols-outlined text-sm text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<div class="w-full h-[1px] bg-[#434840]/20"></div>
+<div class="flex items-center justify-between group cursor-pointer">
+<span class="font-body text-sm text-on-surface group-hover:text-[#4C6043] transition-colors">2025 Campaign</span>
+<span class="material-symbols-outlined text-sm text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<button class="mt-8 w-full py-3 bg-[#4C6043] text-[#e4e2de] font-headline font-bold text-xs uppercase tracking-widest hover:brightness-110 transition-all">
+                                Request Clearance
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
 </main>
-
-<!-- Footer -->
+<!-- Footer (Shared Component) -->
 <footer class="bg-[#0d0f0c] w-full py-8 mt-auto border-t border-[#6D0827]/30">
 <div class="flex flex-col items-center gap-4 px-8 font-['Plus_Jakarta_Sans'] text-[10px] tracking-[0.2em] uppercase">
-<div class="text-[#b7cda9]/40">MS2 BOBA // BH-7024</div>
+<div class="text-[#b7cda9]/40">
+                MS2 BOBA // BH-7024
+            </div>
 <div class="flex gap-8">
 <a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-colors" href="#">Terms of Engagement</a>
 <a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-colors" href="#">Privacy Protocol</a>
@@ -402,87 +289,12 @@
 </div>
 </div>
 </footer>
-
 </div>
-
-<!-- Bottom Nav (Mobile) -->
+<!-- BottomNavBar (Mobile Only) -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#131411] py-3 px-6 flex justify-around items-center z-50 border-t border-[#1b1c19]">
-<a href="index.html"><span class="material-symbols-outlined text-[#b7cda9]/60">terminal</span></a>
-<a href="tour.html"><span class="material-symbols-outlined text-[#F59E01]" style="font-variation-settings: 'FILL' 1;">radar</span></a>
-<a href="armory.html"><span class="material-symbols-outlined text-[#b7cda9]/60">inventory_2</span></a>
-<a href="#"><span class="material-symbols-outlined text-[#b7cda9]/60">local_shipping</span></a>
+<a href="index.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="terminal">terminal</span></a>
+<a href="tour.html"><span class="material-symbols-outlined text-[#F59E01]" data-icon="radar" style="font-variation-settings: 'FILL' 1;">radar</span></a>
+<a href="armory.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="inventory_2">inventory_2</span></a>
+<a href="#"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="local_shipping">local_shipping</span></a>
 </nav>
-
-<script>
-    const missions = [
-        {
-            id: 'sky-carps-star-wars-2025',
-            title: 'SKY CARPS STAR WARS NIGHT',
-            date: 'August 17, 2025',
-            location: 'Wisconsin Rapids, WI',
-            status: 'mission-complete',
-            debrief: true,
-            coverPhoto: '/images/tour/sky-carps-star-wars-2025/cover.jpg',
-            photos: [
-                '/images/tour/sky-carps-star-wars-2025/01.jpg',
-                '/images/tour/sky-carps-star-wars-2025/02.jpg',
-                '/images/tour/sky-carps-star-wars-2025/03.jpg'
-            ]
-        }
-    ];
-
-    const rotations = ['-2deg', '1.5deg', '-1deg', '2.5deg', '-1.5deg', '1deg'];
-
-    const modal    = document.getElementById('photobooth-modal');
-    const strip    = document.getElementById('photobooth-strip');
-    const capTitle = document.getElementById('photobooth-title');
-    const capMeta  = document.getElementById('photobooth-meta');
-    const closeBtn = document.getElementById('photobooth-close');
-
-    function openPhotobooth(missionId) {
-        const mission = missions.find(m => m.id === missionId);
-        if (!mission) return;
-
-        strip.innerHTML = '';
-        mission.photos.forEach((src, i) => {
-            const rot = rotations[i % rotations.length];
-            const pol = document.createElement('div');
-            pol.className = 'photobooth-polaroid';
-            pol.style.setProperty('--rotation', rot);
-
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = mission.title + ' — photo ' + (i + 1);
-            pol.appendChild(img);
-            strip.appendChild(pol);
-        });
-
-        capTitle.textContent = mission.title;
-        capMeta.textContent  = mission.date + ' · ' + mission.location;
-
-        modal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closePhotobooth() {
-        modal.classList.remove('open');
-        document.body.style.overflow = '';
-    }
-
-    // Card clicks & keyboard
-    document.querySelectorAll('[data-mission-id]').forEach(card => {
-        card.addEventListener('click', () => openPhotobooth(card.dataset.missionId));
-        card.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openPhotobooth(card.dataset.missionId);
-            }
-        });
-    });
-
-    // Close triggers
-    closeBtn.addEventListener('click', closePhotobooth);
-    modal.addEventListener('click', e => { if (e.target === modal) closePhotobooth(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closePhotobooth(); });
-</script>
 </body></html>
