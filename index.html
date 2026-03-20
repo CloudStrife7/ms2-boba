@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FETT-501 // BOUNTY HUNTER LOG</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#313030",
+              "on-tertiary-fixed-variant": "#5f4100",
+              "on-secondary-fixed-variant": "#852224",
+              "tertiary-fixed-dim": "#F59E01",
+              "on-secondary": "#ffffff",
+              "secondary-fixed-dim": "#6D0827",
+              "tertiary-fixed": "#ffdeac",
+              "error": "#ffb4ab",
+              "background": "#131411",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#281900",
+              "surface-tint": "#4C6043",
+              "on-tertiary": "#432c00",
+              "surface-container-low": "#1c1b1b",
+              "surface-bright": "#393939",
+              "tertiary-container": "#F59E01",
+              "surface-container-highest": "#353534",
+              "on-surface-variant": "#c4c8bd",
+              "surface": "#131411",
+              "outline-variant": "#444840",
+              "on-secondary-container": "#ff9e9a",
+              "primary": "#4C6043",
+              "secondary": "#6D0827",
+              "tertiary": "#F59E01",
+              "primary-container": "#4C6043",
+              "outline": "#8e9288",
+              "on-error": "#690005",
+              "inverse-primary": "#4d6545",
+              "on-primary-fixed": "#0b2007",
+              "on-primary-fixed-variant": "#364d2f",
+              "on-surface": "#e4e2de",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-dim": "#131411",
+              "surface-variant": "#353534",
+              "on-secondary-fixed": "#410005",
+              "secondary-container": "#6D0827",
+              "on-primary-container": "#cfebc2",
+              "surface-container-high": "#1b1c19",
+              "on-error-container": "#ffdad6",
+              "surface-container": "#201f1f",
+              "on-background": "#e4e2de",
+              "primary-fixed-dim": "#4C6043",
+              "secondary-fixed": "#ffdad7",
+              "on-tertiary-container": "#000000",
+              "error-container": "#93000a",
+              "inverse-surface": "#e4e2de",
+              "primary-fixed": "#cfebc2",
+              "storm": "#4C6043",
+              "melon": "#F59E01",
+              "cardinal": "#6D0827"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.bg-fett-mesh {
+    background-image: linear-gradient(to bottom, rgba(19, 20, 17, 0.8), rgba(19, 20, 17, 1)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCh1bDB1AQGHktLQ7shOtuoSDfEHkU-HMcU2FcZ6CnexlNCeBVHvGmxtrSPXTYyt2JoIZG1BnCx337lTdWQXArDRcMdDZZcKyxgZ5r3TOpeUQ9pTJF3zCUzROX1cSUp_Tlf-GL8neQ4Hd7DpareQ7qSE7jHiIcsIYS4rUsZl8Q8ADuK1ZmBNln1xZSuYTpevEBk5dcO0y4MjN_u10GSibdup35PRsbuWvScmopdk3tWvn76rLDHMlxJn3ueDC6ckjY-gx7UVYCIUJ8P);
+    background-size: cover;
+    background-position: center
+    }
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    }</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-storm selection:text-white min-h-screen flex flex-col">
+<!-- TopAppBar - Using Component Data -->
+<nav class="bg-[#131411] dark:bg-[#131411] fixed top-0 left-0 right-0 z-50">
+<div class="flex justify-between items-center w-full px-6 h-16 max-w-none">
+<div class="text-xl font-black text-[#b7cda9] tracking-widest font-headline uppercase">
+                FETT-501
+            </div>
+<div class="hidden md:flex gap-8 items-center font-['Plus_Jakarta_Sans'] tracking-tighter uppercase font-bold">
+<a class="text-sm text-[#F59E01] border-b-2 border-[#F59E01] pb-1" href="#">The Log</a>
+<a class="text-sm text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="#">The Armory</a>
+<a class="text-sm text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="#">Tour of Duty</a>
+</div>
+<div class="flex gap-4 items-center">
+<button class="text-[#b7cda9] hover:bg-[#4C6043]/20 transition-all duration-300 p-2 rounded-sm scale-95 active:opacity-80">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-[#b7cda9] hover:bg-[#4C6043]/20 transition-all duration-300 p-2 rounded-sm scale-95 active:opacity-80">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+<div class="bg-[#1b1c19] h-[1px] w-full"></div>
+</nav>
+<!-- SideNavBar (Desktop Only) - Using Component Data -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-20 bg-[#1b1c19] dark:bg-[#1b1c19] flex-col items-center py-24 gap-8 z-40 border-r border-[#444840]/15 shadow-[24px_0_40px_rgba(228,226,222,0.06)]">
+<a class="group flex flex-col items-center cursor-pointer transition-all duration-300 hover:text-[#F59E01]" href="#">
+<div class="bg-[#4C6043] text-[#e4e2de] rounded-sm p-2 flex items-center justify-center border-l-4 border-[#F59E01]">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest text-[#F59E01] mt-1">Command</span>
+</a>
+<a class="group flex flex-col items-center cursor-pointer transition-all duration-300 text-[#b7cda9]/50 hover:text-[#F59E01]" href="#">
+<div class="p-2 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="radar">radar</span>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest mt-1">Tactical</span>
+</a>
+<a class="group flex flex-col items-center cursor-pointer transition-all duration-300 text-[#b7cda9]/50 hover:text-[#F59E01]" href="#">
+<div class="p-2 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest mt-1">Archives</span>
+</a>
+<div class="group flex flex-col items-center cursor-pointer transition-all duration-300 text-[#b7cda9]/50 hover:text-[#F59E01]">
+<div class="p-2 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest mt-1">Logistics</span>
+</div>
+<div class="mt-auto flex flex-col items-center gap-1 pb-8">
+<span class="font-label text-[8px] vertical-text uppercase tracking-widest text-outline">OPERATOR-001</span>
+</div>
+</aside>
+<main class="flex-grow pt-16 lg:pl-20">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center px-8 md:px-16 overflow-hidden">
+<div class="absolute inset-0 z-0 bg-fett-mesh opacity-50"></div>
+<div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="flex-1 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-storm text-white rounded-sm border-l-4 border-melon">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label text-xs uppercase tracking-[0.2em] font-bold">Authenticated Legionnaire</span>
+</div>
+<h1 class="font-headline text-7xl md:text-9xl font-extrabold tracking-tighter leading-none text-on-background uppercase">
+                        BOBA <br/> <span class="text-storm">FETT</span>
+</h1>
+<p class="font-body text-xl text-on-surface-variant max-w-lg leading-relaxed">
+                        Adventures of a Bounty Hunter in the 501st Legion. Documenting every deployment, every gear refinement, and the camaraderie of the Empire's finest.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-melon text-black px-8 py-4 rounded-lg font-headline font-bold uppercase tracking-wider flex items-center gap-3 hover:opacity-90 transition-all group">
+                            Access Log
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="border border-cardinal/50 hover:border-cardinal hover:text-cardinal transition-all px-8 py-4 rounded-lg font-headline font-bold uppercase tracking-wider text-on-surface">
+                            View Arsenal
+                        </button>
+</div>
+</div>
+<!-- Asymmetric Status Module -->
+<div class="w-full md:w-80 space-y-4">
+<div class="bg-[#1b1c19] p-6 rounded-xl border-l-2 border-cardinal shadow-2xl backdrop-blur-md bg-opacity-80">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label text-[10px] text-melon uppercase tracking-[0.3em]">Operational Status</span>
+<span class="w-2 h-2 rounded-full bg-melon animate-pulse"></span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+<span class="text-outline uppercase">Armor Integrity</span>
+<span class="text-on-surface font-bold">94%</span>
+</div>
+<div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+<span class="text-outline uppercase">Troop Count</span>
+<span class="text-on-surface font-bold">142 Units</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-outline uppercase">Active Sector</span>
+<span class="text-on-surface font-bold">Outer Rim</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Activity Section -->
+<section class="px-8 md:px-16 py-20 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div class="space-y-2">
+<h2 class="font-headline text-4xl font-bold uppercase tracking-tight">Recent Activity</h2>
+<p class="font-label text-xs text-outline tracking-widest uppercase">Encryption Level: Sigma-9</p>
+</div>
+<a class="text-melon font-label text-xs uppercase tracking-widest hover:underline" href="#">View All Archives —</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between min-h-[320px] relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl" data-icon="military_tech">military_tech</span>
+</div>
+<div class="z-10">
+<div class="bg-melon text-black inline-block px-3 py-1 rounded-sm text-[10px] uppercase font-bold tracking-widest mb-6">
+                            Featured Troop
+                        </div>
+<h3 class="font-headline text-3xl font-bold mb-4">Galactic Expo Deployment</h3>
+<p class="text-on-surface-variant max-w-md">Successfully held the perimeter for 6 hours. High interaction with prospective recruits and diplomatic envoys.</p>
+</div>
+<div class="z-10 flex items-center gap-4 text-xs font-label text-outline uppercase tracking-widest">
+<span>Sector 7-G</span>
+<span>•</span>
+<span>04.12.23</span>
+</div>
+</div>
+<!-- Small Activity Card 1 -->
+<div class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-storm hover:bg-surface-bright transition-colors">
+<div class="text-storm">
+<span class="material-symbols-outlined text-4xl" data-icon="build">build</span>
+</div>
+<h4 class="font-headline text-lg font-bold uppercase">Gauntlet Calibration</h4>
+<p class="text-sm text-on-surface-variant">Re-wired fuel lines and polished rangefinder optics for next deployment.</p>
+<div class="mt-auto font-label text-[10px] text-outline uppercase tracking-widest">Completed: 2 Days ago</div>
+</div>
+<!-- Small Activity Card 2 -->
+<div class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-cardinal hover:bg-surface-bright transition-colors">
+<div class="text-cardinal">
+<span class="material-symbols-outlined text-4xl" data-icon="groups">groups</span>
+</div>
+<h4 class="font-headline text-lg font-bold uppercase">Garrison Briefing</h4>
+<p class="text-sm text-on-surface-variant">Coordinated logistics for the upcoming regional muster in Sector 4.</p>
+<div class="mt-auto font-label text-[10px] text-outline uppercase tracking-widest">Scheduled: Tomorrow</div>
+</div>
+<!-- Small Activity Card 3 -->
+<div class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-melon hover:bg-surface-bright transition-colors">
+<div class="text-melon">
+<span class="material-symbols-outlined text-4xl" data-icon="photo_camera">photo_camera</span>
+</div>
+<h4 class="font-headline text-lg font-bold uppercase">Media Capture</h4>
+<p class="text-sm text-on-surface-variant">Uploaded 24 high-resolution captures from the Imperial Outpost troop.</p>
+<div class="mt-auto font-label text-[10px] text-outline uppercase tracking-widest">Status: Uploaded</div>
+</div>
+<!-- Small Activity Card 4 (Tactical Quote/Data) -->
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col justify-center items-center text-center gap-2 border-b-4 border-storm">
+<span class="font-headline text-4xl font-extrabold text-storm">501ST</span>
+<span class="font-label text-[10px] uppercase tracking-[0.4em] text-outline">Vader's Fist</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer - Using Component Data -->
+<footer class="bg-[#0d0f0c] w-full py-8 border-t border-[#6D0827]/30 mt-auto">
+<div class="flex flex-col items-center gap-4 px-8 w-full">
+<div class="font-['Plus_Jakarta_Sans'] text-[10px] tracking-[0.2em] uppercase text-[#b7cda9]">
+                © 7924 CRC THE TACTICAL ARCHIVE // 501ST LEGION
+            </div>
+<div class="flex gap-8 font-['Plus_Jakarta_Sans'] text-[10px] tracking-[0.2em] uppercase">
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-all" href="#">Terms of Engagement</a>
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-all" href="#">Privacy Protocol</a>
+<a class="text-[#F59E01] hover:text-[#6D0827] transition-all" href="#">System Status</a>
+</div>
+</div>
+</footer>
+<!-- Bottom Nav for Mobile -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-outline-variant z-50 px-6 py-3 flex justify-around items-center">
+<a href="#"><span class="material-symbols-outlined text-storm" data-icon="terminal" style="font-variation-settings: 'FILL' 1;">terminal</span></a>
+<a href="#"><span class="material-symbols-outlined text-outline" data-icon="radar">radar</span></a>
+<a href="#"><span class="material-symbols-outlined text-outline" data-icon="inventory_2">inventory_2</span></a>
+<a href="#"><span class="material-symbols-outlined text-outline" data-icon="local_shipping">local_shipping</span></a>
+</div>
+</body></html>
