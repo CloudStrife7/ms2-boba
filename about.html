@@ -3,9 +3,9 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>About | MS2 Boba</title>
+<title>About | Boba Rearmored</title>
 <meta name="description" content="Meet BH-7024, a 501st Legion member trooping as Boba Fett in his Re-Armored configuration from The Book of Boba Fett. Wisconsin Garrison."/>
-<meta property="og:title" content="About | MS2 Boba"/>
+<meta property="og:title" content="About | Boba Rearmored"/>
 <meta property="og:description" content="Meet BH-7024, a 501st Legion member trooping as Boba Fett in his Re-Armored configuration from The Book of Boba Fett. Wisconsin Garrison."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://cloudstrife7.github.io/ms2-boba/about.html"/>
@@ -53,50 +53,12 @@
     </style>
 </head>
 <body class="flex min-h-screen bg-background">
-<!-- SideNavBar (Shared Component) -->
-<aside class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 bg-[#1b1c19] border-r border-[#444840]/15 shadow-[24px_0_40px_rgba(228,226,222,0.06)] py-8 z-20">
-<div class="px-6 mb-10">
-<div class="text-lg font-bold text-[#F59E01] font-['Plus_Jakarta_Sans'] uppercase tracking-widest">MS2 BOBA</div>
-<div class="text-[10px] text-[#b7cda9]/50 font-medium uppercase tracking-widest">BH-7024</div>
-</div>
-<nav class="flex flex-col flex-1 font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest">
-<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="index.html">
-<span class="material-symbols-outlined">terminal</span>
-<span>Home</span>
-</a>
-<a class="bg-[#4C6043] text-[#e4e2de] border-l-4 border-[#F59E01] px-6 py-3 flex items-center gap-4 active:translate-x-1 transition-all" href="about.html">
-<span class="material-symbols-outlined">person</span>
-<span>About</span>
-</a>
-<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="tour.html">
-<span class="material-symbols-outlined">radar</span>
-<span>Tour of Duty</span>
-</a>
-<a class="text-[#b7cda9]/50 px-6 py-3 hover:bg-[#1f201d] hover:text-[#F59E01] transition-all duration-300 flex items-center gap-4" href="armory.html">
-<span class="material-symbols-outlined">inventory_2</span>
-<span>Armory</span>
-</a>
-</nav>
-<div class="px-6 mt-auto space-y-4">
-<button class="w-full py-3 bg-[#4C6043] text-[#e4e2de] font-bold text-[10px] uppercase tracking-widest hover:brightness-110 transition-all">
-            DEPLOY SQUAD
-        </button>
-<div class="flex flex-col gap-2 font-['Plus_Jakarta_Sans'] text-[10px] uppercase tracking-widest">
-<a class="text-[#b7cda9]/40 hover:text-[#6D0827] flex items-center gap-2 px-2 py-1" href="#">
-<span class="material-symbols-outlined text-sm">help</span>Support
-            </a>
-<a class="text-[#b7cda9]/40 hover:text-[#6D0827] flex items-center gap-2 px-2 py-1" href="#">
-<span class="material-symbols-outlined text-sm">logout</span>Logout
-            </a>
-</div>
-</div>
-</aside>
-<div class="flex-1 flex flex-col md:ml-64">
+<div class="flex-1 flex flex-col">
 <!-- TopNavBar (Shared Component) -->
 <header class="bg-[#131411] docked full-width top-0 z-50 sticky">
 <div class="flex justify-between items-center w-full px-6 h-16 max-w-none">
 <div class="text-xl font-black text-[#b7cda9] tracking-widest font-['Plus_Jakarta_Sans'] uppercase">
-                MS2 BOBA
+                Boba Rearmored
             </div>
 <nav class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans'] tracking-tighter uppercase font-bold text-sm">
 <a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="index.html">Home</a>
@@ -117,14 +79,7 @@
 </header>
 <!-- Main Content -->
 <main class="flex-1 w-full max-w-5xl mx-auto px-6 py-12 md:py-20">
-<!-- Hero Section -->
-<section class="relative h-[340px] md:h-[420px] mb-20 rounded-sm overflow-hidden">
-<div class="absolute inset-0">
-<img alt="Boba Fett at C2E2 Chicago Comic &amp; Entertainment Expo" class="w-full h-full object-cover" src="public/c2e2-hero.jpg" style="object-position: 35% 20%;" fetchpriority="high"/>
-<div class="absolute inset-0 bg-gradient-to-r from-[#131411] via-[#131411]/80 to-transparent"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#131411] via-transparent to-transparent"></div>
-</div>
-<div class="relative h-full flex flex-col justify-end p-8 md:p-12">
+<div class="mb-20">
 <span class="font-label text-xs tracking-[0.3em] text-[#4C6043] uppercase mb-4 block">Personnel File</span>
 <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter uppercase leading-none">
                         About <span class="text-outline">Me</span>
@@ -134,7 +89,6 @@
 <div class="font-headline font-bold text-xl text-on-surface">BH-7024</div>
 </div>
 </div>
-</section>
 <!-- Profile Section -->
 <section class="mb-24">
 <div class="flex flex-col lg:flex-row gap-12">
@@ -237,7 +191,7 @@
 <footer class="bg-[#0d0f0c] w-full py-8 mt-auto border-t border-[#6D0827]/30">
 <div class="flex flex-col items-center gap-4 px-8 font-['Plus_Jakarta_Sans'] text-[10px] tracking-[0.2em] uppercase">
 <div class="text-[#b7cda9]/40">
-                MS2 BOBA // BH-7024
+                Boba Rearmored // BH-7024
             </div>
 <div class="flex gap-8">
 <a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-colors" href="#">Terms of Engagement</a>
