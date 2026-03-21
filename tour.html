@@ -56,6 +56,10 @@
             --bg-focus-m02: 25%;   /* Make Music Madison — makemusic.jpeg */
             --bg-focus-m01: 15%;   /* Timber Rattlers Star Wars Night — trattlers.jpeg */
         }
+@keyframes slideInFromRight { from { transform: translateX(30%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideInFromLeft { from { transform: translateX(-30%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideOutToLeft { from { transform: translateX(0); opacity: 1; } to { transform: translateX(-30%); opacity: 0; } }
+@keyframes slideOutToRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(30%); opacity: 0; } }
     </style>
 </head>
 <body class="flex min-h-screen bg-background">
@@ -250,10 +254,10 @@
 </div>
 <!-- BottomNavBar (Mobile Only) -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#131411] py-3 px-6 flex justify-around items-center z-50 border-t border-[#1b1c19]">
-<a href="index.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="terminal">terminal</span></a>
+<a href="index.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="home">home</span></a>
 <a href="about.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="person">person</span></a>
-<a href="tour.html"><span class="material-symbols-outlined text-[#F59E01]" data-icon="radar" style="font-variation-settings: 'FILL' 1;">radar</span></a>
-<a href="armory.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="inventory_2">inventory_2</span></a>
+<a href="tour.html"><span class="material-symbols-outlined text-[#F59E01]" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span></a>
+<a href="armory.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="shield">shield</span></a>
 </nav>
 <div aria-label="Mission photo spotlight" aria-modal="true" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/95 p-4 md:p-12" id="spotlight-modal" role="dialog">
 <button class="absolute top-6 right-6 text-white hover:text-primary transition-colors" onclick="closeSpotlight()">
@@ -278,4 +282,5 @@
         if (e.target === this) closeSpotlight();
     };
 </script>
+<script src="swipe-nav.js"></script>
 </body></html>
