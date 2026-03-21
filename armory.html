@@ -54,6 +54,10 @@
       }
       .no-scrollbar::-webkit-scrollbar { display: none; }
       .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+@keyframes slideInFromRight { from { transform: translateX(30%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideInFromLeft { from { transform: translateX(-30%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideOutToLeft { from { transform: translateX(0); opacity: 1; } to { transform: translateX(-30%); opacity: 0; } }
+@keyframes slideOutToRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(30%); opacity: 0; } }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
@@ -353,9 +357,10 @@
 </footer>
 <!-- BottomNavBar (Mobile Only) -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#131411] py-3 px-6 flex justify-around items-center z-50 border-t border-[#1b1c19]">
-<a href="index.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="terminal">terminal</span></a>
+<a href="index.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="home">home</span></a>
 <a href="about.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="person">person</span></a>
-<a href="tour.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="radar">radar</span></a>
-<a href="armory.html"><span class="material-symbols-outlined text-[#F59E01]" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span></a>
+<a href="tour.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="military_tech">military_tech</span></a>
+<a href="armory.html"><span class="material-symbols-outlined text-[#F59E01]" data-icon="shield" style="font-variation-settings: 'FILL' 1;">shield</span></a>
 </nav>
+<script src="swipe-nav.js"></script>
 </body></html>

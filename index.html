@@ -91,7 +91,11 @@
 .vertical-text {
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    }</style>
+    }
+@keyframes slideInFromRight { from { transform: translateX(30%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideInFromLeft { from { transform: translateX(-30%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideOutToLeft { from { transform: translateX(0); opacity: 1; } to { transform: translateX(-30%); opacity: 0; } }
+@keyframes slideOutToRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(30%); opacity: 0; } }</style>
 </head>
 <body class="bg-background text-on-background font-body selection:bg-storm selection:text-white min-h-screen flex flex-col">
 <!-- TopAppBar - Using Component Data -->
@@ -269,10 +273,10 @@
 </footer>
 <!-- Bottom Nav for Mobile -->
 <div class="md:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-outline-variant z-50 px-6 py-3 flex justify-around items-center">
-<a href="index.html"><span class="material-symbols-outlined text-storm" data-icon="terminal" style="font-variation-settings: 'FILL' 1;">terminal</span></a>
-<a href="about.html"><span class="material-symbols-outlined text-outline" data-icon="person">person</span></a>
-<a href="tour.html"><span class="material-symbols-outlined text-outline" data-icon="radar">radar</span></a>
-<a href="armory.html"><span class="material-symbols-outlined text-outline" data-icon="inventory_2">inventory_2</span></a>
+<a href="index.html"><span class="material-symbols-outlined text-[#F59E01]" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span></a>
+<a href="about.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="person">person</span></a>
+<a href="tour.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="military_tech">military_tech</span></a>
+<a href="armory.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="shield">shield</span></a>
 </div>
 <script>
   const heroImages = ['public/images/hero-bg.jpg', 'public/c2e2-hero.jpg'];
@@ -282,4 +286,5 @@
   const mesh = document.querySelector('.bg-fett-mesh');
   if (mesh) mesh.style.backgroundImage = "linear-gradient(to bottom, rgba(19, 20, 17, 0.8), rgba(19, 20, 17, 1)), url('" + chosen + "')";
 </script>
+<script src="swipe-nav.js"></script>
 </body></html>
