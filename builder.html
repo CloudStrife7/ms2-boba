@@ -195,8 +195,14 @@ Next <span class="material-symbols-outlined text-sm">arrow_forward</span>
 <h2 class="font-headline text-2xl font-bold uppercase tracking-tight mb-2">Your Images</h2>
 <p class="font-body text-sm text-on-surface-variant">Drag and drop images or paste Imgur URLs. All images are optional — placeholders will be used for any you skip.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-<!-- Hero Image -->
+
+<!-- Site Images -->
+<div class="mb-10">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label text-[10px] text-outline uppercase tracking-[0.3em]">Site Images</span>
+<div class="h-[1px] flex-grow bg-outline-variant/40"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="md:col-span-2">
 <label class="font-label text-[10px] text-outline uppercase tracking-widest mb-2 block">Hero Background Image</label>
 <div id="drop-hero" class="relative border-2 border-dashed border-outline-variant/40 rounded-lg h-48 flex flex-col items-center justify-center cursor-pointer hover:border-tertiary transition-colors">
@@ -208,7 +214,6 @@ Next <span class="material-symbols-outlined text-sm">arrow_forward</span>
 <input id="url-hero" type="text" placeholder="https://i.imgur.com/..." class="flex-1 bg-surface-container-low border border-outline-variant/30 rounded px-3 py-1.5 text-sm text-on-surface font-body focus:border-tertiary focus:ring-1 focus:ring-tertiary outline-none transition-colors"/>
 </div>
 </div>
-<!-- Profile Photo -->
 <div>
 <label class="font-label text-[10px] text-outline uppercase tracking-widest mb-2 block">Profile Photo (About Page)</label>
 <div id="drop-profile" class="relative border-2 border-dashed border-outline-variant/40 rounded-lg h-40 flex flex-col items-center justify-center cursor-pointer hover:border-tertiary transition-colors">
@@ -219,39 +224,34 @@ Next <span class="material-symbols-outlined text-sm">arrow_forward</span>
 <input id="url-profile" type="text" placeholder="Imgur URL..." class="w-full bg-surface-container-low border border-outline-variant/30 rounded px-3 py-1.5 text-sm text-on-surface font-body focus:border-tertiary outline-none"/>
 </div>
 </div>
-<!-- Feature 1 -->
 <div>
-<label class="font-label text-[10px] text-outline uppercase tracking-widest mb-2 block">Feature Image 1</label>
-<div id="drop-feature1" class="relative border-2 border-dashed border-outline-variant/40 rounded-lg h-40 flex flex-col items-center justify-center cursor-pointer hover:border-tertiary transition-colors">
-<span class="material-symbols-outlined text-3xl text-outline mb-1">photo_camera</span>
+<label class="font-label text-[10px] text-outline uppercase tracking-widest mb-2 block">Suited Up / Glamour Shot</label>
+<div id="drop-suited" class="relative border-2 border-dashed border-outline-variant/40 rounded-lg h-40 flex flex-col items-center justify-center cursor-pointer hover:border-tertiary transition-colors">
+<span class="material-symbols-outlined text-3xl text-outline mb-1">military_tech</span>
 <span class="font-label text-[10px] text-outline uppercase tracking-wider">Drop or click</span>
 </div>
 <div class="mt-2">
-<input id="url-feature1" type="text" placeholder="Imgur URL..." class="w-full bg-surface-container-low border border-outline-variant/30 rounded px-3 py-1.5 text-sm text-on-surface font-body focus:border-tertiary outline-none"/>
+<input id="url-suited" type="text" placeholder="Imgur URL..." class="w-full bg-surface-container-low border border-outline-variant/30 rounded px-3 py-1.5 text-sm text-on-surface font-body focus:border-tertiary outline-none"/>
 </div>
 </div>
-<!-- Feature 2 -->
-<div>
-<label class="font-label text-[10px] text-outline uppercase tracking-widest mb-2 block">Feature Image 2</label>
-<div id="drop-feature2" class="relative border-2 border-dashed border-outline-variant/40 rounded-lg h-40 flex flex-col items-center justify-center cursor-pointer hover:border-tertiary transition-colors">
-<span class="material-symbols-outlined text-3xl text-outline mb-1">photo_camera</span>
-<span class="font-label text-[10px] text-outline uppercase tracking-wider">Drop or click</span>
-</div>
-<div class="mt-2">
-<input id="url-feature2" type="text" placeholder="Imgur URL..." class="w-full bg-surface-container-low border border-outline-variant/30 rounded px-3 py-1.5 text-sm text-on-surface font-body focus:border-tertiary outline-none"/>
 </div>
 </div>
-<!-- Feature 3 -->
-<div>
-<label class="font-label text-[10px] text-outline uppercase tracking-widest mb-2 block">Feature Image 3</label>
-<div id="drop-feature3" class="relative border-2 border-dashed border-outline-variant/40 rounded-lg h-40 flex flex-col items-center justify-center cursor-pointer hover:border-tertiary transition-colors">
-<span class="material-symbols-outlined text-3xl text-outline mb-1">photo_camera</span>
-<span class="font-label text-[10px] text-outline uppercase tracking-wider">Drop or click</span>
+
+<!-- Build Journey Images (only if Armory enabled) -->
+<div id="build-journey-section" class="mb-10">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label text-[10px] text-outline uppercase tracking-[0.3em]">Build Journey</span>
+<div class="h-[1px] flex-grow bg-outline-variant/40"></div>
+<span class="font-label text-[10px] text-outline uppercase tracking-widest">Armory Page</span>
 </div>
-<div class="mt-2">
-<input id="url-feature3" type="text" placeholder="Imgur URL..." class="w-full bg-surface-container-low border border-outline-variant/30 rounded px-3 py-1.5 text-sm text-on-surface font-body focus:border-tertiary outline-none"/>
+<p class="font-body text-xs text-on-surface-variant mb-6">Add photos from your build process. These will populate your Armory page's journey section.</p>
+<div id="build-photos-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+<!-- Default 3 slots rendered by JS -->
 </div>
-</div>
+<button onclick="addBuildPhoto()" class="w-full border-2 border-dashed border-outline-variant/30 rounded-lg py-4 flex items-center justify-center gap-2 hover:border-tertiary transition-colors group">
+<span class="material-symbols-outlined text-outline group-hover:text-tertiary transition-colors">add_circle</span>
+<span class="font-label text-xs text-outline uppercase tracking-wider group-hover:text-tertiary transition-colors">Add Another Build Photo</span>
+</button>
 </div>
 <div class="flex justify-between">
 <button onclick="prevStep()" class="border border-outline-variant/50 text-on-surface px-6 py-3 rounded-lg font-headline font-bold uppercase tracking-wider hover:border-on-surface transition-all flex items-center gap-2">
