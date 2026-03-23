@@ -192,58 +192,83 @@
 <section class="px-8 md:px-16 py-20 max-w-7xl mx-auto">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
 <div class="space-y-2">
-<h2 class="font-headline text-4xl font-bold uppercase tracking-tight">Recent Activity</h2>
-<p class="font-label text-xs text-outline tracking-widest uppercase">Encryption Level: Sigma-9</p>
+<h2 class="font-headline text-4xl font-bold uppercase tracking-tight">Command Center</h2>
+<p class="font-label text-xs text-outline tracking-widest uppercase">BH-7024 // Active Duty</p>
 </div>
-<a class="text-melon font-label text-xs uppercase tracking-widest hover:underline" href="#">View All Archives —</a>
+<a class="text-melon font-label text-xs uppercase tracking-widest hover:underline" href="tour.html">View All Missions —</a>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<!-- Large Feature Card -->
-<div class="md:col-span-2 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between min-h-[320px] relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-9xl" data-icon="military_tech">military_tech</span>
+<!-- Large Card: Latest Mission -->
+<a href="tour.html" class="md:col-span-2 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between min-h-[320px] relative overflow-hidden group hover:bg-[#1b1c19] transition-colors">
+<div class="absolute inset-0 z-0">
+<img src="public/trunkortreat.jpeg" alt="Trunk or Treat" class="w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-500" style="object-position: center 45%;"/>
 </div>
 <div class="z-10">
 <div class="bg-melon text-black inline-block px-3 py-1 rounded-sm text-[10px] uppercase font-bold tracking-widest mb-6">
-                            Featured Troop
+                            Latest Mission
                         </div>
-<h3 class="font-headline text-3xl font-bold mb-4">Galactic Expo Deployment</h3>
-<p class="text-on-surface-variant max-w-md">Successfully held the perimeter for 6 hours. High interaction with prospective recruits and diplomatic envoys.</p>
+<h3 class="font-headline text-3xl font-bold mb-4">Harrison School PTO Trunk or Treat</h3>
+<p class="text-on-surface-variant max-w-md">MISSION 04 — Janesville, WI. Another successful deployment in the books.</p>
 </div>
 <div class="z-10 flex items-center gap-4 text-xs font-label text-outline uppercase tracking-widest">
-<span>Sector 7-G</span>
-<span>•</span>
-<span>04.12.23</span>
+<span>Janesville, WI</span>
+<span>&bull;</span>
+<span>Oct 30, 2025</span>
+<span>&bull;</span>
+<span class="text-[#4C6043]">Mission Complete</span>
 </div>
-</div>
-<!-- Small Activity Card 1 -->
-<div class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-storm hover:bg-surface-bright transition-colors">
-<div class="text-storm">
-<span class="material-symbols-outlined text-4xl" data-icon="build">build</span>
-</div>
-<h4 class="font-headline text-lg font-bold uppercase">Gauntlet Calibration</h4>
-<p class="text-sm text-on-surface-variant">Re-wired fuel lines and polished rangefinder optics for next deployment.</p>
-<div class="mt-auto font-label text-[10px] text-outline uppercase tracking-widest">Completed: 2 Days ago</div>
-</div>
-<!-- Small Activity Card 2 -->
-<div class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-cardinal hover:bg-surface-bright transition-colors">
+</a>
+<!-- Next Deployment Countdown -->
+<div class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-cardinal">
 <div class="text-cardinal">
-<span class="material-symbols-outlined text-4xl" data-icon="groups">groups</span>
+<span class="material-symbols-outlined text-4xl">rocket_launch</span>
 </div>
-<h4 class="font-headline text-lg font-bold uppercase">Garrison Briefing</h4>
-<p class="text-sm text-on-surface-variant">Coordinated logistics for the upcoming regional muster in Sector 4.</p>
-<div class="mt-auto font-label text-[10px] text-outline uppercase tracking-widest">Scheduled: Tomorrow</div>
+<h4 class="font-headline text-lg font-bold uppercase">Next Deployment</h4>
+<p class="text-sm text-on-surface-variant">Star Wars Crafts Day<br/>Fitchburg Public Library</p>
+<div class="mt-auto">
+<div class="font-label text-[10px] text-outline uppercase tracking-widest mb-3">May 4, 2026 · 4:00 PM</div>
+<div id="countdown" class="grid grid-cols-4 gap-2 text-center">
+<div>
+<div class="font-headline text-2xl font-extrabold text-melon" id="cd-days">--</div>
+<div class="font-label text-[8px] text-outline uppercase tracking-widest">Days</div>
 </div>
-<!-- Small Activity Card 3 -->
-<div class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-melon hover:bg-surface-bright transition-colors">
+<div>
+<div class="font-headline text-2xl font-extrabold text-melon" id="cd-hours">--</div>
+<div class="font-label text-[8px] text-outline uppercase tracking-widest">Hrs</div>
+</div>
+<div>
+<div class="font-headline text-2xl font-extrabold text-melon" id="cd-mins">--</div>
+<div class="font-label text-[8px] text-outline uppercase tracking-widest">Min</div>
+</div>
+<div>
+<div class="font-headline text-2xl font-extrabold text-melon" id="cd-secs">--</div>
+<div class="font-label text-[8px] text-outline uppercase tracking-widest">Sec</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Armor Status -->
+<a href="armory.html" class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-storm hover:bg-surface-bright transition-colors">
+<div class="text-storm">
+<span class="material-symbols-outlined text-4xl">shield</span>
+</div>
+<h4 class="font-headline text-lg font-bold uppercase">Armor Status</h4>
+<p class="text-sm text-on-surface-variant">Boba Fett (Re-Armored)<br/>501st Approved — Nov 2024</p>
+<div class="mt-auto flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#4C6043]"></span>
+<span class="font-label text-[10px] text-[#4C6043] uppercase tracking-widest">Operational</span>
+</div>
+</a>
+<!-- Squad Card -->
+<a href="https://www.wigarrison.com/" target="_blank" rel="noopener" class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-melon hover:bg-surface-bright transition-colors">
 <div class="text-melon">
-<span class="material-symbols-outlined text-4xl" data-icon="photo_camera">photo_camera</span>
+<span class="material-symbols-outlined text-4xl">groups</span>
 </div>
-<h4 class="font-headline text-lg font-bold uppercase">Media Capture</h4>
-<p class="text-sm text-on-surface-variant">Uploaded 24 high-resolution captures from the Imperial Outpost troop.</p>
-<div class="mt-auto font-label text-[10px] text-outline uppercase tracking-widest">Status: Uploaded</div>
-</div>
-<!-- Small Activity Card 4 (Tactical Quote/Data) -->
+<h4 class="font-headline text-lg font-bold uppercase">Devastator Squad</h4>
+<p class="text-sm text-on-surface-variant">Squad Leader<br/>Wisconsin Garrison</p>
+<div class="mt-auto font-label text-[10px] text-outline uppercase tracking-widest">View Garrison →</div>
+</a>
+<!-- 501st Anchor -->
 <div class="bg-surface-container-low rounded-xl p-6 flex flex-col justify-center items-center text-center gap-2 border-b-4 border-storm">
 <span class="font-headline text-4xl font-extrabold text-storm">501ST</span>
 <span class="font-label text-[10px] uppercase tracking-[0.4em] text-outline">Vader's Fist</span>
@@ -278,6 +303,33 @@
   if (el) el.style.backgroundImage = "url('" + chosen + "')";
   const mesh = document.querySelector('.bg-fett-mesh');
   if (mesh) mesh.style.backgroundImage = "linear-gradient(to bottom, rgba(19, 20, 17, 0.8), rgba(19, 20, 17, 1)), url('" + chosen + "')";
+</script>
+<script>
+// Countdown to next deployment: May 4, 2026 4:00 PM CDT (UTC-5)
+(function() {
+  var target = new Date('2026-05-04T16:00:00-05:00').getTime();
+  function update() {
+    var now = Date.now();
+    var diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = d < 10 ? '0' + d : d;
+    document.getElementById('cd-hours').textContent = h < 10 ? '0' + h : h;
+    document.getElementById('cd-mins').textContent = m < 10 ? '0' + m : m;
+    document.getElementById('cd-secs').textContent = s < 10 ? '0' + s : s;
+  }
+  update();
+  setInterval(update, 1000);
+})();
 </script>
 <script src="swipe-nav.js"></script>
 </body></html>
