@@ -97,7 +97,7 @@
 </div>
 <div class="bg-surface-container-low p-4 rounded-sm border-l-2 border-[#F59E01]">
 <div class="font-label text-[10px] text-outline uppercase tracking-widest mb-1">Active Contracts</div>
-<div class="font-headline font-bold text-xl text-on-surface">5 MISSIONS COMPLETED</div>
+<div class="font-headline font-bold text-xl text-on-surface">4 MISSIONS COMPLETED</div>
 </div>
 </div>
 </section>
@@ -201,7 +201,7 @@
 </div>
 <!-- Current Troop Count -->
 <div class="flex items-end gap-4 mb-6">
-<div class="font-headline font-extrabold text-5xl text-on-surface tracking-tighter" id="troop-count">5</div>
+<div class="font-headline font-extrabold text-5xl text-on-surface tracking-tighter" id="troop-count">4</div>
 <div class="pb-1">
 <div class="font-label text-[10px] text-outline uppercase tracking-widest">Troops Earned</div>
 <div class="font-label text-xs text-[#F59E01] uppercase tracking-wider font-bold">Next Pin: <span id="next-milestone-label">10 — White Pin</span></div>
@@ -211,12 +211,12 @@
 <div class="mb-8">
 <div class="flex justify-between items-center mb-1.5">
 <span class="font-label text-[10px] text-outline uppercase tracking-widest">Progress to Next Milestone</span>
-<span class="font-label text-xs text-on-surface font-bold" id="progress-text">5 / 10</span>
+<span class="font-label text-xs text-on-surface font-bold" id="progress-text">4 / 10</span>
 </div>
 <div class="w-full bg-[#131411] h-2 rounded-sm overflow-hidden">
-<div class="h-full bg-[#F59E01] transition-all duration-700 rounded-sm" id="progress-bar" style="width: 50%"></div>
+<div class="h-full bg-[#F59E01] transition-all duration-700 rounded-sm" id="progress-bar" style="width: 40%"></div>
 </div>
-<div class="font-label text-[10px] text-[#4C6043] mt-1.5" id="troops-remaining">5 troops to next milestone</div>
+<div class="font-label text-[10px] text-[#4C6043] mt-1.5" id="troops-remaining">6 troops to next milestone</div>
 </div>
 <!-- Milestone Pins -->
 <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -227,7 +227,7 @@
 <span class="font-label text-[10px] uppercase tracking-widest text-outline/50">10 Troops</span>
 </div>
 <div class="font-headline font-bold text-sm text-outline/40 uppercase tracking-tight">White Pin</div>
-<div class="font-label text-[10px] text-outline/30 mt-1" id="milestone-10-status">5 remaining</div>
+<div class="font-label text-[10px] text-outline/30 mt-1" id="milestone-10-status">6 remaining</div>
 </div>
 <!-- 25 Troop — Silver Pin -->
 <div class="p-3 bg-[#131411] border border-[#434840]/30 relative group" id="milestone-25">
@@ -236,7 +236,7 @@
 <span class="font-label text-[10px] uppercase tracking-widest text-outline/50">25 Troops</span>
 </div>
 <div class="font-headline font-bold text-sm text-outline/40 uppercase tracking-tight">Silver Pin</div>
-<div class="font-label text-[10px] text-outline/30 mt-1" id="milestone-25-status">20 remaining</div>
+<div class="font-label text-[10px] text-outline/30 mt-1" id="milestone-25-status">21 remaining</div>
 </div>
 <!-- 50 Troop — Gold Pin -->
 <div class="p-3 bg-[#131411] border border-[#434840]/30 relative group" id="milestone-50">
@@ -245,7 +245,7 @@
 <span class="font-label text-[10px] uppercase tracking-widest text-outline/50">50 Troops</span>
 </div>
 <div class="font-headline font-bold text-sm text-outline/40 uppercase tracking-tight">Gold Pin</div>
-<div class="font-label text-[10px] text-outline/30 mt-1" id="milestone-50-status">45 remaining</div>
+<div class="font-label text-[10px] text-outline/30 mt-1" id="milestone-50-status">46 remaining</div>
 </div>
 <!-- 75 Troop — Silver Coin Patch + Orange Kill Stripe -->
 <div class="p-3 bg-[#131411] border border-[#434840]/30 relative group" id="milestone-75">
@@ -254,7 +254,7 @@
 <span class="font-label text-[10px] uppercase tracking-widest text-outline/50">75 Troops</span>
 </div>
 <div class="font-headline font-bold text-sm text-outline/40 uppercase tracking-tight leading-tight">Coin Patch + Kill Stripe</div>
-<div class="font-label text-[10px] text-outline/30 mt-1" id="milestone-75-status">70 remaining</div>
+<div class="font-label text-[10px] text-outline/30 mt-1" id="milestone-75-status">71 remaining</div>
 </div>
 </div>
 <!-- Kill Stripe Tracker (visible after 75) -->
@@ -372,7 +372,7 @@ document.querySelectorAll('.mission-entry').forEach(function(el) {
 <script>
 // === Troop Milestone Tracker ===
 // Change this value to update all tracker displays
-var TROOP_COUNT = 5;
+var TROOP_COUNT = 4;
 
 (function() {
   var troops = TROOP_COUNT;
