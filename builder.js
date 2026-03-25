@@ -992,6 +992,124 @@ Tour <span class="text-outline">of</span> Duty
 </div>
 </div>
 </section>
+
+<!-- ==========================================================================
+     TROOP MILESTONE TRACKER (COMMENTED OUT)
+     ========================================================================
+     This section displays a reward milestone progress bar. It is currently
+     disabled because each Detachment/Garrison has different reward tiers.
+     Once your Detachment's milestones are confirmed, uncomment this block
+     and update the milestone values in the JavaScript at the bottom.
+     ========================================================================
+
+<section class="relative pt-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1 overflow-hidden rounded-lg">
+<div class="md:col-span-2 bg-background rounded-lg border border-outline-variant/30 overflow-hidden">
+<div class="p-6 pb-4 bg-surface flex flex-col md:flex-row md:items-center gap-6">
+<div class="flex-shrink-0">
+<p class="font-label text-secondary uppercase tracking-[0.2em] text-[9px] mb-0.5">
+<span class="material-symbols-outlined text-sm align-middle mr-1">military_tech</span> Troop Milestone Tracker
+</p>
+<div class="flex items-end gap-3 mt-1">
+<div class="font-headline font-extrabold text-4xl text-on-surface tracking-tighter" id="troop-count">${s.troopsCompleted || '0'}</div>
+<div class="pb-0.5">
+<div class="font-label text-[10px] text-outline uppercase tracking-widest">Troops Earned</div>
+<div class="font-label text-[10px] text-secondary uppercase tracking-wider font-bold">Next Milestone: <span id="next-milestone-label">TBD</span></div>
+</div>
+</div>
+</div>
+<div class="flex-grow space-y-1.5">
+<div class="flex justify-between items-end text-[9px] font-label uppercase tracking-widest">
+<div class="flex gap-4">
+<span class="text-secondary">10 <span class="opacity-50 text-on-surface">Tier 1</span></span>
+<span class="text-secondary">25 <span class="opacity-50 text-on-surface">Tier 2</span></span>
+<span class="text-secondary">50 <span class="opacity-50 text-on-surface">Tier 3</span></span>
+<span class="text-secondary">75 <span class="opacity-50 text-on-surface">Tier 4</span></span>
+</div>
+<div><span class="text-secondary font-bold" id="progress-text">${s.troopsCompleted || '0'}</span> <span class="opacity-40">/ 75 TOTAL</span></div>
+</div>
+<div class="relative h-4 w-full bg-[#262626] rounded overflow-hidden">
+<div class="absolute h-full left-0 top-0 bg-gradient-to-r from-[${s.secondary}] to-[${s.secondary}] z-10 transition-all duration-700" id="progress-bar" style="width: 0%"></div>
+<div class="absolute inset-0 z-20 opacity-30" style="background: repeating-linear-gradient(90deg, transparent, transparent 24.9%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.1) 25.1%)"></div>
+<div class="absolute inset-0 z-30 pointer-events-none" id="milestone-lines">
+<div class="absolute h-full w-px bg-white/20" style="left: 13.33%"></div>
+<div class="absolute h-full w-px bg-white/20" style="left: 33.33%"></div>
+<div class="absolute h-full w-px bg-white/20" style="left: 66.67%"></div>
+</div>
+</div>
+<div class="font-label text-[10px] text-primary mt-0.5" id="troops-remaining">Update milestones for your Detachment</div>
+</div>
+<div class="flex-shrink-0 border-l border-outline-variant/30 pl-6 hidden lg:block">
+<div class="text-[9px] text-outline uppercase tracking-widest mb-1">Current Reward</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-headline font-bold text-sm uppercase" id="current-reward-label">TBD</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-8 bg-surface flex flex-col justify-between">
+<div>
+<div class="font-label text-[10px] text-tertiary tracking-widest uppercase mb-4">Archive Link</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between group cursor-pointer">
+<span class="font-body text-sm text-on-surface group-hover:text-primary transition-colors">Your Forum Thread</span>
+<span class="material-symbols-outlined text-sm text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+<div class="w-full h-[1px] bg-outline-variant/20"></div>
+<div class="flex items-center justify-between group cursor-pointer">
+<span class="font-body text-sm text-on-surface group-hover:text-primary transition-colors">Campaign Log</span>
+<span class="material-symbols-outlined text-sm text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<script>
+(function() {
+  var troops = parseInt(document.getElementById('troop-count').textContent) || 0;
+
+  // UPDATE THESE MILESTONES FOR YOUR DETACHMENT
+  var milestones = [
+    { at: 10, label: 'Tier 1 Reward' },
+    { at: 25, label: 'Tier 2 Reward' },
+    { at: 50, label: 'Tier 3 Reward' },
+    { at: 75, label: 'Tier 4 Reward' }
+  ];
+
+  var nextMilestone = null;
+  for (var i = 0; i < milestones.length; i++) {
+    if (troops < milestones[i].at) { nextMilestone = milestones[i]; break; }
+  }
+
+  var nextLabel = document.getElementById('next-milestone-label');
+  var remaining = document.getElementById('troops-remaining');
+  var rewardLabel = document.getElementById('current-reward-label');
+  var progressBar = document.getElementById('progress-bar');
+  var progressText = document.getElementById('progress-text');
+
+  if (progressText) progressText.textContent = troops;
+
+  if (nextMilestone) {
+    nextLabel.textContent = nextMilestone.at + ' — ' + nextMilestone.label;
+    remaining.textContent = (nextMilestone.at - troops) + ' troops to next milestone';
+    rewardLabel.textContent = nextMilestone.label;
+    var pct = Math.min((troops / nextMilestone.at) * (nextMilestone.at / 75) * 100, 100);
+    progressBar.style.width = pct + '%';
+  } else {
+    nextLabel.textContent = 'All Milestones Earned';
+    remaining.textContent = 'All milestones achieved!';
+    rewardLabel.textContent = 'Max Tier';
+    progressBar.style.width = '100%';
+  }
+})();
+<\/script>
+
+     END TROOP MILESTONE TRACKER
+     ========================================================================== -->
+
 </main>
 ${nav.footer}
 </div>
