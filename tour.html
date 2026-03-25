@@ -251,98 +251,6 @@
 </div>
 </div>
 </div>
-<!-- Badge Status & Equipment Log Row -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#131411]">
-<!-- Badge Status -->
-<div class="bg-[#1b1c19] p-4">
-<div class="flex items-center justify-between mb-3">
-<h2 class="font-label text-[11px] font-bold uppercase tracking-widest flex items-center gap-2">
-<span class="material-symbols-outlined text-[#F59E01] text-sm">verified</span>
-Badge Status
-</h2>
-</div>
-<div class="flex gap-2">
-<!-- 10 Troop — White Pin -->
-<div class="flex-1 bg-[#131411] p-2 rounded flex flex-col items-center border border-[#434840]/30 relative" id="milestone-10">
-<span class="material-symbols-outlined text-outline/30 text-lg mb-1" id="pin-10">military_tech</span>
-<span class="text-[8px] font-bold uppercase tracking-tighter text-outline/40" id="milestone-10-label">White</span>
-<div class="font-label text-[8px] text-outline/30 mt-0.5" id="milestone-10-status">6 left</div>
-</div>
-<!-- 25 Troop — Silver Pin -->
-<div class="flex-1 bg-[#131411] p-2 rounded flex flex-col items-center border border-[#434840]/30 relative" id="milestone-25">
-<span class="material-symbols-outlined text-outline/30 text-lg mb-1" id="pin-25">military_tech</span>
-<span class="text-[8px] font-bold uppercase tracking-tighter text-outline/40" id="milestone-25-label">Silver</span>
-<div class="font-label text-[8px] text-outline/30 mt-0.5" id="milestone-25-status">21 left</div>
-</div>
-<!-- 50 Troop — Gold Pin -->
-<div class="flex-1 bg-[#131411] p-2 rounded flex flex-col items-center border border-[#434840]/30 relative" id="milestone-50">
-<span class="material-symbols-outlined text-outline/30 text-lg mb-1" id="pin-50">military_tech</span>
-<span class="text-[8px] font-bold uppercase tracking-tighter text-outline/40" id="milestone-50-label">Gold</span>
-<div class="font-label text-[8px] text-outline/30 mt-0.5" id="milestone-50-status">46 left</div>
-</div>
-<!-- 75 Troop — Coin Patch -->
-<div class="flex-1 bg-[#131411] p-2 rounded flex flex-col items-center border border-[#434840]/30 relative" id="milestone-75">
-<span class="material-symbols-outlined text-outline/30 text-lg mb-1" id="pin-75">shield</span>
-<span class="text-[8px] font-bold uppercase tracking-tighter text-outline/40" id="milestone-75-label">Coin</span>
-<div class="font-label text-[8px] text-outline/30 mt-0.5" id="milestone-75-status">71 left</div>
-</div>
-</div>
-</div>
-<!-- Equipment Log -->
-<div class="bg-[#1b1c19] p-4">
-<div class="flex items-center justify-between mb-3">
-<h2 class="font-label text-[11px] font-bold uppercase tracking-widest flex items-center gap-2">
-<span class="material-symbols-outlined text-[#F59E01] text-sm">terminal</span>
-Equipment Log
-</h2>
-</div>
-<div class="space-y-1.5" id="equipment-log">
-<div class="flex items-center justify-between text-[10px] bg-white/5 p-1.5 px-3 rounded border-l-2 border-[#F59E01]/30 opacity-60">
-<span class="font-bold uppercase opacity-70">White Pin</span>
-<span class="text-[8px] italic text-outline/50">6 remaining</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Kill Stripe Tracker (visible after 75) -->
-<div class="hidden bg-[#1b1c19] p-4 border-t border-[#131411]" id="kill-stripe-section">
-<div class="font-label text-[10px] text-[#6D0827] tracking-widest uppercase mb-3 flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">bolt</span> Kill Stripe Progress
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-<div class="p-3 bg-[#131411] rounded hud-border">
-<div class="flex justify-between items-center mb-1.5">
-<span class="font-label text-[10px] text-[#F59E01] uppercase tracking-widest">Yellow Stripe</span>
-<span class="font-label text-[10px] text-outline" id="yellow-stripe-text">Every 10 Troops</span>
-</div>
-<div class="relative h-3 w-full bg-[#262626] rounded overflow-hidden">
-<div class="absolute h-full left-0 top-0 bg-[#F59E01] transition-all duration-700 z-10" id="yellow-stripe-bar" style="width: 0%"></div>
-<div class="absolute inset-0 z-20 segmented-progress-bg opacity-30"></div>
-</div>
-<div class="font-label text-[10px] text-outline/50 mt-1" id="yellow-stripe-status"></div>
-</div>
-<div class="p-3 bg-[#131411] rounded hud-border">
-<div class="flex justify-between items-center mb-1.5">
-<span class="font-label text-[10px] text-[#E87040] uppercase tracking-widest">Orange Stripe</span>
-<span class="font-label text-[10px] text-outline" id="orange-stripe-text">Every 25 Troops</span>
-</div>
-<div class="relative h-3 w-full bg-[#262626] rounded overflow-hidden">
-<div class="absolute h-full left-0 top-0 bg-[#E87040] transition-all duration-700 z-10" id="orange-stripe-bar" style="width: 0%"></div>
-<div class="absolute inset-0 z-20 segmented-progress-bg opacity-30"></div>
-</div>
-<div class="font-label text-[10px] text-outline/50 mt-1" id="orange-stripe-status"></div>
-</div>
-</div>
-</div>
-<!-- Intel Line -->
-<div class="bg-[#131411] p-2 px-4 flex items-center justify-between overflow-hidden">
-<div class="flex items-center gap-3 overflow-hidden">
-<span class="material-symbols-outlined text-[#F59E01] text-sm">info</span>
-<p class="text-[9px] text-outline uppercase tracking-widest truncate">
-<span class="text-[#F59E01] font-bold">INTEL:</span> Pins shipped quarterly // Coin Patches include Elite Armory ID // Rewards active until season end.
-</p>
-</div>
-</div>
 </div>
 <div class="p-8 bg-[#1b1c19] flex flex-col justify-between">
 <div>
@@ -437,10 +345,10 @@ var TROOP_COUNT = 4;
 (function() {
   var troops = TROOP_COUNT;
   var milestones = [
-    { at: 10, label: 'White Pin', shortLabel: 'White', pinId: 'pin-10', cardId: 'milestone-10', statusId: 'milestone-10-status', labelId: 'milestone-10-label', color: '#e4e2de', icon: 'military_tech' },
-    { at: 25, label: 'Silver Pin', shortLabel: 'Silver', pinId: 'pin-25', cardId: 'milestone-25', statusId: 'milestone-25-status', labelId: 'milestone-25-label', color: '#C0C0C0', icon: 'military_tech' },
-    { at: 50, label: 'Gold Pin', shortLabel: 'Gold', pinId: 'pin-50', cardId: 'milestone-50', statusId: 'milestone-50-status', labelId: 'milestone-50-label', color: '#F59E01', icon: 'military_tech' },
-    { at: 75, label: 'Coin Patch + Kill Stripe', shortLabel: 'Coin', pinId: 'pin-75', cardId: 'milestone-75', statusId: 'milestone-75-status', labelId: 'milestone-75-label', color: '#C0C0C0', icon: 'shield' }
+    { at: 10, label: 'White Pin' },
+    { at: 25, label: 'Silver Pin' },
+    { at: 50, label: 'Gold Pin' },
+    { at: 75, label: 'Coin Patch + Kill Stripe' }
   ];
 
   // Update troop count display
@@ -450,39 +358,6 @@ var TROOP_COUNT = 4;
   var nextMilestone = null;
   for (var i = 0; i < milestones.length; i++) {
     if (troops < milestones[i].at) { nextMilestone = milestones[i]; break; }
-  }
-
-  // Update badge status cards
-  for (var i = 0; i < milestones.length; i++) {
-    var m = milestones[i];
-    var pin = document.getElementById(m.pinId);
-    var card = document.getElementById(m.cardId);
-    var status = document.getElementById(m.statusId);
-    var label = document.getElementById(m.labelId);
-    if (troops >= m.at) {
-      // Earned state
-      pin.style.color = m.color;
-      pin.style.fontVariationSettings = "'FILL' 1";
-      pin.style.filter = 'drop-shadow(0 0 6px ' + m.color + '80)';
-      card.style.borderColor = m.color + '60';
-      label.style.color = m.color;
-      status.textContent = 'Earned';
-      status.style.color = '#4C6043';
-      // Add pulse dot for most recently earned
-      if (i === 0 || troops >= milestones[i].at) {
-        var isLatestEarned = (i === milestones.length - 1 || troops < milestones[i + 1].at);
-        if (isLatestEarned) {
-          var dot = document.createElement('div');
-          dot.className = 'absolute -top-1 -right-1 w-2 h-2 bg-[#F59E01] rounded-full animate-pulse';
-          card.appendChild(dot);
-        }
-      }
-    } else {
-      // Locked state — dimmed
-      card.style.opacity = '0.4';
-      var remaining = m.at - troops;
-      status.textContent = remaining + ' left';
-    }
   }
 
   // Update next milestone label & segmented progress bar
@@ -507,42 +382,6 @@ var TROOP_COUNT = 4;
     rewardLabel.textContent = 'Kill Stripes';
   }
 
-  // Build equipment log entries
-  var logContainer = document.getElementById('equipment-log');
-  logContainer.innerHTML = '';
-  for (var i = 0; i < milestones.length; i++) {
-    var m = milestones[i];
-    var entry = document.createElement('div');
-    entry.className = 'flex items-center justify-between text-[10px] bg-white/5 p-1.5 px-3 rounded border-l-2';
-    if (troops >= m.at) {
-      entry.className += ' border-[#F59E01]';
-      entry.innerHTML = '<span class="font-bold uppercase">' + m.label + '</span><span class="text-[8px] font-bold text-[#4C6043] uppercase">Earned</span>';
-    } else {
-      entry.className += ' border-[#F59E01]/30 opacity-60';
-      entry.innerHTML = '<span class="font-bold uppercase opacity-70">' + m.label + '</span><span class="text-[8px] italic text-outline/50">' + (m.at - troops) + ' remaining</span>';
-    }
-    logContainer.appendChild(entry);
-  }
-
-  // Kill stripe section (only visible at 75+)
-  if (troops >= 75) {
-    var section = document.getElementById('kill-stripe-section');
-    section.classList.remove('hidden');
-
-    var troopsPast75 = troops - 75;
-
-    // Yellow stripes (every 10)
-    var yellowEarned = Math.floor(troopsPast75 / 10);
-    var yellowProgress = ((troopsPast75 % 10) / 10) * 100;
-    document.getElementById('yellow-stripe-bar').style.width = yellowProgress + '%';
-    document.getElementById('yellow-stripe-status').textContent = yellowEarned + ' earned \u00B7 ' + (10 - (troopsPast75 % 10)) + ' to next';
-
-    // Orange stripes (every 25)
-    var orangeEarned = Math.floor(troopsPast75 / 25);
-    var orangeProgress = ((troopsPast75 % 25) / 25) * 100;
-    document.getElementById('orange-stripe-bar').style.width = orangeProgress + '%';
-    document.getElementById('orange-stripe-status').textContent = orangeEarned + ' earned \u00B7 ' + (25 - (troopsPast75 % 25)) + ' to next';
-  }
 })();
 </script>
 <script src="swipe-nav.js"></script>
