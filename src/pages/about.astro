@@ -1,98 +1,205 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import SideNav from '../components/SideNav.astro';
+import TopBar from '../components/TopBar.astro';
+import BottomNav from '../components/BottomNav.astro';
 import Footer from '../components/Footer.astro';
 import siteData from '../data/site.json';
 
 const { troopCount, yearsActive } = siteData;
-const base = import.meta.env.BASE_URL;
+
+const features = [
+  {
+    icon: 'verified',
+    title: '501st Legion Approved',
+    desc: 'Officially approved by the 501st Legion — the world\'s premier Star Wars costuming organization.',
+    color: 'storm',
+  },
+  {
+    icon: 'military_tech',
+    title: 'Bounty Hunters Guild',
+    desc: 'Verified member of the BHG, the dedicated Bounty Hunter costuming subgroup of the 501st.',
+    color: 'melon',
+  },
+  {
+    icon: 'volunteer_activism',
+    title: 'Charity First',
+    desc: 'Every deployment is a charitable appearance — hospitals, schools, libraries, and community events.',
+    color: 'cardinal',
+  },
+] as const;
 ---
 
-<Layout title="About" description="About BH-7024 — Boba Fett Re-Armored, 501st Legion Wisconsin Garrison.">
-  <Header activePage="about" />
+<Layout title="Intel File" description="Personnel file for BH-7024 — Boba Fett Re-Armored, 501st Legion Wisconsin Garrison.">
+  <div class="flex min-h-screen bg-background">
+    <SideNav activePage="about" />
 
-  <main class="max-w-5xl mx-auto px-4 py-10 space-y-10">
+    <div class="flex-1 flex flex-col md:ml-64">
+      <TopBar activePage="about" />
 
-    <!-- Hero -->
-    <section class="hud-card-glow p-6 sm:p-8">
-      <div class="sm:flex sm:items-start sm:gap-8">
-        <div class="shrink-0 mb-6 sm:mb-0">
-          <div class="w-32 h-32 sm:w-48 sm:h-48 rounded-lg overflow-hidden border border-outline-variant bg-surface">
-            <img
-              src={`${base}images/hero-bg.jpg`}
-              alt="BH-7024 Boba Fett Re-Armored"
-              class="w-full h-full object-cover object-top"
-            />
+      <main class="flex-grow pt-20 pb-24 md:pb-12 px-6 md:px-12">
+
+        <!-- Hero Section -->
+        <section class="mb-16 relative">
+          <div class="flex flex-col md:flex-row gap-12 items-start">
+            <div class="w-full md:w-2/3">
+              <span class="font-label text-xs tracking-[0.3em] text-melon mb-4 block uppercase">Personnel File — BH-7024</span>
+              <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter leading-none mb-8 uppercase">
+                Intel<br /><span class="text-storm">File.</span>
+              </h1>
+              <p class="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed">
+                Adventures of a Bounty Hunter in the 501st Legion Wisconsin Garrison, donning the Re-Armored armor of Boba Fett from <em>The Book of Boba Fett</em>. What started as a passion for Star Wars and prop-building evolved into a commitment to the 501st's core mission: charitable appearances and community outreach.
+              </p>
+            </div>
+
+            <!-- Profile image + status -->
+            <div class="w-full md:w-1/3 space-y-4">
+              <div class="relative overflow-hidden">
+                <img
+                  src="/images/about-profile.jpg"
+                  alt="BH-7024 Boba Fett Re-Armored"
+                  class="w-full aspect-square object-cover object-top"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                  <div class="font-label text-[10px] text-melon uppercase tracking-widest">Hunter ID</div>
+                  <div class="font-headline font-black text-2xl text-on-surface">BH-7024</div>
+                </div>
+              </div>
+              <div class="bg-surface-container-high p-4 border-l-4 border-storm">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="w-2 h-2 rounded-full bg-storm animate-pulse"></span>
+                  <span class="font-label text-[10px] text-storm uppercase tracking-widest">Active Operative</span>
+                </div>
+                <div class="font-label text-xs text-outline uppercase tracking-wider">Devastator Squad · Wisconsin Garrison</div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="space-y-2">
-          <p class="section-label">Personnel File</p>
-          <h1 class="font-display font-black text-3xl sm:text-4xl uppercase tracking-wide text-on-surface">
-            BH-7024
-          </h1>
-          <p class="font-label text-sm text-secondary font-bold tracking-widest uppercase">
-            Verified 501st Approved Member
-          </p>
-          <div class="flex flex-wrap gap-2 mt-3">
-            {['501st Legion', 'Bounty Hunters Guild', 'Wisconsin Garrison', 'Devastator Squad'].map((badge) => (
-              <span class="text-[10px] font-label font-bold tracking-widest uppercase px-2 py-0.5 rounded border border-outline-variant text-outline">
-                {badge}
-              </span>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="mb-16 grid grid-cols-2 md:grid-cols-4 gap-1">
+          {([
+            [String(troopCount), 'Troops Completed'],
+            [String(yearsActive), 'Years Active'],
+            ['WI', 'Home Garrison'],
+            ['501st', 'Organization'],
+          ] as const).map(([val, label]) => (
+            <div class="bg-surface-container-low p-6 text-center">
+              <p class="font-headline font-black text-4xl text-melon">{val}</p>
+              <p class="font-label text-[10px] uppercase tracking-widest text-outline mt-2">{label}</p>
+            </div>
+          ))}
+        </section>
+
+        <!-- Bio Section -->
+        <section class="mb-16">
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="font-headline text-3xl font-bold uppercase tracking-tight">Background</h2>
+            <div class="h-[1px] flex-grow bg-surface-container-high"></div>
+          </div>
+          <div class="flex flex-col lg:flex-row gap-12">
+            <div class="lg:w-2/3 space-y-6">
+              <div class="relative pl-8 border-l-2 border-cardinal">
+                <p class="font-body text-on-surface-variant leading-relaxed">
+                  BH-7024 represents Boba Fett in his Re-Armored configuration from <em>The Book of Boba Fett</em>. The costume is built from BobaMAker armor and a RedBowProps V3 helmet — painted with Montana Black paints and weathered to match screen-accurate battle wear.
+                </p>
+              </div>
+              <div class="relative pl-8 border-l-2 border-storm">
+                <p class="font-body text-on-surface-variant leading-relaxed">
+                  The 501st Legion is the world's premier Star Wars costuming organization, bringing the galaxy far, far away to fans of all ages at hospitals, schools, and events across Wisconsin and beyond. As Squad Leader of Devastator Squad and active member of the Bounty Hunters Guild, BH-7024 maintains a consistent presence at regional events.
+                </p>
+              </div>
+              <div class="relative pl-8 border-l-2 border-melon">
+                <p class="font-body text-on-surface-variant leading-relaxed">
+                  Each deployment is logged in the Tales of the Hunt mission record — building toward the milestones that mark dedication to the craft: White Pin at 10 troops, Silver at 25, Gold at 50, and Coin at 75.
+                </p>
+              </div>
+            </div>
+
+            <!-- Key details sidebar -->
+            <div class="lg:w-1/3 space-y-4">
+              <div class="bg-surface-container-low p-6">
+                <div class="font-label text-[10px] text-outline uppercase tracking-widest mb-4">Affiliation</div>
+                <div class="space-y-3">
+                  {[
+                    { label: 'Organization', val: '501st Legion' },
+                    { label: 'Garrison', val: 'Wisconsin Garrison' },
+                    { label: 'Squad', val: 'Devastator Squad' },
+                    { label: 'Rank', val: 'Squad Leader' },
+                    { label: 'Guild', val: 'Bounty Hunters Guild' },
+                    { label: 'Costume', val: 'Boba Fett (Re-Armored)' },
+                  ].map(({ label, val }) => (
+                    <div class="flex justify-between text-xs border-b border-outline-variant/30 pb-2 last:border-0">
+                      <span class="font-label text-outline uppercase tracking-wider">{label}</span>
+                      <span class="font-label font-bold text-on-surface">{val}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Feature Cards -->
+        <section class="mb-16">
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="font-headline text-3xl font-bold uppercase tracking-tight">The Mission</h2>
+            <div class="h-[1px] flex-grow bg-surface-container-high"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {features.map((f) => (
+              <div class={`bg-surface-container-low p-8 border-t-2 ${f.color === 'storm' ? 'border-storm' : f.color === 'melon' ? 'border-melon' : 'border-cardinal'}`}>
+                <span class={`material-symbols-outlined text-3xl mb-4 block ${f.color === 'storm' ? 'text-storm' : f.color === 'melon' ? 'text-melon' : 'text-cardinal'}`}
+                  style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">
+                  {f.icon}
+                </span>
+                <h3 class="font-headline font-bold text-lg uppercase mb-3">{f.title}</h3>
+                <p class="font-body text-sm text-on-surface-variant leading-relaxed">{f.desc}</p>
+              </div>
             ))}
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- Stats -->
-    <section class="grid grid-cols-3 gap-4">
-      {([
-        [String(troopCount), 'Troops Completed'],
-        [String(yearsActive), 'Years of Service'],
-        ['WI', 'Home Garrison'],
-      ] as const).map(([val, label]) => (
-        <div class="hud-card p-4 text-center">
-          <p class="font-display font-black text-3xl" style="color: #F59E01">{val}</p>
-          <p class="section-label mt-1">{label}</p>
-        </div>
-      ))}
-    </section>
+        <!-- External Links -->
+        <section>
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="font-headline text-3xl font-bold uppercase tracking-tight">Links</h2>
+            <div class="h-[1px] flex-grow bg-surface-container-high"></div>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://www.501st.com/" target="_blank" rel="noopener noreferrer"
+              class="flex items-center gap-3 px-6 py-3 bg-surface-container-low border border-outline-variant/30 hover:border-storm/50 font-headline text-sm uppercase tracking-wider transition-all group">
+              <span class="material-symbols-outlined text-storm">shield</span>
+              501st Legion
+              <span class="material-symbols-outlined text-outline text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+            <a href="https://thebhg.net/" target="_blank" rel="noopener noreferrer"
+              class="flex items-center gap-3 px-6 py-3 bg-surface-container-low border border-outline-variant/30 hover:border-melon/50 font-headline text-sm uppercase tracking-wider transition-all group">
+              <span class="material-symbols-outlined text-melon">gavel</span>
+              Bounty Hunters Guild
+              <span class="material-symbols-outlined text-outline text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+            <a href="https://www.wigarrison.com/" target="_blank" rel="noopener noreferrer"
+              class="flex items-center gap-3 px-6 py-3 bg-surface-container-low border border-outline-variant/30 hover:border-cardinal/50 font-headline text-sm uppercase tracking-wider transition-all group">
+              <span class="material-symbols-outlined text-cardinal">groups</span>
+              Wisconsin Garrison
+              <span class="material-symbols-outlined text-outline text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+            <a href="/tour.html"
+              class="flex items-center gap-3 px-6 py-3 bg-storm text-on-surface border border-storm hover:brightness-110 font-headline text-sm uppercase tracking-wider transition-all group">
+              <span class="material-symbols-outlined">radar</span>
+              Mission Log
+              <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </section>
 
-    <!-- Background -->
-    <section class="hud-card p-6 space-y-4">
-      <h2 class="font-display font-bold text-lg uppercase tracking-wide text-on-surface">Background</h2>
-      <div class="space-y-3 font-sans text-sm text-outline leading-relaxed">
-        <p>
-          BH-7024 represents Boba Fett in his Re-Armored configuration from
-          <em>The Book of Boba Fett</em>. What started as a passion for Star Wars and
-          prop-building evolved into a commitment to the 501st Legion's core mission:
-          charitable appearances and community outreach.
-        </p>
-        <p>
-          The 501st Legion is the world's premier Star Wars costuming organization, bringing
-          the galaxy far, far away to fans of all ages at hospitals, schools, and events
-          across Wisconsin and beyond.
-        </p>
-        <p>
-          As Squad Leader of Devastator Squad and active member of the Bounty Hunters Guild,
-          BH-7024 maintains a consistent presence at regional events, logging each deployment
-          in the Tales of the Hunt mission record.
-        </p>
-      </div>
-    </section>
+      </main>
 
-    <!-- Links -->
-    <section class="hud-card p-5">
-      <p class="section-label mb-3">External Links</p>
-      <div class="flex flex-wrap gap-3">
-        <a href="https://www.501st.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost">501st Legion</a>
-        <a href="https://thebhg.net/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Bounty Hunters Guild</a>
-        <a href="https://www.wigarrison.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Wisconsin Garrison</a>
-        <a href={`${base}tour.html`} class="btn-ghost">Tour of Duty →</a>
-      </div>
-    </section>
+      <Footer />
+    </div>
+  </div>
 
-  </main>
-
-  <Footer />
+  <BottomNav activePage="about" />
 </Layout>

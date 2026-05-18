@@ -1,0 +1,54 @@
+---
+interface Props {
+  activePage?: 'home' | 'tour' | 'armory' | 'about';
+}
+const { activePage } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'The Log', id: 'home' },
+  { href: '/tour.html', label: 'Tour of Duty', id: 'tour' },
+  { href: '/armory.html', label: 'Armory', id: 'armory' },
+  { href: '/about.html', label: 'Intel', id: 'about' },
+];
+---
+
+<header class="bg-background fixed top-0 left-0 right-0 z-50">
+  <div class="flex justify-between items-center w-full px-6 h-16 md:pl-[17rem]">
+    <div class="text-xl font-black text-on-surface-variant tracking-widest font-headline uppercase md:hidden">
+      MS2 BOBA
+    </div>
+    <nav class="hidden md:flex items-center gap-8 font-headline tracking-tighter uppercase font-bold text-sm">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`transition-colors ${
+            activePage === link.id
+              ? 'text-melon border-b-2 border-melon pb-1'
+              : 'text-on-surface-variant/60 hover:text-on-surface-variant'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <div class="flex gap-2 items-center">
+      <a
+        href="https://www.501st.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden lg:block text-[9px] font-label font-bold tracking-widest uppercase text-on-surface-variant/40 hover:text-on-surface-variant/70 transition-colors px-2 py-1"
+      >
+        501st
+      </a>
+      <a
+        href="https://thebhg.net/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden lg:block text-[9px] font-label font-bold tracking-widest uppercase text-on-surface-variant/40 hover:text-on-surface-variant/70 transition-colors px-2 py-1"
+      >
+        BHG
+      </a>
+    </div>
+  </div>
+  <div class="bg-surface-container-low h-[1px] w-full"></div>
+</header>

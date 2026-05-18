@@ -1,116 +1,234 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import SideNav from '../components/SideNav.astro';
+import TopBar from '../components/TopBar.astro';
+import BottomNav from '../components/BottomNav.astro';
 import Footer from '../components/Footer.astro';
-import NextDeployment from '../components/NextDeployment.astro';
 import siteData from '../data/site.json';
 
 const { troopCount, yearsActive, nextDeployment, missions } = siteData;
-const base = import.meta.env.BASE_URL;
 const latestMission = missions[0];
+
+function formatCountdown(isoDate: string) {
+  const target = new Date(isoDate);
+  const now = new Date();
+  const diff = target.getTime() - now.getTime();
+  if (diff <= 0) return null;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  return days;
+}
+
+const daysUntilNext = nextDeployment?.isoDate ? formatCountdown(nextDeployment.isoDate) : null;
 ---
 
-<Layout title="Home">
-  <Header activePage="home" />
+<Layout title="Command">
+  <div class="flex min-h-screen bg-background">
+    <SideNav activePage="home" />
 
-  <main>
-    <!-- Hero -->
-    <section class="relative overflow-hidden">
-      <div
-        class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-        style={`background-image: url('${base}images/hero-bg.jpg')`}
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
-      <div class="relative max-w-5xl mx-auto px-4 pt-20 pb-24 text-center">
-        <p class="section-label mb-3">Bounty Hunter // 501st Legion</p>
-        <h1 class="font-display font-black text-6xl sm:text-8xl tracking-[0.08em] uppercase text-on-surface">
-          Boba Fett
-        </h1>
-        <p class="mt-4 font-label text-outline text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-          Adventures of a Bounty Hunter in the 501st Legion Wisconsin Garrison,
-          donning the Re-Armored armor of Boba Fett from The Book of Boba Fett.
-        </p>
-        <div class="mt-8 flex items-center justify-center gap-4">
-          <a href={`${base}tour.html`} class="btn-primary max-w-[160px]">
-            Mission Log
-          </a>
-          <a href={`${base}armory.html`} class="btn-ghost">
-            View Arsenal
-          </a>
-        </div>
-      </div>
-    </section>
+    <div class="flex-1 flex flex-col md:ml-64">
+      <TopBar activePage="home" />
 
-    <div class="max-w-5xl mx-auto px-4 pb-16 space-y-12">
-
-      <!-- Operational Status -->
-      <section>
-        <p class="section-label mb-3">Operational Status</p>
-        <div class="hud-card-glow p-5 grid grid-cols-2 sm:grid-cols-3 gap-0 divide-x-0">
-          {([
-            ['ID#', 'BH-7024'],
-            ['Troops Completed', String(troopCount)],
-            ['Missions Logged', String(troopCount)],
-            ['Years Active', String(yearsActive)],
-            ['Rank', 'Squad Leader'],
-            ['Squad', 'Devastator Squad'],
-            ['Garrison', 'Wisconsin'],
-            ['Costume', 'Boba Fett (RE-ARMORED)'],
-          ] as const).map(([key, val], i) => (
-            <div class={`stat-row col-span-1 px-2 ${i % 2 === 0 ? 'pr-4' : 'pl-4'}`}>
-              <span class="font-label text-[11px] text-outline">{key}</span>
-              <span class={`font-label font-bold text-sm ${key === 'Troops Completed' || key === 'Missions Logged' ? 'text-secondary' : 'text-on-surface'}`}>
-                {val}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <!-- Latest mission card -->
-      {latestMission && (
-        <section>
-          <p class="section-label mb-3">Latest Mission</p>
-          <a href={`${base}tour.html`} class="block hud-card overflow-hidden hover:border-secondary/30 transition-colors group">
-            <div class="aspect-video bg-surface-low overflow-hidden">
-              <img
-                src={latestMission.photo.startsWith('http') ? latestMission.photo : `${base}${latestMission.photo}`}
-                alt={latestMission.eventName}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div class="p-4">
-              <p class="section-label">Mission {String(latestMission.number).padStart(2, '0')}</p>
-              <h2 class="font-display font-bold text-xl uppercase mt-1 text-on-surface">
-                {latestMission.eventName}
-              </h2>
-              <p class="font-label text-sm text-outline mt-1">
-                {latestMission.location} · {latestMission.date}
+      <main class="flex-grow pt-16 pb-20 md:pb-0">
+        <!-- Hero Section -->
+        <section class="relative min-h-[600px] flex items-center px-8 md:px-16 overflow-hidden">
+          <div
+            class="absolute inset-0 z-0 opacity-25 bg-cover bg-center"
+            style="background-image: linear-gradient(to bottom, rgba(19,20,17,0.6), rgba(19,20,17,1)), url('/images/hero-bg.jpg')"
+          ></div>
+          <div class="relative z-10 w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="flex-1 space-y-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 bg-storm text-white border-l-4 border-melon">
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">verified</span>
+                <span class="font-label text-xs uppercase tracking-[0.2em] font-bold">Authenticated Legionnaire</span>
+              </div>
+              <h1 class="font-headline text-7xl md:text-9xl font-extrabold tracking-tighter leading-none text-on-surface uppercase">
+                BOBA <br /><span class="text-storm">FETT</span>
+              </h1>
+              <p class="font-body text-lg text-on-surface-variant max-w-lg leading-relaxed">
+                Adventures of a Bounty Hunter in the 501st Legion. Documenting every deployment, every gear refinement, and the camaraderie of the Empire's finest.
               </p>
-              <p class="font-label text-xs text-secondary mt-2 font-bold tracking-wider uppercase group-hover:underline">
-                View all missions →
-              </p>
+              <div class="flex flex-wrap gap-4 pt-4">
+                <a href="/tour.html" class="bg-melon text-black px-8 py-4 font-headline font-bold uppercase tracking-wider flex items-center gap-3 hover:opacity-90 transition-all group">
+                  Mission Log
+                  <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+                <a href="/armory.html" class="border border-cardinal/50 hover:border-cardinal hover:text-cardinal transition-all px-8 py-4 font-headline font-bold uppercase tracking-wider text-on-surface">
+                  View Arsenal
+                </a>
+              </div>
             </div>
-          </a>
-        </section>
-      )}
 
-      <!-- Next Deployment -->
-      <section>
-        <p class="section-label mb-4">Deployment Schedule</p>
-        <div class="hud-card p-6">
-          <!-- Timeline spine -->
-          <div class="relative">
-            <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-outline-variant" />
-            <div class="space-y-8">
-              <NextDeployment deployment={nextDeployment ?? null} />
+            <!-- Status Module -->
+            <div class="w-full md:w-80 space-y-4">
+              <div class="bg-surface-container-low p-6 border-l-2 border-cardinal shadow-2xl">
+                <div class="flex justify-between items-start mb-6">
+                  <span class="font-label text-[10px] text-melon uppercase tracking-[0.3em]">Operational Status</span>
+                  <span class="w-2 h-2 rounded-full bg-melon animate-pulse"></span>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+                    <span class="text-outline uppercase font-label">Hunter ID</span>
+                    <span class="text-on-surface font-bold font-label">BH-7024</span>
+                  </div>
+                  <div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+                    <span class="text-outline uppercase font-label">Troops Logged</span>
+                    <span class="text-melon font-bold font-label text-base">{troopCount}</span>
+                  </div>
+                  <div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+                    <span class="text-outline uppercase font-label">Years Active</span>
+                    <span class="text-on-surface font-bold font-label">{yearsActive}</span>
+                  </div>
+                  <div class="flex justify-between text-xs">
+                    <span class="text-outline uppercase font-label">Squad</span>
+                    <span class="text-on-surface font-bold font-label">Devastator</span>
+                  </div>
+                </div>
+              </div>
+              {daysUntilNext !== null && nextDeployment && (
+                <div class="bg-surface-container p-4 border-l-2 border-storm">
+                  <div class="font-label text-[10px] text-storm uppercase tracking-widest mb-1">Next Deployment</div>
+                  <div class="font-headline font-bold text-2xl text-melon">{daysUntilNext} DAYS</div>
+                  <div class="font-label text-xs text-on-surface-variant mt-1">{nextDeployment.name}</div>
+                  <div class="font-label text-[10px] text-outline mt-0.5">{nextDeployment.date} · {nextDeployment.time}</div>
+                </div>
+              )}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
+        <!-- Bento Grid: Recent Activity -->
+        <section class="px-8 md:px-16 py-16 max-w-7xl mx-auto">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div class="space-y-2">
+              <h2 class="font-headline text-4xl font-bold uppercase tracking-tight">Recent Activity</h2>
+              <p class="font-label text-xs text-outline tracking-widest uppercase">Encryption Level: Sigma-9</p>
+            </div>
+            <a href="/tour.html" class="text-melon font-label text-xs uppercase tracking-widest hover:underline">View All Missions →</a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Large feature card: latest mission -->
+            {latestMission && (
+              <a href="/tour.html" class="md:col-span-2 bg-surface-container-low overflow-hidden relative group flex flex-col justify-end min-h-[320px]">
+                <div class="absolute inset-0">
+                  <img
+                    src={latestMission.photo.startsWith('http') ? latestMission.photo : `/${latestMission.photo}`}
+                    alt={latestMission.eventName}
+                    class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+                </div>
+                <div class="relative z-10 p-8">
+                  <div class="bg-melon text-black inline-block px-3 py-1 text-[10px] uppercase font-bold tracking-widest mb-4">
+                    Latest Mission
+                  </div>
+                  <h3 class="font-headline text-3xl font-bold mb-2">{latestMission.eventName}</h3>
+                  <p class="text-on-surface-variant font-body text-sm">{latestMission.location} · {latestMission.date}</p>
+                  <div class="mt-4 font-label text-xs text-melon uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all">
+                    <span>View Mission Log</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                  </div>
+                </div>
+              </a>
+            )}
+
+            <!-- Next deployment card -->
+            <div class={`bg-surface-container-low p-6 flex flex-col gap-4 border-t border-storm ${!nextDeployment || daysUntilNext === null ? 'opacity-60' : ''}`}>
+              <div class="text-storm">
+                <span class="material-symbols-outlined text-4xl">event</span>
+              </div>
+              <h4 class="font-headline text-lg font-bold uppercase">Next Deployment</h4>
+              {nextDeployment && daysUntilNext !== null ? (
+                <>
+                  <p class="text-sm text-on-surface-variant">{nextDeployment.name}</p>
+                  <p class="font-label text-xs text-on-surface-variant/70">{nextDeployment.location}</p>
+                  <div class="mt-auto font-label text-[10px] text-outline uppercase tracking-widest">
+                    {nextDeployment.date} · {daysUntilNext}d out
+                  </div>
+                </>
+              ) : (
+                <p class="text-sm text-on-surface-variant">No upcoming deployments scheduled.</p>
+              )}
+            </div>
+
+            <!-- Mission stats card -->
+            <div class="bg-surface-container-low p-6 flex flex-col gap-4 border-t border-cardinal">
+              <div class="text-cardinal">
+                <span class="material-symbols-outlined text-4xl">military_tech</span>
+              </div>
+              <h4 class="font-headline text-lg font-bold uppercase">Mission Record</h4>
+              <p class="text-sm text-on-surface-variant">{troopCount} troops completed across {yearsActive} years of service in the 501st Legion Wisconsin Garrison.</p>
+              <div class="mt-auto font-label text-[10px] text-outline uppercase tracking-widest">Status: Active Operative</div>
+            </div>
+
+            <!-- Milestone card -->
+            <div class="bg-surface-container-low p-6 flex flex-col gap-4 border-t border-melon">
+              <div class="text-melon">
+                <span class="material-symbols-outlined text-4xl">emoji_events</span>
+              </div>
+              <h4 class="font-headline text-lg font-bold uppercase">Milestone Tracker</h4>
+              <div class="space-y-2">
+                {([
+                  { count: 10, label: 'White Pin' },
+                  { count: 25, label: 'Silver Pin' },
+                  { count: 50, label: 'Gold Pin' },
+                  { count: 75, label: 'Coin' },
+                ] as const).map((m) => (
+                  <div class={`flex items-center justify-between text-xs font-label ${troopCount >= m.count ? 'text-on-surface' : 'text-outline'}`}>
+                    <span class="flex items-center gap-2">
+                      <span class={`material-symbols-outlined text-sm ${troopCount >= m.count ? 'text-melon' : 'text-outline'}`} style={troopCount >= m.count ? "font-variation-settings: 'FILL' 1" : ''}>
+                        {troopCount >= m.count ? 'check_circle' : 'radio_button_unchecked'}
+                      </span>
+                      {m.label}
+                    </span>
+                    <span class={troopCount >= m.count ? 'text-melon font-bold' : ''}>{m.count} troops</span>
+                  </div>
+                ))}
+              </div>
+              <div class="mt-auto font-label text-[10px] text-outline uppercase tracking-widest">
+                Progress: {troopCount} / 75
+              </div>
+            </div>
+
+            <!-- Org badge card -->
+            <div class="bg-surface-container-low p-6 flex flex-col justify-center items-center text-center gap-2 border-b-4 border-storm">
+              <span class="font-headline text-4xl font-extrabold text-storm">501ST</span>
+              <span class="font-label text-[10px] uppercase tracking-[0.4em] text-outline">Vader's Fist</span>
+              <div class="mt-4 flex gap-6 text-on-surface-variant/40 text-[10px] font-label uppercase tracking-widest">
+                <span>BHG Member</span>
+                <span>·</span>
+                <span>WI Garrison</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA: Track. Hunt. Collect. -->
+        <section class="px-8 md:px-16 py-16 max-w-7xl mx-auto border-t border-outline-variant/30">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+              <h2 class="font-headline text-5xl font-black uppercase tracking-tighter text-on-surface">
+                Track. <span class="text-cardinal">Hunt.</span> Collect.
+              </h2>
+              <p class="font-body text-on-surface-variant mt-3 max-w-md leading-relaxed">
+                Every deployment logged. Every milestone earned. The hunt never ends.
+              </p>
+            </div>
+            <div class="flex gap-4 shrink-0">
+              <a href="/tour.html" class="bg-melon text-black px-8 py-4 font-headline font-bold uppercase tracking-wider hover:opacity-90 transition-all">
+                Mission Log
+              </a>
+              <a href="/about.html" class="border border-outline-variant hover:border-on-surface-variant/50 px-8 py-4 font-headline font-bold uppercase tracking-wider text-on-surface transition-all">
+                Intel File
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
     </div>
-  </main>
+  </div>
 
-  <Footer />
+  <BottomNav activePage="home" />
 </Layout>

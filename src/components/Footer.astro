@@ -1,39 +1,18 @@
 ---
-const base = import.meta.env.BASE_URL;
 ---
 
-<footer class="mt-16 border-t border-outline-variant bg-surface-low">
-  <div class="max-w-5xl mx-auto px-4 py-8">
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-      <!-- Identity -->
-      <div>
-        <p class="font-display font-black text-sm tracking-[0.12em] uppercase text-accent">
-          Boba Rearmored // BH-7024
-        </p>
-        <p class="text-[11px] text-outline font-label mt-0.5">
-          501st Legion · Wisconsin Garrison · Devastator Squad
-        </p>
-      </div>
-
-      <!-- Quick nav -->
-      <nav class="flex flex-wrap gap-x-5 gap-y-2">
-        <a href={`${base}`} class="nav-link text-[10px]">Home</a>
-        <a href={`${base}about.html`} class="nav-link text-[10px]">About</a>
-        <a href={`${base}tour.html`} class="nav-link text-[10px]">Tales of the Hunt</a>
-        <a href={`${base}armory.html`} class="nav-link text-[10px]">Armory</a>
-      </nav>
+<footer class="bg-surface-container-lowest w-full py-8 border-t border-cardinal/30 mt-auto">
+  <div class="flex flex-col items-center gap-4 px-8 w-full">
+    <div class="font-headline text-[10px] tracking-[0.2em] uppercase text-on-surface-variant">
+      MS2 BOBA // BH-7024
     </div>
-
-    <div class="mt-6 pt-4 border-t border-outline-variant/30 flex flex-wrap gap-x-4 gap-y-1 items-center justify-between">
-      <p class="text-[10px] text-outline font-label">
-        Not officially affiliated with Disney, Lucasfilm, or the Bounty Hunters Guild.
-        Costuming for charity and community.
-      </p>
-      <div class="flex gap-4">
-        <a href="#" class="text-[10px] text-outline hover:text-secondary font-label transition-colors">Terms of Engagement</a>
-        <a href="#" class="text-[10px] text-outline hover:text-secondary font-label transition-colors">Privacy Protocol</a>
-        <a href="#" class="text-[10px] text-outline hover:text-secondary font-label transition-colors">System Status</a>
-      </div>
+    <div class="flex gap-8 font-headline text-[10px] tracking-[0.2em] uppercase">
+      <a href="https://thebhg.net/" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant/40 hover:text-cardinal transition-all">BHG Forum</a>
+      <a href="https://www.501st.com/" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant/40 hover:text-cardinal transition-all">501st Legion</a>
+      <a href="https://www.wigarrison.com/" target="_blank" rel="noopener noreferrer" class="text-melon hover:text-cardinal transition-all">WI Garrison</a>
     </div>
+    <p class="text-[9px] text-on-surface-variant/30 font-label text-center">
+      Not officially affiliated with Disney or Lucasfilm. Costuming for charity and community.
+    </p>
   </div>
 </footer>

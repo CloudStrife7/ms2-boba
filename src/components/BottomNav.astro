@@ -1,0 +1,26 @@
+---
+interface Props {
+  activePage?: 'home' | 'tour' | 'armory' | 'about';
+}
+const { activePage } = Astro.props;
+
+const links = [
+  { href: '/', icon: 'terminal', id: 'home' },
+  { href: '/tour.html', icon: 'radar', id: 'tour' },
+  { href: '/armory.html', icon: 'inventory_2', id: 'armory' },
+  { href: '/about.html', icon: 'person', id: 'about' },
+];
+---
+
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-outline-variant z-50 px-6 py-3 flex justify-around items-center">
+  {links.map((link) => (
+    <a href={link.href}>
+      <span
+        class={`material-symbols-outlined ${activePage === link.id ? 'text-storm' : 'text-on-surface-variant/50'}`}
+        style={activePage === link.id ? "font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24" : ''}
+      >
+        {link.icon}
+      </span>
+    </a>
+  ))}
+</nav>

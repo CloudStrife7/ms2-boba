@@ -1,0 +1,57 @@
+---
+interface Props {
+  activePage?: 'home' | 'tour' | 'armory' | 'about';
+}
+const { activePage } = Astro.props;
+
+const links = [
+  { href: '/', label: 'Command', icon: 'terminal', id: 'home' },
+  { href: '/tour.html', label: 'Tactical', icon: 'radar', id: 'tour' },
+  { href: '/armory.html', label: 'Archives', icon: 'inventory_2', id: 'armory' },
+  { href: '/about.html', label: 'Intel', icon: 'person', id: 'about' },
+];
+---
+
+<aside class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-surface-container-low flex-col py-8 z-40 border-r border-outline-variant/15 shadow-[24px_0_40px_rgba(228,226,222,0.06)]">
+  <div class="px-6 mb-10">
+    <div class="text-lg font-bold text-melon font-headline uppercase tracking-widest">MS2 BOBA</div>
+    <div class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/50 font-label">BH-7024</div>
+  </div>
+
+  <nav class="flex flex-col flex-grow">
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class={`flex items-center gap-4 px-4 py-3 font-headline text-sm font-medium uppercase tracking-widest transition-all duration-300 ${
+          activePage === link.id
+            ? 'bg-storm text-on-surface border-l-4 border-melon'
+            : 'text-on-surface-variant/50 hover:bg-[#1f201d] hover:text-melon'
+        }`}
+      >
+        <span class="material-symbols-outlined">{link.icon}</span>
+        <span>{link.label}</span>
+      </a>
+    ))}
+  </nav>
+
+  <div class="px-4 mt-auto space-y-2">
+    <a
+      href="https://thebhg.net/forum/index.php?/topic/8520-bobarearmored-bh-7024/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block w-full py-3 bg-cardinal text-white font-bold text-[10px] tracking-widest uppercase text-center hover:brightness-110 transition-all mb-4"
+    >
+      BHG Thread
+    </a>
+    <div class="flex flex-col gap-1 font-headline text-[10px] uppercase tracking-widest">
+      <a href="https://www.501st.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-2 py-1 text-on-surface-variant/40 hover:text-melon transition-colors">
+        <span class="material-symbols-outlined text-sm">shield</span>
+        <span>501st Legion</span>
+      </a>
+      <a href="https://www.wigarrison.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-2 py-1 text-on-surface-variant/40 hover:text-melon transition-colors">
+        <span class="material-symbols-outlined text-sm">groups</span>
+        <span>WI Garrison</span>
+      </a>
+    </div>
+  </div>
+</aside>

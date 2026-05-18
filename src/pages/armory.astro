@@ -1,94 +1,216 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import SideNav from '../components/SideNav.astro';
+import TopBar from '../components/TopBar.astro';
+import BottomNav from '../components/BottomNav.astro';
 import Footer from '../components/Footer.astro';
 
 const kitComponents = [
   { name: 'Helmet', detail: 'Moss green dome with burgundy mandibles, T-visor, rangefinder, orange kill-stripes. RedBowProps V3.' },
   { name: 'Chest Armor', detail: 'Dark green multi-plate with red slots and Jaster Mereel\'s sigil. BobaMAker kit.' },
   { name: 'Gauntlets', detail: 'Burgundy shells with calculator keypad and whipcord housing.' },
-  { name: 'Shoulder Armor', detail: 'Golden orange design with Mythosaur skull detail.' },
+  { name: 'Shoulder Armor', detail: 'Golden orange pauldrons with Mythosaur skull detail.' },
   { name: 'Knee Armor', detail: 'Golden orange with dart launcher pads.' },
-  { name: 'Jet Pack', detail: 'Dark satin green with beacon assembly.' },
+  { name: 'Jet Pack', detail: 'Dark satin green Z-6 with beacon assembly.' },
   { name: 'Flak Jacket', detail: 'Black cotton with shoulder tabs.' },
-  { name: 'Belt and Holster', detail: 'Leather ammo belt with western-style holster.' },
-  { name: 'Gloves', detail: 'Two-tone leather with hand plates.' },
-  { name: 'Boots and Gaiters', detail: 'Black distressed leather.' },
-  { name: 'Girth Belt', detail: 'Braided polypropylene rope.' },
-  { name: 'Hakama Pants', detail: 'Black raw silk with weathering.' },
+  { name: 'Belt and Holster', detail: 'Leather ammo belt with western-style blaster holster.' },
+  { name: 'Gloves', detail: 'Two-tone leather with riveted hand plates.' },
+  { name: 'Boots and Gaiters', detail: 'Black distressed leather with metal toe caps.' },
+  { name: 'Girth Belt', detail: 'Braided polypropylene rope belt.' },
+  { name: 'Hakama Pants', detail: 'Black raw silk with screen-accurate weathering.' },
 ] as const;
 
 const buildTimeline = [
-  { phase: 'Decision', date: 'January 2025', detail: 'Selected Re-Armored Boba Fett as focus costume.' },
-  { phase: 'Parts Arrival', date: 'February 2025', detail: 'BobaMAker armor and RedBowProps V3 helmet delivered.' },
-  { phase: 'Painting', date: 'March 2025', detail: 'Montana Black paints — moss green, burgundy, golden orange applied and weathered.' },
-  { phase: 'Assembly', date: 'April 2025', detail: 'Full kit assembled, strapping fitted, electronics tested.' },
-  { phase: 'Deployment Test', date: 'May 2025', detail: 'First trial wear and comfort adjustments.' },
-  { phase: '501st / BHG Approval', date: 'May 2025', detail: 'Submitted to 501st Legion and Bounty Hunters Guild — approved.' },
+  { phase: 'Decision', date: 'January 2025', detail: 'Selected Re-Armored Boba Fett as focus costume after seeing The Book of Boba Fett.' },
+  { phase: 'Parts Arrival', date: 'February 2025', detail: 'BobaMAker armor kit and RedBowProps V3 helmet delivered. EE-3 prop sourced.' },
+  { phase: 'Painting', date: 'March 2025', detail: 'Montana Black paints — moss green, burgundy, golden orange applied and weathered over multiple sessions.' },
+  { phase: 'Assembly', date: 'April 2025', detail: 'Full kit assembled, strapping fitted and adjusted, electronics tested.' },
+  { phase: 'Deployment Test', date: 'May 2025', detail: 'First trial wear at local event. Comfort adjustments made to strapping.' },
+  { phase: '501st / BHG Approval', date: 'May 2025', detail: 'Submitted to 501st Legion and Bounty Hunters Guild review process — approved.' },
+] as const;
+
+const weapons = [
+  { name: 'EE-3 Carbine', desc: 'Modified blast-tech assembly. Electronic scope with 4x magnification. Primary sidearm.', icon: 'bolt', color: 'melon' },
+  { name: 'Z-6 Jetpack', desc: 'Twin-thruster propulsion system. Functional beacon assembly. Fully weathered.', icon: 'rocket_launch', color: 'storm' },
+  { name: 'Whipcord Launcher', desc: 'Gauntlet-mounted restraint system. Screen-accurate detail on left gauntlet.', icon: 'settings_input_antenna', color: 'cardinal' },
 ] as const;
 ---
 
-<Layout title="Armory" description="The complete kit breakdown for BH-7024 — Boba Fett Re-Armored build log.">
-  <Header activePage="armory" />
+<Layout title="The Armory" description="Complete kit breakdown for BH-7024 — Boba Fett Re-Armored build log and loadout.">
+  <div class="flex min-h-screen bg-background">
+    <SideNav activePage="armory" />
 
-  <main class="max-w-5xl mx-auto px-4 py-10 space-y-10">
+    <div class="flex-1 flex flex-col md:ml-64">
+      <TopBar activePage="armory" />
 
-    <!-- Header -->
-    <section class="hud-card-glow p-6">
-      <div class="flex items-start justify-between flex-wrap gap-4">
-        <div>
-          <p class="section-label mb-1">Protocol Designation</p>
-          <h1 class="font-display font-black text-4xl sm:text-5xl uppercase tracking-wide text-on-surface">
-            The Armory
-          </h1>
-          <p class="font-label text-sm text-outline mt-1">BH-7024 · Boba Fett Re-Armored</p>
-        </div>
-        <div class="hud-card px-4 py-2 text-right">
-          <p class="section-label">System Status</p>
-          <p class="font-label font-bold text-sm text-success mt-0.5">Armor Integrity: 98.4%</p>
-        </div>
-      </div>
-    </section>
+      <main class="flex-grow pt-20 pb-24 md:pb-12 px-6 md:px-12">
 
-    <!-- Kit components -->
-    <section>
-      <p class="section-label mb-4">The Kit</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {kitComponents.map((item, i) => (
-          <div class="hud-card p-4 flex gap-3">
-            <span
-              class="font-display font-black text-lg shrink-0 w-7 text-right"
-              style="color: #F59E01"
-            >
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <div>
-              <p class="font-label font-bold text-sm text-on-surface">{item.name}</p>
-              <p class="font-label text-xs text-outline mt-0.5 leading-relaxed">{item.detail}</p>
+        <!-- Hero -->
+        <section class="mb-20 relative">
+          <div class="flex flex-col md:flex-row gap-12 items-end">
+            <div class="w-full md:w-2/3">
+              <span class="font-label text-xs tracking-[0.3em] text-melon mb-4 block uppercase">Protocol Designation: BH-7024</span>
+              <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter leading-none mb-8 uppercase">
+                The Armory.
+              </h1>
+              <p class="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed">
+                A definitive archive of high-fidelity tactical gear. Built for the Outer Rim. Maintained with industrial precision. This is not just a costume — it is a second skin of Beskar and durasteel.
+              </p>
+            </div>
+            <div class="w-full md:w-1/3 flex justify-end">
+              <div class="bg-surface-container-highest p-4 border-l-4 border-storm">
+                <span class="font-label text-[10px] text-storm uppercase tracking-widest block mb-2">System Status</span>
+                <div class="flex items-center gap-2">
+                  <div class="w-2 h-2 rounded-full bg-storm animate-pulse"></div>
+                  <span class="font-label text-xs uppercase text-on-surface font-bold">Armor Integrity: 98.4%</span>
+                </div>
+              </div>
             </div>
           </div>
-        ))}
-      </div>
-    </section>
+        </section>
 
-    <!-- Build timeline -->
-    <section>
-      <p class="section-label mb-4">Build Log</p>
-      <div class="hud-card divide-y divide-outline-variant">
-        {buildTimeline.map((entry) => (
-          <div class="p-4 flex gap-4">
-            <div class="shrink-0 w-28 text-right">
-              <p class="font-label font-bold text-xs text-secondary">{entry.phase}</p>
-              <p class="font-label text-[11px] text-outline mt-0.5">{entry.date}</p>
-            </div>
-            <div class="w-px bg-outline-variant shrink-0" />
-            <p class="font-label text-sm text-outline leading-relaxed">{entry.detail}</p>
+        <!-- Bento: The Build -->
+        <section class="mb-28">
+          <div class="flex items-center gap-4 mb-12">
+            <h2 class="font-headline text-3xl font-bold uppercase tracking-tight">The Build</h2>
+            <div class="h-[2px] flex-grow bg-surface-container-high"></div>
+            <span class="font-label text-[10px] text-outline">ARCHIVE_ID: 7-G</span>
           </div>
-        ))}
-      </div>
-    </section>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-auto md:h-[500px]">
+            <!-- Large photo tile -->
+            <div class="md:col-span-8 bg-surface-container-lowest overflow-hidden relative group">
+              <img
+                src="/images/first-official-deployment.jpg"
+                alt="BH-7024 First Official Deployment"
+                class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700 md:absolute md:inset-0"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
+              <div class="absolute bottom-8 left-8">
+                <h3 class="font-headline text-2xl font-bold mb-2">Iterative Engineering</h3>
+                <p class="font-body text-sm text-on-surface-variant max-w-md">Screen-accurate components with hand-applied weathering. Each piece undergoes extensive paint layering to simulate years of outer-rim wear.</p>
+              </div>
+            </div>
+            <!-- Material specs tile -->
+            <div class="md:col-span-4 grid grid-rows-2 gap-6 h-full">
+              <div class="bg-surface-container-high p-8 flex flex-col justify-between border-t border-storm/20">
+                <span class="material-symbols-outlined text-melon text-4xl">construction</span>
+                <div>
+                  <h4 class="font-headline font-bold mb-2">Materials</h4>
+                  <ul class="font-label text-[10px] space-y-2 uppercase tracking-widest text-on-surface-variant">
+                    <li>· High-Impact Polystyrene (HIPS)</li>
+                    <li>· BobaMAker Precision Armor Kit</li>
+                    <li>· Montana Black / Gold Paints</li>
+                    <li>· RedBowProps V3 Helmet</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="bg-surface-container-high p-8 flex items-center justify-center border-b border-melon/20">
+                <div class="text-center">
+                  <span class="font-label text-[10px] tracking-[0.4em] uppercase text-melon">Precision Fit</span>
+                  <div class="text-5xl font-headline font-black mt-2">1:1<br />SCALE</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-  </main>
+        <!-- The Kit: Component Grid -->
+        <section class="mb-28">
+          <div class="flex items-center gap-4 mb-12 flex-row-reverse">
+            <h2 class="font-headline text-3xl font-bold uppercase tracking-tight">The Kit</h2>
+            <div class="h-[2px] flex-grow bg-surface-container-high"></div>
+            <span class="font-label text-[10px] text-outline">UNIT_SPECS: {kitComponents.length} COMPONENTS</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
+            {kitComponents.map((item, i) => (
+              <div class="bg-surface-container-low p-6 flex gap-4 hover:bg-surface-container transition-colors">
+                <span class="font-headline font-black text-2xl text-melon shrink-0 w-8 text-right leading-none mt-1">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <p class="font-label font-bold text-sm text-on-surface uppercase tracking-wide">{item.name}</p>
+                  <p class="font-label text-xs text-on-surface-variant mt-1 leading-relaxed">{item.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
-  <Footer />
+        <!-- Weapons / Loadout -->
+        <section class="mb-28">
+          <div class="flex items-center gap-4 mb-12">
+            <h2 class="font-headline text-3xl font-bold uppercase tracking-tight">Loadout</h2>
+            <div class="h-[2px] flex-grow bg-surface-container-high"></div>
+            <span class="font-label text-[10px] text-outline">OFFENSIVE: ARMED</span>
+          </div>
+          <div class="relative py-16 px-8 md:px-12 overflow-hidden bg-surface-container-low border border-outline-variant/20">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {weapons.map((w) => (
+                <div class={`bg-surface-container/60 backdrop-blur-xl p-8 border ${w.color === 'melon' ? 'border-melon/20 hover:border-melon/40' : w.color === 'storm' ? 'border-storm/20 hover:border-storm/40' : 'border-cardinal/20 hover:border-cardinal/40'} transition-colors`}>
+                  <div class={`w-12 h-12 flex items-center justify-center mb-6 ${w.color === 'melon' ? 'bg-melon/20' : w.color === 'storm' ? 'bg-storm/20' : 'bg-cardinal/20'}`}>
+                    <span class={`material-symbols-outlined ${w.color === 'melon' ? 'text-melon' : w.color === 'storm' ? 'text-storm' : 'text-cardinal'}`}>{w.icon}</span>
+                  </div>
+                  <h4 class="font-headline font-extrabold text-xl mb-3 uppercase">{w.name}</h4>
+                  <p class="text-sm text-on-surface-variant leading-relaxed font-body">{w.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Build Timeline -->
+        <section class="mb-16">
+          <div class="flex items-center gap-4 mb-12">
+            <h2 class="font-headline text-3xl font-bold uppercase tracking-tight">Build Log</h2>
+            <div class="h-[2px] flex-grow bg-surface-container-high"></div>
+            <span class="font-label text-[10px] text-outline">2025 CAMPAIGN</span>
+          </div>
+          <div class="relative">
+            <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-cardinal/30"></div>
+            <div class="space-y-1 pl-8">
+              {buildTimeline.map((entry) => (
+                <div class="bg-surface-container-low p-6 flex gap-6 hover:bg-surface-container transition-colors">
+                  <div class="shrink-0 w-32 text-right">
+                    <p class="font-label font-bold text-xs text-cardinal uppercase tracking-wider">{entry.phase}</p>
+                    <p class="font-label text-[11px] text-outline mt-0.5">{entry.date}</p>
+                  </div>
+                  <div class="w-px bg-outline-variant shrink-0"></div>
+                  <p class="font-label text-sm text-on-surface-variant leading-relaxed">{entry.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Approval badge -->
+        <section>
+          <div class="flex flex-col md:flex-row gap-6">
+            <div class="flex-1 bg-surface-container-low p-8 border-l-4 border-storm">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-storm text-2xl" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">verified</span>
+                <span class="font-label text-[10px] text-storm uppercase tracking-widest font-bold">501st Legion Approved</span>
+              </div>
+              <p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                BH-7024 has been reviewed and approved by the 501st Legion costume review board and the Bounty Hunters Guild standards committee.
+              </p>
+            </div>
+            <div class="flex-1 bg-surface-container-low p-8 border-l-4 border-melon">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-melon text-2xl" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">military_tech</span>
+                <span class="font-label text-[10px] text-melon uppercase tracking-widest font-bold">BHG Certified Hunter</span>
+              </div>
+              <p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                Full membership in the Bounty Hunters Guild, with all armor pieces meeting the strict screen-accuracy standards required for BHG certification.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <Footer />
+    </div>
+  </div>
+
+  <BottomNav activePage="armory" />
 </Layout>
