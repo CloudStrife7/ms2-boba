@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SideNav from '../components/SideNav.astro';
 import TopBar from '../components/TopBar.astro';
-import BottomNav from '../components/BottomNav.astro';
 import Footer from '../components/Footer.astro';
 
 const kitComponents = [
   { name: 'Helmet', detail: 'Moss green dome with burgundy mandibles, T-visor, rangefinder, orange kill-stripes. RedBowProps V3.' },
-  { name: 'Chest Armor', detail: 'Dark green multi-plate with red slots and Jaster Mereel\'s sigil. BobaMAker kit.' },
+  { name: 'Chest Armor', detail: "Dark green multi-plate with red slots and Jaster Mereel's sigil. BobaMAker kit." },
   { name: 'Gauntlets', detail: 'Burgundy shells with calculator keypad and whipcord housing.' },
   { name: 'Shoulder Armor', detail: 'Golden orange pauldrons with Mythosaur skull detail.' },
   { name: 'Knee Armor', detail: 'Golden orange with dart launcher pads.' },
@@ -29,97 +29,271 @@ const buildTimeline = [
 ] as const;
 ---
 
-<Layout title="The Armory" description="Complete kit breakdown for BH-7024 — Boba Fett Re-Armored build log and loadout.">
-  <div class="flex flex-col min-h-screen bg-background">
-    <TopBar activePage="armory" />
+<Layout title="The Armory | MS2 Boba">
+  <body class="bg-[#131411] text-[#e4e2de] font-body selection:bg-[#4C6043] selection:text-[#e4e2de]">
 
-    <main class="flex-grow max-w-5xl mx-auto w-full px-6 pt-24 pb-24 md:pb-12 space-y-12">
+    <!-- TopAppBar -->
+    <nav class="fixed top-0 z-50 w-full bg-[#131411] flex justify-between items-center px-6 h-16 max-w-none">
+      <div class="text-xl font-black text-[#b7cda9] tracking-widest font-headline uppercase">
+        MS2 BOBA
+      </div>
+      <div class="hidden md:flex gap-8 items-center font-headline tracking-tighter uppercase font-bold text-sm">
+        <a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="/index.html">Home</a>
+        <a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="/about.html">About</a>
+        <a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="/tour.html">Tour of Duty</a>
+        <a class="text-[#F59E01] border-b-2 border-[#F59E01] pb-1" href="/armory.html">Armory</a>
+      </div>
+      <div class="flex gap-4">
+        <button class="material-symbols-outlined text-[#b7cda9] hover:bg-[#4C6043]/20 transition-all duration-300 p-2 rounded-sm scale-95 active:opacity-80">notifications</button>
+        <button class="material-symbols-outlined text-[#b7cda9] hover:bg-[#4C6043]/20 transition-all duration-300 p-2 rounded-sm scale-95 active:opacity-80">settings</button>
+      </div>
+    </nav>
+    <div class="bg-[#1b1c19] h-[1px] w-full fixed top-16 z-50"></div>
 
-      <!-- Page header -->
-      <section class="flex items-start justify-between flex-wrap gap-4 pb-4 border-b border-outline-variant/30">
-        <div>
-          <span class="font-label text-[10px] tracking-[0.3em] text-melon uppercase block mb-2">Protocol Designation: BH-7024</span>
-          <h1 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tighter leading-none uppercase">
-            The Armory.
-          </h1>
-          <p class="font-body text-on-surface-variant mt-3 max-w-xl leading-relaxed">
-            A definitive archive of high-fidelity tactical gear. Built for the Outer Rim. Maintained with industrial precision.
-          </p>
-        </div>
-        <div class="bg-surface-container-high p-4 border-l-4 border-storm shrink-0">
-          <span class="font-label text-[10px] text-storm uppercase tracking-widest block mb-2">System Status</span>
-          <div class="flex items-center gap-2">
-            <div class="w-2 h-2 rounded-full bg-storm animate-pulse"></div>
-            <span class="font-label text-xs uppercase text-on-surface font-bold">Armor Integrity: 98.4%</span>
+    <!-- SideNavBar (Desktop) -->
+    <aside class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-[#1b1c19] flex-col py-8 z-40 border-r border-[#444840]/15 shadow-[24px_0_40px_rgba(228,226,222,0.06)]">
+      <div class="px-6 mb-10">
+        <div class="text-lg font-bold text-[#F59E01] font-headline">MS2 BOBA</div>
+        <div class="text-[10px] uppercase tracking-[0.2em] text-[#b7cda9]/50 font-label">BH-7024</div>
+      </div>
+      <div class="flex flex-col flex-grow">
+        <a class="group flex items-center gap-4 px-4 py-3 text-[#b7cda9]/50 hover:bg-[#1f201d] transition-all duration-300 font-headline text-sm font-medium uppercase tracking-widest" href="/index.html">
+          <span class="material-symbols-outlined">terminal</span>
+          <span>Home</span>
+        </a>
+        <a class="group flex items-center gap-4 px-4 py-3 text-[#b7cda9]/50 hover:bg-[#1f201d] transition-all duration-300 font-headline text-sm font-medium uppercase tracking-widest" href="/about.html">
+          <span class="material-symbols-outlined">person</span>
+          <span>About</span>
+        </a>
+        <a class="group flex items-center gap-4 px-4 py-3 text-[#b7cda9]/50 hover:bg-[#1f201d] transition-all duration-300 font-headline text-sm font-medium uppercase tracking-widest" href="/tour.html">
+          <span class="material-symbols-outlined">radar</span>
+          <span>Tour of Duty</span>
+        </a>
+        <a class="group flex items-center gap-4 bg-[#4C6043] text-[#e4e2de] border-l-4 border-[#F59E01] px-4 py-3 font-headline text-sm font-medium uppercase tracking-widest" href="/armory.html">
+          <span class="material-symbols-outlined">inventory_2</span>
+          <span>Armory</span>
+        </a>
+      </div>
+      <div class="px-4 mt-auto space-y-2">
+        <a href="https://thebhg.net/forum/index.php?/topic/8520-bobarearmored-bh-7024/" target="_blank" rel="noopener noreferrer" class="block w-full bg-[#6D0827] text-white py-3 rounded-sm font-bold text-xs tracking-widest uppercase hover:brightness-110 transition-all mb-4 text-center">BHG THREAD</a>
+        <a class="flex items-center gap-4 px-4 py-2 text-[#b7cda9]/40 text-xs uppercase tracking-widest hover:text-[#F59E01]" href="https://www.501st.com/" target="_blank" rel="noopener noreferrer">
+          <span class="material-symbols-outlined text-sm">shield</span>
+          <span>501st Legion</span>
+        </a>
+        <a class="flex items-center gap-4 px-4 py-2 text-[#b7cda9]/40 text-xs uppercase tracking-widest hover:text-[#6D0827]" href="https://www.wigarrison.com/" target="_blank" rel="noopener noreferrer">
+          <span class="material-symbols-outlined text-sm">groups</span>
+          <span>WI Garrison</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="md:ml-64 pt-24 pb-12 px-6 md:px-12 lg:px-24">
+
+      <!-- Hero Section -->
+      <section class="mb-24 relative">
+        <div class="flex flex-col md:flex-row gap-12 items-end">
+          <div class="w-full md:w-2/3">
+            <span class="font-label text-xs tracking-[0.3em] text-[#F59E01] mb-4 block uppercase">Protocol Designation: BH-7024</span>
+            <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter leading-none mb-8 uppercase">THE ARMORY.</h1>
+            <p class="font-body text-lg text-[#b7cda9] max-w-xl leading-relaxed">
+              A definitive archive of high-fidelity tactical gear. Built for the Outer Rim. Maintained with industrial precision. This is not just a costume; it is a second skin of Beskar and durasteel.
+            </p>
+          </div>
+          <div class="w-full md:w-1/3 flex justify-end">
+            <div class="bg-[#393d35] p-4 rounded-lg border-l-4 border-[#4C6043]">
+              <span class="font-label text-[10px] text-[#4C6043] uppercase tracking-widest block mb-2">System Status</span>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-[#4C6043] animate-pulse"></div>
+                <span class="font-label text-xs uppercase">Armor Integrity: 98.4%</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Kit components grid -->
-      <section>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="font-headline text-2xl font-bold uppercase tracking-tight">The Kit</h2>
-          <div class="h-px flex-grow bg-outline-variant/40"></div>
-          <span class="font-label text-[10px] text-outline uppercase tracking-widest">{kitComponents.length} Components</span>
+      <!-- Bento Grid: The Build -->
+      <section class="mb-32">
+        <div class="flex items-center gap-4 mb-12">
+          <h2 class="font-headline text-3xl font-bold uppercase tracking-tight">The Build</h2>
+          <div class="h-[2px] flex-grow bg-[#2e312b]"></div>
+          <span class="font-label text-[10px] text-[#8e9288]">ARCHIVE_ID: BH-7024</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-outline-variant/20">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+          <div class="md:col-span-8 bg-[#0d0f0c] overflow-hidden relative group">
+            <img
+              alt="BH-7024 First Official Deployment"
+              class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700 md:absolute md:inset-0"
+              src="/images/first-official-deployment.jpg"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#131411] to-transparent opacity-80"></div>
+            <div class="absolute bottom-8 left-8">
+              <h3 class="font-headline text-2xl font-bold mb-2">Iterative Engineering</h3>
+              <p class="font-body text-sm text-[#b7cda9] max-w-md">Screen-accurate components with hand-applied weathering. Each piece undergoes extensive paint layering to simulate years of outer-rim wear.</p>
+            </div>
+          </div>
+          <div class="md:col-span-4 grid grid-rows-2 gap-6">
+            <div class="bg-[#2e312b] p-8 flex flex-col justify-between border-t border-[#4C6043]/20">
+              <span class="material-symbols-outlined text-[#F59E01] text-4xl">construction</span>
+              <div>
+                <h4 class="font-headline font-bold mb-2">Materials</h4>
+                <ul class="font-label text-[10px] space-y-2 uppercase tracking-widest text-[#b7cda9]">
+                  <li>· High-Impact Polystyrene (HIPS)</li>
+                  <li>· BobaMAker Precision Armor Kit</li>
+                  <li>· Montana Black / Gold Paints</li>
+                  <li>· RedBowProps V3 Helmet</li>
+                </ul>
+              </div>
+            </div>
+            <div class="bg-[#0d0f0c] overflow-hidden relative border-b border-[#F59E01]/20 flex items-center justify-center">
+              <img alt="Armor detail" class="absolute inset-0 w-full h-full object-cover opacity-20" src="/images/hero-bg.jpg" />
+              <div class="relative z-10 text-center">
+                <span class="font-label text-[10px] tracking-[0.4em] uppercase text-[#F59E01]">Precision Fit</span>
+                <div class="text-4xl font-headline font-black mt-2">1:1 SCALE</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Armor: Asymmetric Section -->
+      <section class="mb-32">
+        <div class="flex items-center gap-4 mb-12 flex-row-reverse">
+          <h2 class="font-headline text-3xl font-bold uppercase tracking-tight">The Armor</h2>
+          <div class="h-[2px] flex-grow bg-[#2e312b]"></div>
+          <span class="font-label text-[10px] text-[#8e9288]">UNIT_SPECS: REINFORCED</span>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-16">
+          <div class="lg:w-1/2 space-y-12">
+            <div class="relative pl-12">
+              <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-[#6D0827]"></div>
+              <h3 class="font-headline text-xl font-bold mb-4 uppercase tracking-wider text-[#6D0827]">Weathering &amp; Patina</h3>
+              <p class="font-body text-[#b7cda9] leading-relaxed">
+                The finish is achieved through a multi-stage process involving base metallic coats, salt-masking, and oil-based washes. This simulates years of exposure to the elements across the Outer Rim.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-8">
+              <div class="bg-[#1b1c19] p-6 border-l-2 border-[#4C6043]">
+                <span class="font-label text-[10px] text-[#4C6043] uppercase mb-4 block">Plate-01: Chest</span>
+                <p class="text-xs text-[#b7cda9] leading-tight">Hardened composite with thermal detonator mounts. Integrated HUD relay links and Jaster Mereel sigil.</p>
+              </div>
+              <div class="bg-[#1b1c19] p-6 border-l-2 border-[#4C6043]">
+                <span class="font-label text-[10px] text-[#4C6043] uppercase mb-4 block">Plate-04: Greaves</span>
+                <p class="text-xs text-[#b7cda9] leading-tight">Reinforced shin guards with micro-rocket attachment points and golden orange knee plates.</p>
+              </div>
+            </div>
+            <a href="/tour.html" class="px-8 py-3 bg-[#4C6043] text-[#e4e2de] font-headline font-bold text-sm rounded-sm hover:brightness-110 transition-all inline-flex items-center gap-3 active:scale-95">
+              VIEW MISSION LOG
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+          <div class="lg:w-1/2">
+            <div class="relative aspect-square bg-[#0d0f0c]">
+              <div class="absolute -top-4 -left-4 w-32 h-32 border-t-2 border-l-2 border-[#4C6043]/40"></div>
+              <div class="absolute -bottom-4 -right-4 w-32 h-32 border-b-2 border-r-2 border-[#6D0827]/40"></div>
+              <img
+                alt="Boba Fett armor profile"
+                class="w-full h-full object-cover p-4 filter grayscale contrast-125"
+                src="/images/about-profile.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Glassmorphism Section: The Kit -->
+      <section class="mb-24">
+        <div class="flex items-center gap-4 mb-12">
+          <h2 class="font-headline text-3xl font-bold uppercase tracking-tight">The Kit</h2>
+          <div class="h-[2px] flex-grow bg-[#2e312b]"></div>
+          <span class="font-label text-[10px] text-[#8e9288]">LOADOUT: {kitComponents.length} PIECES</span>
+        </div>
+
+        <!-- Component Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#444840]/20 mb-16">
           {kitComponents.map((item, i) => (
-            <div class="bg-background hover:bg-surface-container-low transition-colors p-5 flex gap-4">
-              <span class="font-headline font-black text-2xl text-melon shrink-0 w-8 text-right leading-none mt-0.5">
+            <div class="bg-[#131411] hover:bg-[#1b1c19] transition-colors p-5 flex gap-4">
+              <span class="font-headline font-black text-2xl text-[#F59E01] shrink-0 w-8 text-right leading-none mt-0.5">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div>
-                <p class="font-label font-bold text-sm text-on-surface uppercase tracking-wide">{item.name}</p>
-                <p class="font-body text-xs text-on-surface-variant mt-1 leading-relaxed">{item.detail}</p>
+                <p class="font-label font-bold text-sm text-[#e4e2de] uppercase tracking-wide">{item.name}</p>
+                <p class="font-body text-xs text-[#b7cda9] mt-1 leading-relaxed">{item.detail}</p>
               </div>
             </div>
           ))}
         </div>
+
+        <!-- Glass Cards: Weapons -->
+        <div class="relative rounded-xl overflow-hidden py-16 px-8 md:px-12">
+          <div class="absolute inset-0 z-0">
+            <img alt="Background" class="w-full h-full object-cover opacity-10" src="/images/hero-bg.jpg" />
+          </div>
+          <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="backdrop-blur-xl bg-[#2e312b]/40 p-8 rounded-lg border border-[#444840]/20 hover:border-[#4C6043]/40 transition-colors">
+              <div class="w-12 h-12 bg-[#4C6043]/20 flex items-center justify-center rounded mb-6">
+                <span class="material-symbols-outlined text-[#4C6043]">bolt</span>
+              </div>
+              <h4 class="font-headline font-extrabold text-xl mb-3">EE-3 Carbine</h4>
+              <p class="text-sm text-[#b7cda9] leading-relaxed">Modified blast-tech assembly. Electronic scope with 4x magnification. Primary sidearm of BH-7024.</p>
+            </div>
+            <div class="backdrop-blur-xl bg-[#2e312b]/40 p-8 rounded-lg border border-[#444840]/20 hover:border-[#6D0827]/40 transition-colors">
+              <div class="w-12 h-12 bg-[#6D0827]/20 flex items-center justify-center rounded mb-6">
+                <span class="material-symbols-outlined text-[#6D0827]">rocket_launch</span>
+              </div>
+              <h4 class="font-headline font-extrabold text-xl mb-3">Z-6 Jetpack</h4>
+              <p class="text-sm text-[#b7cda9] leading-relaxed">Twin-thruster propulsion system. Dark satin green finish with beacon assembly. Fully screen-accurate.</p>
+            </div>
+            <div class="backdrop-blur-xl bg-[#2e312b]/40 p-8 rounded-lg border border-[#444840]/20 hover:border-[#F59E01]/40 transition-colors">
+              <div class="w-12 h-12 bg-[#F59E01]/20 flex items-center justify-center rounded mb-6">
+                <span class="material-symbols-outlined text-[#F59E01]">settings_input_antenna</span>
+              </div>
+              <h4 class="font-headline font-extrabold text-xl mb-3">Whipcord Launcher</h4>
+              <p class="text-sm text-[#b7cda9] leading-relaxed">Gauntlet-mounted restraint system. Screen-accurate detail on left gauntlet housing.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <!-- Build log timeline -->
-      <section>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="font-headline text-2xl font-bold uppercase tracking-tight">Build Log</h2>
-          <div class="h-px flex-grow bg-outline-variant/40"></div>
-          <span class="font-label text-[10px] text-outline uppercase tracking-widest">2025 Campaign</span>
+      <!-- Build Log -->
+      <section class="mb-16">
+        <div class="flex items-center gap-4 mb-12">
+          <h2 class="font-headline text-3xl font-bold uppercase tracking-tight">Build Log</h2>
+          <div class="h-[2px] flex-grow bg-[#2e312b]"></div>
+          <span class="font-label text-[10px] text-[#8e9288]">2025 CAMPAIGN</span>
         </div>
-        <div class="relative border-l-2 border-cardinal/40 pl-8 space-y-px">
+        <div class="relative border-l-2 border-[#6D0827]/40 pl-8 space-y-px">
           {buildTimeline.map((entry) => (
-            <div class="bg-surface-container-low hover:bg-surface-container transition-colors p-5 flex gap-6">
+            <div class="bg-[#1b1c19] hover:bg-[#242621] transition-colors p-5 flex gap-6">
               <div class="shrink-0 w-28 text-right">
-                <p class="font-label font-bold text-xs text-cardinal uppercase tracking-wider">{entry.phase}</p>
-                <p class="font-label text-[11px] text-outline mt-0.5">{entry.date}</p>
+                <p class="font-label font-bold text-xs text-[#6D0827] uppercase tracking-wider">{entry.phase}</p>
+                <p class="font-label text-[11px] text-[#8e9288] mt-0.5">{entry.date}</p>
               </div>
-              <div class="w-px bg-outline-variant/60 shrink-0"></div>
-              <p class="font-body text-sm text-on-surface-variant leading-relaxed">{entry.detail}</p>
+              <div class="w-px bg-[#444840]/60 shrink-0"></div>
+              <p class="font-body text-sm text-[#b7cda9] leading-relaxed">{entry.detail}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <!-- Approval badges -->
-      <section class="flex flex-col md:flex-row gap-4">
-        <div class="flex-1 bg-surface-container-low p-6 border-l-4 border-storm flex items-start gap-4">
-          <span class="material-symbols-outlined text-storm text-2xl shrink-0" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">verified</span>
-          <div>
-            <p class="font-label font-bold text-xs text-storm uppercase tracking-widest mb-1">501st Legion Approved</p>
-            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Reviewed and approved by the 501st Legion costume review board.</p>
-          </div>
-        </div>
-        <div class="flex-1 bg-surface-container-low p-6 border-l-4 border-melon flex items-start gap-4">
-          <span class="material-symbols-outlined text-melon text-2xl shrink-0" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">military_tech</span>
-          <div>
-            <p class="font-label font-bold text-xs text-melon uppercase tracking-widest mb-1">BHG Certified Hunter</p>
-            <p class="font-body text-sm text-on-surface-variant leading-relaxed">Full BHG membership with all armor meeting screen-accuracy standards.</p>
-          </div>
         </div>
       </section>
 
     </main>
 
-    <Footer />
-  </div>
+    <!-- Footer -->
+    <footer class="w-full py-8 border-t border-[#6D0827]/30 bg-[#0d0f0c] flex flex-col items-center gap-4 px-8 mt-auto font-headline text-[10px] tracking-[0.2em] uppercase">
+      <div class="text-[#b7cda9]">MS2 BOBA // BH-7024</div>
+      <div class="flex gap-8">
+        <a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-all duration-300" href="#">Terms of Engagement</a>
+        <a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-all duration-300" href="#">Privacy Protocol</a>
+        <a class="text-[#F59E01] hover:text-[#6D0827] transition-all duration-300" href="#">System Status</a>
+      </div>
+    </footer>
 
-  <BottomNav activePage="armory" />
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#131411] py-3 px-6 flex justify-around items-center z-50 border-t border-[#1b1c19]">
+      <a href="/index.html"><span class="material-symbols-outlined text-[#b7cda9]/60">terminal</span></a>
+      <a href="/about.html"><span class="material-symbols-outlined text-[#b7cda9]/60">person</span></a>
+      <a href="/tour.html"><span class="material-symbols-outlined text-[#b7cda9]/60">radar</span></a>
+      <a href="/armory.html"><span class="material-symbols-outlined text-[#F59E01]" style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24">inventory_2</span></a>
+    </nav>
+
+  </body>
 </Layout>

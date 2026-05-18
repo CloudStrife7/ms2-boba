@@ -4,51 +4,41 @@ interface Props {
 }
 const { activePage } = Astro.props;
 
-const navLinks = [
-  { href: '/', label: 'Home', id: 'home' },
+const links = [
+  { href: '/index.html', label: 'Home', id: 'home' },
+  { href: '/about.html', label: 'About', id: 'about' },
   { href: '/tour.html', label: 'Tour of Duty', id: 'tour' },
   { href: '/armory.html', label: 'Armory', id: 'armory' },
-  { href: '/about.html', label: 'Intel', id: 'about' },
 ];
 ---
 
-<header class="bg-background fixed top-0 left-0 right-0 z-50">
-  <div class="flex justify-between items-center w-full px-6 h-16 max-w-6xl mx-auto">
-    <a href="/" class="text-xl font-black text-on-surface-variant tracking-widest font-headline uppercase hover:text-melon transition-colors">
+<header class="bg-[#131411] top-0 z-50 sticky">
+  <div class="flex justify-between items-center w-full px-6 h-16 max-w-none">
+    <div class="text-xl font-black text-[#b7cda9] tracking-widest font-headline uppercase">
       MS2 BOBA
-    </a>
+    </div>
     <nav class="hidden md:flex items-center gap-8 font-headline tracking-tighter uppercase font-bold text-sm">
-      {navLinks.map((link) => (
+      {links.map((link) => (
         <a
           href={link.href}
-          class={`transition-colors ${
+          class={
             activePage === link.id
-              ? 'text-melon border-b-2 border-melon pb-1'
-              : 'text-on-surface-variant/60 hover:text-on-surface-variant'
-          }`}
+              ? 'text-[#F59E01] border-b-2 border-[#F59E01] pb-1'
+              : 'text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors'
+          }
         >
           {link.label}
         </a>
       ))}
     </nav>
-    <div class="flex gap-2 items-center">
-      <a
-        href="https://www.501st.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hidden lg:block text-[9px] font-label font-bold tracking-widest uppercase text-on-surface-variant/40 hover:text-on-surface-variant/70 transition-colors px-2 py-1"
-      >
-        501st
-      </a>
-      <a
-        href="https://thebhg.net/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hidden lg:block text-[9px] font-label font-bold tracking-widest uppercase text-on-surface-variant/40 hover:text-on-surface-variant/70 transition-colors px-2 py-1"
-      >
-        BHG
-      </a>
+    <div class="flex items-center gap-4">
+      <button class="hover:bg-[#4C6043]/20 transition-colors p-2 rounded-sm scale-95 active:opacity-80">
+        <span class="material-symbols-outlined text-[#b7cda9]">notifications</span>
+      </button>
+      <button class="hover:bg-[#4C6043]/20 transition-colors p-2 rounded-sm scale-95 active:opacity-80">
+        <span class="material-symbols-outlined text-[#b7cda9]">settings</span>
+      </button>
     </div>
   </div>
-  <div class="bg-surface-container-low h-[1px] w-full"></div>
+  <div class="bg-[#1b1c19] h-[1px] w-full"></div>
 </header>

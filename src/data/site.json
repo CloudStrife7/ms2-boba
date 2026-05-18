@@ -14,28 +14,32 @@
       "eventName": "Harrison School PTO Trunk or Treat",
       "location": "Janesville, WI",
       "date": "October 30, 2025",
-      "photo": "trunkortreat.jpeg"
+      "photo": "trunkortreat.jpeg",
+      "photos": ["trunkortreat.jpeg"]
     },
     {
       "number": 3,
       "eventName": "Sky Carps Star Wars Night",
       "location": "Wisconsin Rapids, WI",
       "date": "August 17, 2025",
-      "photo": "images/hero-bg.jpg"
+      "photo": "https://i.imgur.com/r6ACHjH.jpeg",
+      "photos": ["https://i.imgur.com/r6ACHjH.jpeg"]
     },
     {
       "number": 2,
       "eventName": "Make Music Madison",
       "location": "Madison, WI",
       "date": "June 21, 2025",
-      "photo": "makemusic.jpeg"
+      "photo": "makemusic.jpeg",
+      "photos": ["makemusic.jpeg"]
     },
     {
       "number": 1,
       "eventName": "Timber Rattlers Star Wars Night",
       "location": "Appleton, WI",
       "date": "May 31, 2025",
-      "photo": "trattlers.jpeg"
+      "photo": "trattlers.jpeg",
+      "photos": ["trattlers.jpeg", "https://i.imgur.com/G9pQCnh.jpeg"]
     }
   ]
 }
