@@ -2,10 +2,9 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://cloudstrife7.github.io',
-  base: '/ms2-boba',
+  site: 'https://ms2fett.com',
   integrations: [tailwind()],
   build: {
-    format: 'file', // generates tour.html not tour/index.html — preserves existing URLs
+    format: 'file',
   },
 });
