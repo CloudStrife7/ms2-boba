@@ -1,0 +1,41 @@
+{
+  "troopCount": 4,
+  "yearsActive": 20,
+  "nextDeployment": {
+    "name": "Star Wars Crafts Day",
+    "location": "Fitchburg Public Library — Fitchburg, WI",
+    "date": "May 4, 2026",
+    "time": "4:00 – 5:00 PM",
+    "isoDate": "2026-05-04T16:00:00"
+  },
+  "missions": [
+    {
+      "number": 4,
+      "eventName": "Harrison School PTO Trunk or Treat",
+      "location": "Janesville, WI",
+      "date": "October 30, 2025",
+      "photo": "trunkortreat.jpeg"
+    },
+    {
+      "number": 3,
+      "eventName": "Sky Carps Star Wars Night",
+      "location": "Wisconsin Rapids, WI",
+      "date": "August 17, 2025",
+      "photo": "images/hero-bg.jpg"
+    },
+    {
+      "number": 2,
+      "eventName": "Make Music Madison",
+      "location": "Madison, WI",
+      "date": "June 21, 2025",
+      "photo": "makemusic.jpeg"
+    },
+    {
+      "number": 1,
+      "eventName": "Timber Rattlers Star Wars Night",
+      "location": "Appleton, WI",
+      "date": "May 31, 2025",
+      "photo": "trattlers.jpeg"
+    }
+  ]
+}

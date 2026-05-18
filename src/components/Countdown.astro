@@ -1,0 +1,61 @@
+---
+interface Props {
+  isoDate: string; // e.g. "2026-05-04T16:00:00"
+}
+
+const { isoDate } = Astro.props;
+---
+
+<div
+  class="flex items-center gap-3 sm:gap-5 font-label"
+  id="countdown-display"
+  data-target={isoDate}
+>
+  {(['days', 'hrs', 'min', 'sec'] as const).map((unit) => (
+    <div class="flex flex-col items-center gap-0.5">
+      <span
+        id={`cd-${unit}`}
+        class="font-display font-black text-2xl sm:text-3xl tabular-nums"
+        style="color: #F59E01"
+      >
+        --
+      </span>
+      <span class="text-[9px] font-bold tracking-widest uppercase text-outline">{unit}</span>
+    </div>
+  ))}
+</div>
+
+<script>
+  function tick() {
+    const el = document.getElementById('countdown-display');
+    if (!el) return;
+    const target = new Date(el.dataset.target!).getTime();
+    const now = Date.now();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      ['days', 'hrs', 'min', 'sec'].forEach((u) => {
+        const span = document.getElementById(`cd-${u}`);
+        if (span) span.textContent = '00';
+      });
+      return;
+    }
+
+    const days = Math.floor(diff / 86400000);
+    const hrs = Math.floor((diff % 86400000) / 3600000);
+    const min = Math.floor((diff % 3600000) / 60000);
+    const sec = Math.floor((diff % 60000) / 1000);
+
+    const set = (id: string, val: number) => {
+      const span = document.getElementById(id);
+      if (span) span.textContent = String(val).padStart(2, '0');
+    };
+    set('cd-days', days);
+    set('cd-hrs', hrs);
+    set('cd-min', min);
+    set('cd-sec', sec);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>

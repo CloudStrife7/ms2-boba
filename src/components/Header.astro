@@ -1,0 +1,78 @@
+---
+interface Props {
+  activePage?: 'home' | 'about' | 'tour' | 'armory';
+}
+
+const { activePage } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const navLinks = [
+  { href: `${base}`, label: 'Home', id: 'home' },
+  { href: `${base}about.html`, label: 'About', id: 'about' },
+  { href: `${base}tour.html`, label: 'Tales of the Hunt', id: 'tour' },
+  { href: `${base}armory.html`, label: 'Armory', id: 'armory' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-outline-variant">
+  <div class="max-w-5xl mx-auto px-4">
+    <!-- Top bar: logo + org badges -->
+    <div class="flex items-center justify-between h-14 gap-4">
+      <a href={`${base}`} class="flex items-center gap-2 shrink-0">
+        <span class="font-display font-black text-sm tracking-[0.12em] uppercase text-accent">
+          Boba Rearmored
+        </span>
+        <span class="text-outline-variant">·</span>
+        <span class="font-label font-bold text-xs tracking-widest uppercase text-secondary">
+          BH-7024
+        </span>
+      </a>
+
+      <!-- Org logos -->
+      <div class="hidden sm:flex items-center gap-4">
+        <a
+          href="https://www.501st.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[9px] font-label font-bold tracking-widest uppercase text-outline hover:text-accent transition-colors"
+        >
+          501st Legion
+        </a>
+        <span class="text-outline-variant text-xs">·</span>
+        <a
+          href="https://thebhg.net/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[9px] font-label font-bold tracking-widest uppercase text-outline hover:text-accent transition-colors"
+        >
+          Bounty Hunters Guild
+        </a>
+        <span class="text-outline-variant text-xs">·</span>
+        <a
+          href="https://www.wigarrison.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[9px] font-label font-bold tracking-widest uppercase text-outline hover:text-accent transition-colors"
+        >
+          Devastator Squad
+        </a>
+      </div>
+    </div>
+
+    <!-- Nav row -->
+    <nav class="flex items-center gap-6 h-9 border-t border-outline-variant/50 overflow-x-auto">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`nav-link whitespace-nowrap pb-0.5 border-b-2 transition-colors ${
+            activePage === link.id
+              ? 'text-secondary border-secondary'
+              : 'border-transparent'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,77 @@
+---
+interface Props {
+  troopCount: number;
+}
+
+const { troopCount } = Astro.props;
+
+const milestones = [
+  { count: 10, label: 'White Pin' },
+  { count: 25, label: 'Silver Pin' },
+  { count: 50, label: 'Gold Pin' },
+  { count: 75, label: 'Coin' },
+] as const;
+
+const nextMilestone = milestones.find((m) => m.count > troopCount) ?? milestones[milestones.length - 1];
+const toGo = nextMilestone.count - troopCount;
+const progressPct = Math.min((troopCount / 75) * 100, 100);
+
+// Segment widths (out of 75): 0→10, 10→25, 25→50, 50→75
+const segments = [
+  { from: 0, to: 10, label: '10', tier: 'White Pin' },
+  { from: 10, to: 25, label: '25', tier: 'Silver Pin' },
+  { from: 25, to: 50, label: '50', tier: 'Gold Pin' },
+  { from: 50, to: 75, label: '75', tier: 'Coin' },
+];
+---
+
+<div class="hud-card p-5 space-y-4">
+  <div class="flex items-start justify-between">
+    <div>
+      <p class="section-label">Troop Milestone Tracker</p>
+      <p class="font-display font-black text-3xl mt-1" style="color: #F59E01">
+        {troopCount}
+        <span class="text-base font-label font-normal text-outline ml-1">Troops Earned</span>
+      </p>
+    </div>
+    <div class="text-right">
+      <p class="section-label">Next Pin</p>
+      <p class="font-label font-bold text-sm text-on-surface mt-1">
+        {nextMilestone.count} — {nextMilestone.label}
+      </p>
+      <p class="font-label text-xs text-outline mt-0.5">
+        {toGo} {toGo === 1 ? 'troop' : 'troops'} away
+      </p>
+    </div>
+  </div>
+
+  <!-- Segmented progress bar -->
+  <div>
+    <div class="relative h-3 bg-surface-low rounded-full overflow-hidden">
+      <div
+        class="absolute inset-y-0 left-0 rounded-full transition-all"
+        style={`width: ${progressPct}%; background: linear-gradient(90deg, #ea8400, #F59E01);`}
+      />
+      {segments.map((seg) => (
+        <div
+          class="absolute top-0 bottom-0 w-px bg-outline-variant/60"
+          style={`left: ${(seg.to / 75) * 100}%`}
+        />
+      ))}
+    </div>
+    <div class="flex justify-between mt-1.5">
+      {segments.map((seg) => (
+        <div class="flex flex-col items-end">
+          <span class="font-mono text-[10px] font-bold text-outline-variant">{seg.label}</span>
+          <span class="font-label text-[9px] text-outline hidden sm:block">{seg.tier}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Total -->
+  <p class="font-label text-xs text-outline text-center border-t border-outline-variant pt-3">
+    <span class="font-bold text-on-surface">{troopCount}</span>
+    <span> / 75 TOTAL</span>
+  </p>
+</div>

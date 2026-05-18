@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import siteData from '../data/site.json';
+
+const { troopCount, yearsActive } = siteData;
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="About" description="About BH-7024 — Boba Fett Re-Armored, 501st Legion Wisconsin Garrison.">
+  <Header activePage="about" />
+
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-10">
+
+    <!-- Hero -->
+    <section class="hud-card-glow p-6 sm:p-8">
+      <div class="sm:flex sm:items-start sm:gap-8">
+        <div class="shrink-0 mb-6 sm:mb-0">
+          <div class="w-32 h-32 sm:w-48 sm:h-48 rounded-lg overflow-hidden border border-outline-variant bg-surface">
+            <img
+              src={`${base}images/hero-bg.jpg`}
+              alt="BH-7024 Boba Fett Re-Armored"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+        </div>
+        <div class="space-y-2">
+          <p class="section-label">Personnel File</p>
+          <h1 class="font-display font-black text-3xl sm:text-4xl uppercase tracking-wide text-on-surface">
+            BH-7024
+          </h1>
+          <p class="font-label text-sm text-secondary font-bold tracking-widest uppercase">
+            Verified 501st Approved Member
+          </p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            {['501st Legion', 'Bounty Hunters Guild', 'Wisconsin Garrison', 'Devastator Squad'].map((badge) => (
+              <span class="text-[10px] font-label font-bold tracking-widest uppercase px-2 py-0.5 rounded border border-outline-variant text-outline">
+                {badge}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="grid grid-cols-3 gap-4">
+      {([
+        [String(troopCount), 'Troops Completed'],
+        [String(yearsActive), 'Years of Service'],
+        ['WI', 'Home Garrison'],
+      ] as const).map(([val, label]) => (
+        <div class="hud-card p-4 text-center">
+          <p class="font-display font-black text-3xl" style="color: #F59E01">{val}</p>
+          <p class="section-label mt-1">{label}</p>
+        </div>
+      ))}
+    </section>
+
+    <!-- Background -->
+    <section class="hud-card p-6 space-y-4">
+      <h2 class="font-display font-bold text-lg uppercase tracking-wide text-on-surface">Background</h2>
+      <div class="space-y-3 font-sans text-sm text-outline leading-relaxed">
+        <p>
+          BH-7024 represents Boba Fett in his Re-Armored configuration from
+          <em>The Book of Boba Fett</em>. What started as a passion for Star Wars and
+          prop-building evolved into a commitment to the 501st Legion's core mission:
+          charitable appearances and community outreach.
+        </p>
+        <p>
+          The 501st Legion is the world's premier Star Wars costuming organization, bringing
+          the galaxy far, far away to fans of all ages at hospitals, schools, and events
+          across Wisconsin and beyond.
+        </p>
+        <p>
+          As Squad Leader of Devastator Squad and active member of the Bounty Hunters Guild,
+          BH-7024 maintains a consistent presence at regional events, logging each deployment
+          in the Tales of the Hunt mission record.
+        </p>
+      </div>
+    </section>
+
+    <!-- Links -->
+    <section class="hud-card p-5">
+      <p class="section-label mb-3">External Links</p>
+      <div class="flex flex-wrap gap-3">
+        <a href="https://www.501st.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost">501st Legion</a>
+        <a href="https://thebhg.net/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Bounty Hunters Guild</a>
+        <a href="https://www.wigarrison.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Wisconsin Garrison</a>
+        <a href={`${base}tour.html`} class="btn-ghost">Tour of Duty →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

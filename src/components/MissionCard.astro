@@ -1,0 +1,48 @@
+---
+interface Props {
+  number: number;
+  eventName: string;
+  location: string;
+  date: string;
+  photo: string;
+  align?: 'left' | 'right';
+}
+
+const { number, eventName, location, date, photo, align = 'left' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const imgSrc = photo.startsWith('http') ? photo : `${base}${photo}`;
+const label = String(number).padStart(2, '0');
+---
+
+<div class={`relative pl-12 md:pl-0 md:flex md:flex-row md:items-center ${align === 'right' ? 'md:flex-row-reverse' : ''}`}>
+  <!-- Content -->
+  <div class={`md:w-1/2 mb-4 md:mb-0 ${align === 'right' ? 'md:pl-12' : 'md:pr-12 md:text-right'}`}>
+    <p class="section-label mb-1">Mission {label}</p>
+    <h3 class="font-display font-bold text-xl uppercase leading-tight text-on-surface">
+      {eventName}
+    </h3>
+    <p class="font-label text-sm text-outline mt-1">{location}</p>
+    <p class="font-label text-xs text-outline-variant mt-0.5">{date}</p>
+    <div class="mt-2 inline-flex items-center gap-1.5 text-success">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+      </svg>
+      <span class="font-label text-[11px] font-bold tracking-wider uppercase">Mission Complete</span>
+    </div>
+  </div>
+
+  <!-- Timeline dot -->
+  <div class="absolute left-4 md:left-1/2 top-0 md:top-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background transform -translate-x-1/2 md:-translate-y-1/2 z-[1]"></div>
+
+  <!-- Photo -->
+  <div class="md:w-1/2 md:pl-12">
+    <div class="rounded-lg overflow-hidden border border-outline-variant aspect-video bg-surface">
+      <img
+        src={imgSrc}
+        alt={`Boba Fett at ${eventName}, ${location}`}
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</div>

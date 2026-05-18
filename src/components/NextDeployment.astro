@@ -1,0 +1,63 @@
+---
+import Countdown from './Countdown.astro';
+
+interface NextDeploymentData {
+  name: string;
+  location: string;
+  date: string;
+  time: string;
+  isoDate: string;
+}
+
+interface Props {
+  deployment: NextDeploymentData | null;
+}
+
+const { deployment } = Astro.props;
+---
+
+{deployment ? (
+  <div class="relative pl-12 md:pl-0 md:flex md:flex-row md:items-center">
+    <!-- Content left -->
+    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+      <p class="section-label mb-1">Next Deployment</p>
+      <h3 class="font-display font-bold text-2xl uppercase leading-tight text-on-surface">
+        {deployment.name}
+      </h3>
+      <p class="font-label text-sm text-outline mt-1">{deployment.location}</p>
+    </div>
+
+    <!-- Timeline dot — pulsing -->
+    <div class="absolute left-4 md:left-1/2 top-0 md:top-1/2 z-[1] transform -translate-x-1/2 md:-translate-y-1/2">
+      <div class="w-4 h-4 rounded-full bg-secondary/30 animate-ping absolute inset-0" />
+      <div class="w-4 h-4 rounded-full bg-secondary border-4 border-background relative" />
+    </div>
+
+    <!-- Right: date + countdown -->
+    <div class="md:w-1/2 md:pl-12">
+      <p class="font-label text-sm text-on-surface tracking-tight uppercase">
+        {deployment.date} · {deployment.time}
+      </p>
+      <div class="mt-2 inline-flex items-center gap-2 bg-secondary/10 text-secondary px-3 py-1 rounded border border-secondary/30 mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
+        <span class="font-label text-[10px] uppercase font-bold tracking-widest">Awaiting Deployment</span>
+      </div>
+      <div>
+        <Countdown isoDate={deployment.isoDate} />
+      </div>
+    </div>
+  </div>
+) : (
+  <div class="relative pl-12 md:pl-0 md:flex md:flex-row md:items-center opacity-50">
+    <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+      <p class="section-label mb-1">Next Deployment</p>
+      <h3 class="font-display font-bold text-xl uppercase text-outline">
+        To Be Announced
+      </h3>
+    </div>
+    <div class="absolute left-4 md:left-1/2 top-0 md:top-1/2 w-4 h-4 rounded-full bg-outline border-4 border-background transform -translate-x-1/2 md:-translate-y-1/2 z-[1]" />
+    <div class="md:w-1/2 md:pl-12">
+      <p class="font-label text-sm text-outline uppercase">TBD</p>
+    </div>
+  </div>
+)}

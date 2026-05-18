@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const kitComponents = [
+  { name: 'Helmet', detail: 'Moss green dome with burgundy mandibles, T-visor, rangefinder, orange kill-stripes. RedBowProps V3.' },
+  { name: 'Chest Armor', detail: 'Dark green multi-plate with red slots and Jaster Mereel\'s sigil. BobaMAker kit.' },
+  { name: 'Gauntlets', detail: 'Burgundy shells with calculator keypad and whipcord housing.' },
+  { name: 'Shoulder Armor', detail: 'Golden orange design with Mythosaur skull detail.' },
+  { name: 'Knee Armor', detail: 'Golden orange with dart launcher pads.' },
+  { name: 'Jet Pack', detail: 'Dark satin green with beacon assembly.' },
+  { name: 'Flak Jacket', detail: 'Black cotton with shoulder tabs.' },
+  { name: 'Belt and Holster', detail: 'Leather ammo belt with western-style holster.' },
+  { name: 'Gloves', detail: 'Two-tone leather with hand plates.' },
+  { name: 'Boots and Gaiters', detail: 'Black distressed leather.' },
+  { name: 'Girth Belt', detail: 'Braided polypropylene rope.' },
+  { name: 'Hakama Pants', detail: 'Black raw silk with weathering.' },
+] as const;
+
+const buildTimeline = [
+  { phase: 'Decision', date: 'January 2025', detail: 'Selected Re-Armored Boba Fett as focus costume.' },
+  { phase: 'Parts Arrival', date: 'February 2025', detail: 'BobaMAker armor and RedBowProps V3 helmet delivered.' },
+  { phase: 'Painting', date: 'March 2025', detail: 'Montana Black paints — moss green, burgundy, golden orange applied and weathered.' },
+  { phase: 'Assembly', date: 'April 2025', detail: 'Full kit assembled, strapping fitted, electronics tested.' },
+  { phase: 'Deployment Test', date: 'May 2025', detail: 'First trial wear and comfort adjustments.' },
+  { phase: '501st / BHG Approval', date: 'May 2025', detail: 'Submitted to 501st Legion and Bounty Hunters Guild — approved.' },
+] as const;
+---
+
+<Layout title="Armory" description="The complete kit breakdown for BH-7024 — Boba Fett Re-Armored build log.">
+  <Header activePage="armory" />
+
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-10">
+
+    <!-- Header -->
+    <section class="hud-card-glow p-6">
+      <div class="flex items-start justify-between flex-wrap gap-4">
+        <div>
+          <p class="section-label mb-1">Protocol Designation</p>
+          <h1 class="font-display font-black text-4xl sm:text-5xl uppercase tracking-wide text-on-surface">
+            The Armory
+          </h1>
+          <p class="font-label text-sm text-outline mt-1">BH-7024 · Boba Fett Re-Armored</p>
+        </div>
+        <div class="hud-card px-4 py-2 text-right">
+          <p class="section-label">System Status</p>
+          <p class="font-label font-bold text-sm text-success mt-0.5">Armor Integrity: 98.4%</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kit components -->
+    <section>
+      <p class="section-label mb-4">The Kit</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {kitComponents.map((item, i) => (
+          <div class="hud-card p-4 flex gap-3">
+            <span
+              class="font-display font-black text-lg shrink-0 w-7 text-right"
+              style="color: #F59E01"
+            >
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div>
+              <p class="font-label font-bold text-sm text-on-surface">{item.name}</p>
+              <p class="font-label text-xs text-outline mt-0.5 leading-relaxed">{item.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Build timeline -->
+    <section>
+      <p class="section-label mb-4">Build Log</p>
+      <div class="hud-card divide-y divide-outline-variant">
+        {buildTimeline.map((entry) => (
+          <div class="p-4 flex gap-4">
+            <div class="shrink-0 w-28 text-right">
+              <p class="font-label font-bold text-xs text-secondary">{entry.phase}</p>
+              <p class="font-label text-[11px] text-outline mt-0.5">{entry.date}</p>
+            </div>
+            <div class="w-px bg-outline-variant shrink-0" />
+            <p class="font-label text-sm text-outline leading-relaxed">{entry.detail}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

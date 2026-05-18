@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import NextDeployment from '../components/NextDeployment.astro';
+import siteData from '../data/site.json';
+
+const { troopCount, yearsActive, nextDeployment, missions } = siteData;
+const base = import.meta.env.BASE_URL;
+const latestMission = missions[0];
+---
+
+<Layout title="Home">
+  <Header activePage="home" />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        style={`background-image: url('${base}images/hero-bg.jpg')`}
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+      <div class="relative max-w-5xl mx-auto px-4 pt-20 pb-24 text-center">
+        <p class="section-label mb-3">Bounty Hunter // 501st Legion</p>
+        <h1 class="font-display font-black text-6xl sm:text-8xl tracking-[0.08em] uppercase text-on-surface">
+          Boba Fett
+        </h1>
+        <p class="mt-4 font-label text-outline text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          Adventures of a Bounty Hunter in the 501st Legion Wisconsin Garrison,
+          donning the Re-Armored armor of Boba Fett from The Book of Boba Fett.
+        </p>
+        <div class="mt-8 flex items-center justify-center gap-4">
+          <a href={`${base}tour.html`} class="btn-primary max-w-[160px]">
+            Mission Log
+          </a>
+          <a href={`${base}armory.html`} class="btn-ghost">
+            View Arsenal
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-5xl mx-auto px-4 pb-16 space-y-12">
+
+      <!-- Operational Status -->
+      <section>
+        <p class="section-label mb-3">Operational Status</p>
+        <div class="hud-card-glow p-5 grid grid-cols-2 sm:grid-cols-3 gap-0 divide-x-0">
+          {([
+            ['ID#', 'BH-7024'],
+            ['Troops Completed', String(troopCount)],
+            ['Missions Logged', String(troopCount)],
+            ['Years Active', String(yearsActive)],
+            ['Rank', 'Squad Leader'],
+            ['Squad', 'Devastator Squad'],
+            ['Garrison', 'Wisconsin'],
+            ['Costume', 'Boba Fett (RE-ARMORED)'],
+          ] as const).map(([key, val], i) => (
+            <div class={`stat-row col-span-1 px-2 ${i % 2 === 0 ? 'pr-4' : 'pl-4'}`}>
+              <span class="font-label text-[11px] text-outline">{key}</span>
+              <span class={`font-label font-bold text-sm ${key === 'Troops Completed' || key === 'Missions Logged' ? 'text-secondary' : 'text-on-surface'}`}>
+                {val}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Latest mission card -->
+      {latestMission && (
+        <section>
+          <p class="section-label mb-3">Latest Mission</p>
+          <a href={`${base}tour.html`} class="block hud-card overflow-hidden hover:border-secondary/30 transition-colors group">
+            <div class="aspect-video bg-surface-low overflow-hidden">
+              <img
+                src={latestMission.photo.startsWith('http') ? latestMission.photo : `${base}${latestMission.photo}`}
+                alt={latestMission.eventName}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-4">
+              <p class="section-label">Mission {String(latestMission.number).padStart(2, '0')}</p>
+              <h2 class="font-display font-bold text-xl uppercase mt-1 text-on-surface">
+                {latestMission.eventName}
+              </h2>
+              <p class="font-label text-sm text-outline mt-1">
+                {latestMission.location} · {latestMission.date}
+              </p>
+              <p class="font-label text-xs text-secondary mt-2 font-bold tracking-wider uppercase group-hover:underline">
+                View all missions →
+              </p>
+            </div>
+          </a>
+        </section>
+      )}
+
+      <!-- Next Deployment -->
+      <section>
+        <p class="section-label mb-4">Deployment Schedule</p>
+        <div class="hud-card p-6">
+          <!-- Timeline spine -->
+          <div class="relative">
+            <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-outline-variant" />
+            <div class="space-y-8">
+              <NextDeployment deployment={nextDeployment ?? null} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
