@@ -5,7 +5,7 @@ interface Props {
 const { activePage } = Astro.props;
 
 const navLinks = [
-  { href: '/', label: 'The Log', id: 'home' },
+  { href: '/', label: 'Home', id: 'home' },
   { href: '/tour.html', label: 'Tour of Duty', id: 'tour' },
   { href: '/armory.html', label: 'Armory', id: 'armory' },
   { href: '/about.html', label: 'Intel', id: 'about' },
@@ -13,10 +13,10 @@ const navLinks = [
 ---
 
 <header class="bg-background fixed top-0 left-0 right-0 z-50">
-  <div class="flex justify-between items-center w-full px-6 h-16 md:pl-[17rem]">
-    <div class="text-xl font-black text-on-surface-variant tracking-widest font-headline uppercase md:hidden">
+  <div class="flex justify-between items-center w-full px-6 h-16 max-w-6xl mx-auto">
+    <a href="/" class="text-xl font-black text-on-surface-variant tracking-widest font-headline uppercase hover:text-melon transition-colors">
       MS2 BOBA
-    </div>
+    </a>
     <nav class="hidden md:flex items-center gap-8 font-headline tracking-tighter uppercase font-bold text-sm">
       {navLinks.map((link) => (
         <a
