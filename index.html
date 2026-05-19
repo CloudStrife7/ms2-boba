@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Boba Rearmored // BH-7024</title>
+<meta name="description" content="The official trooping log of BH-7024 — Boba Fett (Re-Armored). Tracking deployments, missions, and armor builds across Wisconsin."/>
+<meta property="og:title" content="Boba Rearmored // BH-7024"/>
+<meta property="og:description" content="The official trooping log of BH-7024 — Boba Fett (Re-Armored). Tracking deployments, missions, and armor builds across Wisconsin."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://cloudstrife7.github.io/ms2-boba/"/>
+<meta property="og:image" content="https://cloudstrife7.github.io/ms2-boba/public/images/hero-bg.jpg"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#313030",
+              "on-tertiary-fixed-variant": "#5f4100",
+              "on-secondary-fixed-variant": "#852224",
+              "tertiary-fixed-dim": "#F59E01",
+              "on-secondary": "#ffffff",
+              "secondary-fixed-dim": "#6D0827",
+              "tertiary-fixed": "#ffdeac",
+              "error": "#ffb4ab",
+              "background": "#131411",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#281900",
+              "surface-tint": "#4C6043",
+              "on-tertiary": "#432c00",
+              "surface-container-low": "#1c1b1b",
+              "surface-bright": "#393939",
+              "tertiary-container": "#F59E01",
+              "surface-container-highest": "#353534",
+              "on-surface-variant": "#c4c8bd",
+              "surface": "#131411",
+              "outline-variant": "#444840",
+              "on-secondary-container": "#ff9e9a",
+              "primary": "#4C6043",
+              "secondary": "#6D0827",
+              "tertiary": "#F59E01",
+              "primary-container": "#4C6043",
+              "outline": "#8e9288",
+              "on-error": "#690005",
+              "inverse-primary": "#4d6545",
+              "on-primary-fixed": "#0b2007",
+              "on-primary-fixed-variant": "#364d2f",
+              "on-surface": "#e4e2de",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-dim": "#131411",
+              "surface-variant": "#353534",
+              "on-secondary-fixed": "#410005",
+              "secondary-container": "#6D0827",
+              "on-primary-container": "#cfebc2",
+              "surface-container-high": "#1b1c19",
+              "on-error-container": "#ffdad6",
+              "surface-container": "#201f1f",
+              "on-background": "#e4e2de",
+              "primary-fixed-dim": "#4C6043",
+              "secondary-fixed": "#ffdad7",
+              "on-tertiary-container": "#000000",
+              "error-container": "#93000a",
+              "inverse-surface": "#e4e2de",
+              "primary-fixed": "#cfebc2",
+              "storm": "#4C6043",
+              "melon": "#F59E01",
+              "cardinal": "#6D0827"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.bg-fett-mesh {
+    background-image: linear-gradient(to bottom, rgba(19, 20, 17, 0.8), rgba(19, 20, 17, 1)), url('public/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center
+    }
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    }
+@keyframes slideInFromRight { from { transform: translateX(30%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideInFromLeft { from { transform: translateX(-30%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideOutToLeft { from { transform: translateX(0); opacity: 1; } to { transform: translateX(-30%); opacity: 0; } }
+@keyframes slideOutToRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(30%); opacity: 0; } }</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-storm selection:text-white min-h-screen flex flex-col">
+<!-- TopAppBar - Using Component Data -->
+<nav class="bg-[#131411] dark:bg-[#131411] fixed top-0 left-0 right-0 z-50">
+<div class="flex justify-between items-center w-full px-6 h-16 max-w-none">
+<div class="text-xl font-black text-[#b7cda9] tracking-widest font-headline uppercase">
+                Boba Rearmored
+            </div>
+<div class="hidden md:flex gap-8 items-center font-['Plus_Jakarta_Sans'] tracking-tighter uppercase font-bold">
+<a class="text-sm text-[#F59E01] border-b-2 border-[#F59E01] pb-1" href="index.html">Home</a>
+<a class="text-sm text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="about.html">About</a>
+<a class="text-sm text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="tour.html">Tales of the Hunt</a>
+<a class="text-sm text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="armory.html">Armory</a>
+</div>
+<div class="flex gap-3 items-center">
+<a href="https://www.501st.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity" title="501st Legion"><img src="https://www.501st.com/501st-legion-logo-round.png" alt="501st Legion" class="w-6 h-6 object-contain"/></a>
+<a href="https://thebhg.net/" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity" title="Bounty Hunters Guild"><img src="https://www.501st.com/images/logos/125px/Bounty-Hunters-Guild.png" alt="Bounty Hunters Guild" class="w-6 h-6 object-contain"/></a>
+<a href="https://www.wigarrison.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity" title="Devastator Squad"><img src="https://www.wigarrison.com/resources/images/logo_devastator.jpg" alt="Devastator Squad" class="w-6 h-6 object-contain rounded-full"/></a>
+</div>
+</div>
+<div class="bg-[#1b1c19] h-[1px] w-full"></div>
+</nav>
+<main class="flex-grow pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center px-8 md:px-16 overflow-hidden">
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+<div id="hero-overlay" class="absolute inset-0 bg-cover bg-center opacity-[0.18]" style="background-image: url('public/images/hero-bg.jpg'); mask-image: radial-gradient(circle at center, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);"></div>
+</div>
+<div class="absolute inset-0 z-0 bg-fett-mesh opacity-50"></div>
+<div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="flex-1 space-y-6">
+<h1 class="font-headline text-7xl md:text-9xl font-extrabold tracking-tighter leading-none text-on-background uppercase">
+                        BOBA <br/> <span class="text-storm">FETT</span>
+</h1>
+<p class="font-body text-xl text-on-surface-variant max-w-lg leading-relaxed">
+                        Adventures of a Bounty Hunter in the 501st Legion. Documenting every deployment, every gear refinement, and the camaraderie of the Empire's finest.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a href="tour.html" class="bg-melon text-black px-8 py-4 rounded-lg font-headline font-bold uppercase tracking-wider flex items-center gap-3 hover:opacity-90 transition-all group">
+                            Mission Log
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a href="armory.html" class="border border-cardinal/50 hover:border-cardinal hover:text-cardinal transition-all px-8 py-4 rounded-lg font-headline font-bold uppercase tracking-wider text-on-surface">
+                            View Arsenal
+                        </a>
+</div>
+</div>
+<!-- Asymmetric Status Module -->
+<div class="w-full md:w-80 space-y-4">
+<div class="bg-[#1b1c19] p-6 rounded-xl border-l-2 border-cardinal shadow-2xl backdrop-blur-md bg-opacity-80">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label text-[10px] text-melon uppercase tracking-[0.3em]">Operational Status</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+<span class="text-outline uppercase">ID#</span>
+<span class="text-on-surface font-bold">BH-7024</span>
+</div>
+<div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+<span class="text-outline uppercase">Troops Completed</span>
+<span class="text-on-surface font-bold">4</span>
+</div>
+<div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+<span class="text-outline uppercase">Missions Logged</span>
+<span class="text-on-surface font-bold">5</span>
+</div>
+<div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+<span class="text-outline uppercase">Years Active</span>
+<span class="text-on-surface font-bold">20</span>
+</div>
+<div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+<span class="text-outline uppercase">Rank</span>
+<span class="text-on-surface font-bold">Squad Leader</span>
+</div>
+<div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+<span class="text-outline uppercase">Squad</span>
+<span class="text-on-surface font-bold">Devastator Squad</span>
+</div>
+<div class="flex justify-between text-xs border-b border-outline-variant pb-2">
+<span class="text-outline uppercase">Garrison</span>
+<span class="text-on-surface font-bold">Wisconsin</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-outline uppercase">Costume</span>
+<span class="text-on-surface font-bold">Boba Fett (RE-ARMORED)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Activity Section -->
+<section class="px-8 md:px-16 py-20 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div class="space-y-2">
+<h2 class="font-headline text-4xl font-bold uppercase tracking-tight">Command Center</h2>
+<p class="font-label text-xs text-outline tracking-widest uppercase">BH-7024 // Active Duty</p>
+</div>
+<a class="text-melon font-label text-xs uppercase tracking-widest hover:underline" href="tour.html">View All Missions —</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Card: Latest Mission -->
+<a href="tour.html" class="md:col-span-2 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between min-h-[320px] relative overflow-hidden group hover:bg-[#1b1c19] transition-colors">
+<div class="absolute inset-0 z-0">
+<img src="public/trunkortreat.jpeg" alt="Trunk or Treat" class="w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-500" style="object-position: center 45%;"/>
+</div>
+<div class="z-10">
+<div class="bg-melon text-black inline-block px-3 py-1 rounded-sm text-[10px] uppercase font-bold tracking-widest mb-6">
+                            Latest Mission
+                        </div>
+<h3 class="font-headline text-3xl font-bold mb-4">Harrison School PTO Trunk or Treat</h3>
+<p class="text-on-surface-variant max-w-md">MISSION 04 — Janesville, WI. Another successful deployment in the books.</p>
+</div>
+<div class="z-10 flex items-center gap-4 text-xs font-label text-outline uppercase tracking-widest">
+<span>Janesville, WI</span>
+<span>&bull;</span>
+<span>Oct 30, 2025</span>
+<span>&bull;</span>
+<span class="text-[#4C6043]">Mission Complete</span>
+</div>
+</a>
+<!-- Next Deployment Countdown -->
+<div class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-cardinal">
+<div class="text-cardinal">
+<span class="material-symbols-outlined text-4xl">rocket_launch</span>
+</div>
+<h4 class="font-headline text-lg font-bold uppercase">Next Deployment</h4>
+<p class="text-sm text-on-surface-variant">Star Wars Crafts Day<br/>Fitchburg Public Library</p>
+<div class="mt-auto">
+<div class="font-label text-[10px] text-outline uppercase tracking-widest mb-3">May 4, 2026 · 4:00 PM</div>
+<div id="countdown" class="grid grid-cols-4 gap-2 text-center">
+<div>
+<div class="font-headline text-2xl font-extrabold text-melon" id="cd-days">--</div>
+<div class="font-label text-[8px] text-outline uppercase tracking-widest">Days</div>
+</div>
+<div>
+<div class="font-headline text-2xl font-extrabold text-melon" id="cd-hours">--</div>
+<div class="font-label text-[8px] text-outline uppercase tracking-widest">Hrs</div>
+</div>
+<div>
+<div class="font-headline text-2xl font-extrabold text-melon" id="cd-mins">--</div>
+<div class="font-label text-[8px] text-outline uppercase tracking-widest">Min</div>
+</div>
+<div>
+<div class="font-headline text-2xl font-extrabold text-melon" id="cd-secs">--</div>
+<div class="font-label text-[8px] text-outline uppercase tracking-widest">Sec</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recruitment CTA: Join the 501st -->
+<a href="https://www.501st.com/how-to-join/" target="_blank" rel="noopener" class="md:col-span-3 relative rounded-xl overflow-hidden min-h-[320px] flex flex-col items-center justify-center text-center group">
+<div class="absolute inset-0 bg-cardinal">
+<div class="absolute inset-0 bg-[url('public/images/hero-bg.jpg')] bg-cover bg-center mix-blend-multiply opacity-40 group-hover:opacity-50 transition-opacity duration-500"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-cardinal/60 via-transparent to-cardinal/80"></div>
+</div>
+<div class="relative z-10 px-8 py-12">
+<h3 class="font-headline text-5xl md:text-7xl font-extrabold uppercase tracking-tighter text-white leading-[0.9] mb-6">
+Track.<br/>Hunt.<br/>Collect.
+</h3>
+<p class="text-white/80 text-base md:text-lg font-body font-medium mb-8 max-w-xl mx-auto">
+The Guild is always recruiting. Suit up, join the ranks of the 501st Legion, and bring order to the galaxy — one troop at a time.
+</p>
+<span class="inline-block bg-melon text-black px-10 md:px-14 py-4 md:py-5 font-headline font-extrabold uppercase tracking-[0.15em] text-base md:text-lg group-hover:bg-white transition-all duration-200 rounded-lg">
+COMMENCE ENROLLMENT
+</span>
+</div>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer - Using Component Data -->
+<footer class="bg-[#0d0f0c] w-full py-8 border-t border-[#6D0827]/30 mt-auto">
+<div class="flex flex-col items-center gap-4 px-8 w-full">
+<div class="font-['Plus_Jakarta_Sans'] text-[10px] tracking-[0.2em] uppercase text-[#b7cda9]">
+                Boba Rearmored // BH-7024
+            </div>
+<div class="flex gap-8 font-['Plus_Jakarta_Sans'] text-[10px] tracking-[0.2em] uppercase">
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-all" href="#">Terms of Engagement</a>
+<a class="text-[#b7cda9]/40 hover:text-[#6D0827] transition-all" href="#">Privacy Protocol</a>
+<a class="text-[#F59E01] hover:text-[#6D0827] transition-all" href="#">System Status</a>
+</div>
+</div>
+</footer>
+<!-- Bottom Nav for Mobile -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-outline-variant z-50 px-6 py-3 flex justify-around items-center">
+<a href="index.html"><span class="material-symbols-outlined text-[#F59E01]" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span></a>
+<a href="about.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="person">person</span></a>
+<a href="tour.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="military_tech">military_tech</span></a>
+<a href="armory.html"><span class="material-symbols-outlined text-[#b7cda9]/60" data-icon="shield">shield</span></a>
+</div>
+<script>
+  const heroImages = ['public/images/hero-bg.jpg', 'public/c2e2-hero.jpg'];
+  const chosen = heroImages[Math.floor(Math.random() * heroImages.length)];
+  const el = document.getElementById('hero-overlay');
+  if (el) el.style.backgroundImage = "url('" + chosen + "')";
+  const mesh = document.querySelector('.bg-fett-mesh');
+  if (mesh) mesh.style.backgroundImage = "linear-gradient(to bottom, rgba(19, 20, 17, 0.8), rgba(19, 20, 17, 1)), url('" + chosen + "')";
+</script>
+<script>
+// Countdown to next deployment: May 4, 2026 4:00 PM CDT (UTC-5)
+(function() {
+  var target = new Date('2026-05-04T16:00:00-05:00').getTime();
+  function update() {
+    var now = Date.now();
+    var diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = d < 10 ? '0' + d : d;
+    document.getElementById('cd-hours').textContent = h < 10 ? '0' + h : h;
+    document.getElementById('cd-mins').textContent = m < 10 ? '0' + m : m;
+    document.getElementById('cd-secs').textContent = s < 10 ? '0' + s : s;
+  }
+  update();
+  setInterval(update, 1000);
+})();
+</script>
+<script src="swipe-nav.js"></script>
+</body></html>
