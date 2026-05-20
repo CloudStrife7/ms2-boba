@@ -2,10 +2,10 @@
   "troopCount": 7,
   "yearsActive": 20,
   "nextDeployment": {
-    "name": "test",
-    "location": "test",
+    "name": "Mando and Grogu Premier (Point Cinema)",
+    "location": "Madison, WI",
     "date": "May 21, 2026",
-    "time": "",
+    "time": "5:00pm-6:00pm",
     "isoDate": "2026-05-21T12:00:00"
   },
   "missions": [
