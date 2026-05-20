@@ -1,8 +1,18 @@
 {
-  "troopCount": 6,
+  "troopCount": 7,
   "yearsActive": 20,
   "nextDeployment": null,
   "missions": [
+    {
+      "number": 7,
+      "eventName": "Motor City Comic Con",
+      "location": "Novi, MI",
+      "date": "May 20, 2026",
+      "photo": "mission07.jpg",
+      "photos": [
+        "mission07.jpg"
+      ]
+    },
     {
       "number": 6,
       "eventName": "Janesville Library - Star Wars Day",
