@@ -57,60 +57,27 @@
     </style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
-<!-- TopAppBar Component -->
-<nav class="fixed top-0 z-50 w-full bg-[#131411] flex justify-between items-center px-6 h-16 max-w-none">
+<!-- TopAppBar -->
+<nav class="bg-[#131411] fixed top-0 left-0 right-0 z-50">
+<div class="flex justify-between items-center w-full px-6 h-16 max-w-none">
 <div class="text-xl font-black text-[#b7cda9] tracking-widest font-headline uppercase">
-            MS2 BOBA
-        </div>
-<div class="hidden md:flex gap-8 items-center font-['Plus_Jakarta_Sans'] tracking-tighter uppercase font-bold text-sm">
-<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="index.html">Home</a>
-<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="about.html">About</a>
-<a class="text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="tour.html">Tour of Duty</a>
-<a class="text-[#F59E01] border-b-2 border-[#F59E01] pb-1" href="armory.html">Armory</a>
+                Boba Rearmored
+            </div>
+<div class="hidden md:flex gap-8 items-center font-['Plus_Jakarta_Sans'] tracking-tighter uppercase font-bold">
+<a class="text-sm text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="index.html">Home</a>
+<a class="text-sm text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="about.html">About</a>
+<a class="text-sm text-[#b7cda9]/60 hover:text-[#b7cda9] transition-colors" href="tour.html">Tales of the Hunt</a>
+<a class="text-sm text-[#F59E01] border-b-2 border-[#F59E01] pb-1" href="armory.html">Armory</a>
 </div>
-<div class="flex gap-4">
-<button class="material-symbols-outlined text-[#b7cda9] hover:bg-[#4C6043]/20 transition-all duration-300 p-2 rounded-sm scale-95 active:opacity-80" data-icon="notifications">notifications</button>
-<button class="material-symbols-outlined text-[#b7cda9] hover:bg-[#4C6043]/20 transition-all duration-300 p-2 rounded-sm scale-95 active:opacity-80" data-icon="settings">settings</button>
+<div class="flex gap-3 items-center">
+<a href="https://www.501st.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity" title="501st Legion"><img src="https://www.501st.com/501st-legion-logo-round.png" alt="501st Legion" class="w-6 h-6 object-contain"/></a>
+<a href="https://thebhg.net/" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity" title="Bounty Hunters Guild"><img src="https://www.501st.com/images/logos/125px/Bounty-Hunters-Guild.png" alt="Bounty Hunters Guild" class="w-6 h-6 object-contain"/></a>
+<a href="https://www.wigarrison.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity" title="Devastator Squad"><img src="https://www.wigarrison.com/resources/images/logo_devastator.jpg" alt="Devastator Squad" class="w-6 h-6 object-contain rounded-full"/></a>
 </div>
+</div>
+<div class="bg-[#1b1c19] h-[1px] w-full"></div>
 </nav>
-<div class="bg-[#1b1c19] h-[1px] w-full fixed top-16 z-50"></div>
-<!-- SideNavBar Component (Desktop) -->
-<aside class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-[#1b1c19] flex-col py-8 z-40 border-r border-[#444840]/15 shadow-[24px_0_40px_rgba(228,226,222,0.06)]">
-<div class="px-6 mb-10">
-<div class="text-lg font-bold text-[#F59E01] font-headline">MS2 BOBA</div>
-<div class="text-[10px] uppercase tracking-[0.2em] text-[#b7cda9]/50 font-label">BH-7024</div>
-</div>
-<div class="flex flex-col flex-grow">
-<a class="group flex items-center gap-4 px-4 py-3 text-[#b7cda9]/50 hover:bg-[#1f201d] transition-all duration-300 font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="index.html">
-<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
-<span>Home</span>
-</a>
-<a class="group flex items-center gap-4 px-4 py-3 text-[#b7cda9]/50 hover:bg-[#1f201d] transition-all duration-300 font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="about.html">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-<span>About</span>
-</a>
-<a class="group flex items-center gap-4 px-4 py-3 text-[#b7cda9]/50 hover:bg-[#1f201d] transition-all duration-300 font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="tour.html">
-<span class="material-symbols-outlined" data-icon="radar">radar</span>
-<span>Tour of Duty</span>
-</a>
-<a class="group flex items-center gap-4 bg-[#4C6043] text-[#e4e2de] border-l-4 border-[#F59E01] px-4 py-3 font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="armory.html">
-<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
-<span>Armory</span>
-</a>
-</div>
-<div class="px-4 mt-auto space-y-2">
-<button class="w-full bg-[#6D0827] text-white py-3 rounded-sm font-bold text-xs tracking-widest uppercase hover:brightness-110 transition-all mb-4">DEPLOY SQUAD</button>
-<a class="flex items-center gap-4 px-4 py-2 text-[#b7cda9]/40 text-xs uppercase tracking-widest hover:text-[#F59E01]" href="#">
-<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
-<span>Support</span>
-</a>
-<a class="flex items-center gap-4 px-4 py-2 text-[#b7cda9]/40 text-xs uppercase tracking-widest hover:text-[#6D0827]" href="#">
-<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
-<span>Logout</span>
-</a>
-</div>
-</aside>
-<main class="md:ml-64 pt-24 pb-12 px-6 md:px-12 lg:px-24">
+<main class="pt-24 pb-12 px-6 md:px-12 lg:px-24">
 <!-- Hero Section -->
 <section class="mb-24 relative">
 <div class="flex flex-col md:flex-row gap-12 items-end">
