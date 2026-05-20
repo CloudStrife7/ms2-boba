@@ -201,51 +201,30 @@
 <!-- Large Card: Latest Mission -->
 <a href="tour.html" class="md:col-span-2 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between min-h-[320px] relative overflow-hidden group hover:bg-[#1b1c19] transition-colors">
 <div class="absolute inset-0 z-0">
-<img src="/trunkortreat.jpeg" alt="Trunk or Treat" class="w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-500" style="object-position: center 45%;"/>
+<img src="/mission06.jpg" alt="C2E2 2026" class="w-full h-full object-cover opacity-15 group-hover:opacity-25 transition-opacity duration-500" style="object-position: center 45%;"/>
 </div>
 <div class="z-10">
 <div class="bg-melon text-black inline-block px-3 py-1 rounded-sm text-[10px] uppercase font-bold tracking-widest mb-6">
                             Latest Mission
                         </div>
-<h3 class="font-headline text-3xl font-bold mb-4">Harrison School PTO Trunk or Treat</h3>
-<p class="text-on-surface-variant max-w-md">MISSION 04 — Janesville, WI. Another successful deployment in the books.</p>
+<h3 class="font-headline text-3xl font-bold mb-4">C2E2 2026</h3>
+<p class="text-on-surface-variant max-w-md">MISSION 06 — Chicago, IL. Another successful deployment in the books.</p>
 </div>
 <div class="z-10 flex items-center gap-4 text-xs font-label text-outline uppercase tracking-widest">
-<span>Janesville, WI</span>
+<span>Chicago, IL</span>
 <span>&bull;</span>
-<span>Oct 30, 2025</span>
+<span>March 28, 2026</span>
 <span>&bull;</span>
 <span class="text-[#4C6043]">Mission Complete</span>
 </div>
 </a>
 <!-- Next Deployment Countdown -->
-<div class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-cardinal">
-<div class="text-cardinal">
-<span class="material-symbols-outlined text-4xl">rocket_launch</span>
+<div class="bg-[#1b1c19] rounded-xl p-6 flex flex-col gap-4 border-t border-storm">
+<div class="text-storm">
+<span class="material-symbols-outlined text-4xl">event_busy</span>
 </div>
 <h4 class="font-headline text-lg font-bold uppercase">Next Deployment</h4>
-<p class="text-sm text-on-surface-variant">Star Wars Crafts Day<br/>Fitchburg Public Library</p>
-<div class="mt-auto">
-<div class="font-label text-[10px] text-outline uppercase tracking-widest mb-3">May 4, 2026 · 4:00 PM</div>
-<div id="countdown" class="grid grid-cols-4 gap-2 text-center">
-<div>
-<div class="font-headline text-2xl font-extrabold text-melon" id="cd-days">--</div>
-<div class="font-label text-[8px] text-outline uppercase tracking-widest">Days</div>
-</div>
-<div>
-<div class="font-headline text-2xl font-extrabold text-melon" id="cd-hours">--</div>
-<div class="font-label text-[8px] text-outline uppercase tracking-widest">Hrs</div>
-</div>
-<div>
-<div class="font-headline text-2xl font-extrabold text-melon" id="cd-mins">--</div>
-<div class="font-label text-[8px] text-outline uppercase tracking-widest">Min</div>
-</div>
-<div>
-<div class="font-headline text-2xl font-extrabold text-melon" id="cd-secs">--</div>
-<div class="font-label text-[8px] text-outline uppercase tracking-widest">Sec</div>
-</div>
-</div>
-</div>
+<p class="text-sm text-on-surface-variant">No upcoming deployments scheduled.</p>
 </div>
 <!-- SITE:MISSION_CARDS_END -->
 <!-- Recruitment CTA: Join the 501st -->
@@ -298,33 +277,6 @@ COMMENCE ENROLLMENT
   if (mesh) mesh.style.backgroundImage = "linear-gradient(to bottom, rgba(19, 20, 17, 0.8), rgba(19, 20, 17, 1)), url('" + chosen + "')";
 </script>
 <!-- SITE:COUNTDOWN_START -->
-<script>
-// Countdown to next deployment: May 4, 2026 4:00 PM CDT (UTC-5)
-(function() {
-  var target = new Date('2026-05-04T16:00:00-05:00').getTime();
-  function update() {
-    var now = Date.now();
-    var diff = target - now;
-    if (diff <= 0) {
-      document.getElementById('cd-days').textContent = '00';
-      document.getElementById('cd-hours').textContent = '00';
-      document.getElementById('cd-mins').textContent = '00';
-      document.getElementById('cd-secs').textContent = '00';
-      return;
-    }
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor((diff % 86400000) / 3600000);
-    var m = Math.floor((diff % 3600000) / 60000);
-    var s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('cd-days').textContent = d < 10 ? '0' + d : d;
-    document.getElementById('cd-hours').textContent = h < 10 ? '0' + h : h;
-    document.getElementById('cd-mins').textContent = m < 10 ? '0' + m : m;
-    document.getElementById('cd-secs').textContent = s < 10 ? '0' + s : s;
-  }
-  update();
-  setInterval(update, 1000);
-})();
-</script>
 <!-- SITE:COUNTDOWN_END -->
 <script src="swipe-nav.js"></script>
 </body></html>
