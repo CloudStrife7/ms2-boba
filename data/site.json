@@ -1,8 +1,18 @@
 {
-  "troopCount": 5,
+  "troopCount": 6,
   "yearsActive": 20,
   "nextDeployment": null,
   "missions": [
+    {
+      "number": 6,
+      "eventName": "Janesville Library - Star Wars Day",
+      "location": "Janesville, WI",
+      "date": "May 4, 2026",
+      "photo": "mission06.jpg",
+      "photos": [
+        "mission06.jpg"
+      ]
+    },
     {
       "number": 5,
       "eventName": "C2E2 2026",
