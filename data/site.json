@@ -1,10 +1,10 @@
 {
-  "troopCount": 6,
+  "troopCount": 5,
   "yearsActive": 20,
   "nextDeployment": null,
   "missions": [
     {
-      "number": 6,
+      "number": 5,
       "eventName": "C2E2 2026",
       "location": "Chicago, IL",
       "date": "March 28, 2026",
