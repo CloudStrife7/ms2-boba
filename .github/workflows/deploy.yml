@@ -23,9 +23,10 @@ jobs:
 
       - name: Assemble static site
         run: |
-          mkdir -p dist
+          mkdir -p dist/data
           cp index.html armory.html tour.html about.html dist/
           cp -r public/. dist/
+          cp data/site.json dist/data/site.json
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

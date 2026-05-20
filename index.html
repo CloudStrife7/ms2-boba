@@ -197,6 +197,7 @@
 <a class="text-melon font-label text-xs uppercase tracking-widest hover:underline" href="tour.html">View All Missions —</a>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- SITE:MISSION_CARDS_START -->
 <!-- Large Card: Latest Mission -->
 <a href="tour.html" class="md:col-span-2 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between min-h-[320px] relative overflow-hidden group hover:bg-[#1b1c19] transition-colors">
 <div class="absolute inset-0 z-0">
@@ -246,6 +247,7 @@
 </div>
 </div>
 </div>
+<!-- SITE:MISSION_CARDS_END -->
 <!-- Recruitment CTA: Join the 501st -->
 <a href="https://www.501st.com/how-to-join/" target="_blank" rel="noopener" class="md:col-span-3 relative rounded-xl overflow-hidden min-h-[320px] flex flex-col items-center justify-center text-center group">
 <div class="absolute inset-0 bg-cardinal">
@@ -295,6 +297,7 @@ COMMENCE ENROLLMENT
   const mesh = document.querySelector('.bg-fett-mesh');
   if (mesh) mesh.style.backgroundImage = "linear-gradient(to bottom, rgba(19, 20, 17, 0.8), rgba(19, 20, 17, 1)), url('" + chosen + "')";
 </script>
+<!-- SITE:COUNTDOWN_START -->
 <script>
 // Countdown to next deployment: May 4, 2026 4:00 PM CDT (UTC-5)
 (function() {
@@ -322,5 +325,6 @@ COMMENCE ENROLLMENT
   setInterval(update, 1000);
 })();
 </script>
+<!-- SITE:COUNTDOWN_END -->
 <script src="swipe-nav.js"></script>
 </body></html>
