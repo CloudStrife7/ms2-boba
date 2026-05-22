@@ -1,8 +1,38 @@
 {
-  "troopCount": 5,
+  "troopCount": 8,
   "yearsActive": 20,
   "nextDeployment": null,
   "missions": [
+    {
+      "number": 8,
+      "eventName": "Mando and Grogu Premier (Point Cinema)",
+      "location": "Madison, WI",
+      "date": "May 21, 2026",
+      "photo": "mission08.jpg",
+      "photos": [
+        "mission08.jpg"
+      ]
+    },
+    {
+      "number": 7,
+      "eventName": "Motor City Comic Con",
+      "location": "Novi, MI",
+      "date": "May 20, 2026",
+      "photo": "mission07.jpg",
+      "photos": [
+        "mission07.jpg"
+      ]
+    },
+    {
+      "number": 6,
+      "eventName": "Janesville Library - Star Wars Day",
+      "location": "Janesville, WI",
+      "date": "May 4, 2026",
+      "photo": "mission06.jpg",
+      "photos": [
+        "mission06.jpg"
+      ]
+    },
     {
       "number": 5,
       "eventName": "C2E2 2026",
