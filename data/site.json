@@ -1,5 +1,5 @@
 {
-  "troopCount": 7,
+  "troopCount": 8,
   "yearsActive": 20,
   "nextDeployment": {
     "name": "Mando and Grogu Premier (Point Cinema)",
@@ -9,6 +9,16 @@
     "isoDate": "2026-05-21T12:00:00"
   },
   "missions": [
+    {
+      "number": 8,
+      "eventName": "Mando and Grogu Premier (Point Cinema)",
+      "location": "Madison, WI",
+      "date": "May 21, 2026",
+      "photo": "mission08.jpg",
+      "photos": [
+        "mission08.jpg"
+      ]
+    },
     {
       "number": 7,
       "eventName": "Motor City Comic Con",
